@@ -31,16 +31,11 @@ function Header() {
             <Link to='/solutions'>Products</Link>
           </li>
           <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-            <Link to='/notice'>Support</Link>
+            <Link to='/community'>Support</Link>
           </li>
         </ul>
       </nav>
       <ul className='flex gap-10 my-1 px-4'>
-        <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-          <Link to='/recruit' className='underline'>
-            Recruit
-          </Link>
-        </li>
         <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
           KOR
         </li>
