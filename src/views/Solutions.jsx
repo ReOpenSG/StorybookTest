@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
+import React from 'react';
 
 function Solutions() {
-  return <div className='max-w-4xl'>Solutions</div>;
+  return <div className="max-w-4xl">Solutions</div>;
 }
 
 export default Solutions;

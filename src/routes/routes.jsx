@@ -1,4 +1,5 @@
-import {Route, createBrowserRouter, createRoutesFromElements} from 'react-router-dom';
+import React from 'react';
+import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from '../layout/RootLayout';
 import About from '../views/About';
 import Home from '../views/Home';
@@ -15,19 +16,19 @@ import Community from '../views/Community';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />}>
+    <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path='/about' element={<About />} />
-      <Route path='/history' element={<History />} />
-      <Route path='/team' element={<Team />} />
-      <Route path='/location' element={<Location />} />
-      <Route path='/solutions' element={<Solutions />} />
-      <Route path='/machines' element={<Machines />} />
-      <Route path='/device' element={<Device />} />
-      <Route path='/industries' element={<Industries />} />
-      <Route path='/library' element={<Library />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/community' element={<Community />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/history" element={<History />} />
+      <Route path="/team" element={<Team />} />
+      <Route path="/location" element={<Location />} />
+      <Route path="/solutions" element={<Solutions />} />
+      <Route path="/machines" element={<Machines />} />
+      <Route path="/device" element={<Device />} />
+      <Route path="/industries" element={<Industries />} />
+      <Route path="/library" element={<Library />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/community" element={<Community />} />
     </Route>,
   ),
 );

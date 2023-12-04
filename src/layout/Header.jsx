@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isFixed, setIsFixed] = useState(false);
@@ -17,30 +17,30 @@ function Header() {
   }, []);
 
   return (
-    <header role='banner' className='h-[80px] flex justify-between w-full pt-4 fixed px-4'>
-      <nav className='flex'>
-        <h1 className='mx-8 text-2xl'>
+    <header role="banner" className="h-[80px] flex justify-between w-full pt-4 fixed px-4">
+      <nav className="flex">
+        <h1 className="mx-8 text-2xl">
           {' '}
-          <Link to='/'>OPENSG</Link>
+          <Link to="/">OPENSG</Link>
         </h1>
-        <ul className='flex gap-10 my-1'>
-          <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-            <Link to='/about'>About Us</Link>
+        <ul className="flex gap-10 my-1">
+          <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
+            <Link to="/about">About Us</Link>
           </li>
-          <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-            <Link to='/solutions'>Products</Link>
+          <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
+            <Link to="/solutions">Products</Link>
           </li>
-          <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-            <Link to='/community'>Support</Link>
+          <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
+            <Link to="/community">Support</Link>
           </li>
         </ul>
       </nav>
-      <ul className='flex gap-10 my-1 px-4'>
-        <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
+      <ul className="flex gap-10 my-1 px-4">
+        <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
           KOR
         </li>
-        <li className='focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}'>
-          <button type='button'>hamburger</button>
+        <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
+          <button type="button">hamburger</button>
         </li>
       </ul>
     </header>
