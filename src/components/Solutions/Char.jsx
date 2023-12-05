@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Char({ currentLocation, data }) {
   return (
-    <section className="flex flex-col gap-[40px]">
+    <section className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px]">
       <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
         제품 및 특징
       </h3>
@@ -27,7 +27,7 @@ function Char({ currentLocation, data }) {
                 className="desktop:min-w-[482px] tablet:min-w-[482px] min-w-[258px] flex flex-col gap-[10px] flex-1 px-[40px] py-[20px] -bg--open-gray-50 rounded-[20px]"
               >
                 <p className="font-open-label desktop:text-open-font-xl tablet:text-open-font-xl text-open-font-large">
-                  Real Time
+                  특징 제목
                 </p>
                 <p>{item}</p>
               </li>

@@ -5,6 +5,7 @@ import Data from '../data/solutionsData.json';
 import SoultionBanner from '../components/Solutions/SoultionBanner';
 import Char from '../components/Solutions/Char';
 import Snb from '../components/Solutions/Snb';
+import Func from '../components/Solutions/Func';
 
 function Solutions() {
   const { id } = useParams();
@@ -23,7 +24,7 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section className="mt-[200px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
+    <section className="mt-[200px] b-[100px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
       <h2 className="sr-only">솔루션별 페이지</h2>
       <Lnb LnbArray={LnbData.array} />
       <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
@@ -35,30 +36,10 @@ function Solutions() {
               Open
               {LnbData.current}
             </p>
-            <Char currentLocation={LnbData.current} data={Data} />
-
-            {/* <section>
-            <h2>기능</h2>
-            <ul>
-              {Data[id].기능.map((item, index) => (
-                <li key={item}>
-                  {index + 1}
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-          <section>
-            <h2>기대효과</h2>
-            <ul>
-              {Data[id].기대효과.map((item, index) => (
-                <li key={item}>
-                  {index + 1}
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section> */}
+            <div className="flex flex-col desktop:gap-[100px] tablet:gap-[100px] gap-[50px]">
+              <Char currentLocation={LnbData.current} data={Data} />
+              <Func currentLocation={LnbData.current} data={Data} />
+            </div>
           </div>
         </div>
       </div>
