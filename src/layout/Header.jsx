@@ -5,7 +5,7 @@ function Header() {
   return (
     <header
       role="banner"
-      className="fixed h-[96px] flex justify-between items-center w-full py-5 px-[80px] bg-slate-900 text-white"
+      className="fixed h-[96px] flex justify-between items-center w-full py-5 px-[80px] bg-slate-900 text-white font-open-font z-10"
     >
       <nav className="flex">
         <h1 className="mx-8 text-2xl">
