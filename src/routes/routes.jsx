@@ -13,6 +13,7 @@ import Industries from '../views/Industries';
 import Contact from '../views/Contact';
 import Device from '../views/Device';
 import Community from '../views/Community';
+import CommunityDetail from '../views/CommunityDetail';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route path="/library" element={<Library />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/community" element={<Community />} />
+      <Route path="/community/:id" element={<CommunityDetail />} />
     </Route>,
   ),
 );
