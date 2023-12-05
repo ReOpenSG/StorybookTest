@@ -4,12 +4,12 @@ import Header from './Header';
 
 function RootLayout() {
   return (
-    <div className="flex flex-col min-h-full w-full">
+    <>
       <Header />
-      <main className="flex justify-center items-center h-screen">
+      <main className="flex justify-center mx-auto font-open-font pt-[96px]">
         <Outlet />
       </main>
-    </div>
+    </>
   );
 }
 
