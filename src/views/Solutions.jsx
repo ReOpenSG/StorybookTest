@@ -6,6 +6,7 @@ import SoultionBanner from '../components/Solutions/SoultionBanner';
 import Char from '../components/Solutions/Char';
 import Snb from '../components/Solutions/Snb';
 import Func from '../components/Solutions/Func';
+import Effect from '../components/Solutions/Effect';
 
 function Solutions() {
   const { id } = useParams();
@@ -39,6 +40,7 @@ function Solutions() {
             <div className="flex flex-col desktop:gap-[100px] tablet:gap-[100px] gap-[50px]">
               <Char currentLocation={LnbData.current} data={Data} />
               <Func currentLocation={LnbData.current} data={Data} />
+              <Effect currentLocation={LnbData.current} data={Data} />
             </div>
           </div>
         </div>
