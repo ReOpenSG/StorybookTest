@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 function Char({ currentLocation, data }) {
   return (
     <section>
-      <h3>
+      <span>
         Open
         {currentLocation}
-      </h3>
-      <h2>제품 및 특징</h2>
+      </span>
+      <p>제품 및 특징</p>
       <div>
         <div>
-          <h4>제품</h4>
+          <span>제품</span>
           <p>{data && data[currentLocation].제품설명}</p>
         </div>
         <div>
-          <h4>특징</h4>
+          <span>특징</span>
           <ul>
             {data &&
               data[currentLocation].특징.map((item, index) => (
