@@ -16,8 +16,8 @@ function Lnb({ LnbArray }) {
                 to={`/solutions/${item}`}
                 className={({ isActive }) =>
                   isActive
-                    ? '-text--openfoundation-primary transition-all duration-500'
-                    : '-text--open-gray-300 transition-all duration-500'
+                    ? '-text--openfoundation-primary transition-colors duration-500'
+                    : '-text--open-gray-300 transition-colors duration-500'
                 }
               >
                 {item}
