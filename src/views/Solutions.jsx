@@ -4,6 +4,7 @@ import Lnb from '../components/Solutions/Lnb';
 import Data from '../data/solutionsData.json';
 import SoultionBanner from '../components/Solutions/SoultionBanner';
 import Char from '../components/Solutions/Char';
+import Snb from '../components/Solutions/Snb';
 
 function Solutions() {
   const { id } = useParams();
@@ -22,28 +23,21 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section className="max-w-[1320px] mt-[200px] w-screen h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
+    <section className="mt-[200px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
+      <h2 className="sr-only">솔루션별 페이지</h2>
       <Lnb LnbArray={LnbData.array} />
       <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
-      <div className="bg-red-300 flex desktop:gap-[80px] tablet:gap-[36px]">
-        <aside className="desktop:block tablet:block hidden">
-          <nav>
-            <ul>
-              <li>
-                <a href="#Char">제품 및 특징</a>
-              </li>
-              <li>
-                <a href="#Func">기능</a>
-              </li>
-              <li>
-                <a href="#Effect">기대 효과</a>
-              </li>
-            </ul>
-          </nav>
-        </aside>
-        <div>
-          <Char currentLocation={LnbData.current} data={Data} />
-          {/* <section>
+      <div className="flex justify-center py-[20px]">
+        <div className="w-full max-w-[1320px] flex desktop:gap-[80px] tablet:gap-[36px]">
+          <Snb />
+          <div>
+            <p className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium mb-[10px]">
+              Open
+              {LnbData.current}
+            </p>
+            <Char currentLocation={LnbData.current} data={Data} />
+
+            {/* <section>
             <h2>기능</h2>
             <ul>
               {Data[id].기능.map((item, index) => (
@@ -65,6 +59,7 @@ function Solutions() {
               ))}
             </ul>
           </section> */}
+          </div>
         </div>
       </div>
     </section>

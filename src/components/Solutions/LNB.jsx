@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 function Lnb({ LnbArray }) {
   return (
-    <nav>
-      <ul className="w-full flex flex-wrap gap-[16px] justify-between py-[10px]">
+    <nav className="flex justify-center">
+      <ul className="desktop:w-full tablet:gap-[64px] max-w-[1320px] flex flex-wrap gap-[16px] justify-between py-[10px]">
         {LnbArray &&
           LnbArray.map((item) => (
             <li
@@ -16,8 +16,8 @@ function Lnb({ LnbArray }) {
                 to={`/solutions/${item}`}
                 className={({ isActive }) =>
                   isActive
-                    ? '-text--openfoundation-primary transition-colors duration-500'
-                    : '-text--open-gray-300 transition-colors duration-500'
+                    ? '-text--openfoundation-primary transition-colors duration-500 px-2 py-1'
+                    : '-text--open-gray-300 transition-colors duration-500 px-2 py-1'
                 }
               >
                 {item}

@@ -3,29 +3,36 @@ import PropTypes from 'prop-types';
 
 function Char({ currentLocation, data }) {
   return (
-    <section>
-      <span>
-        Open
-        {currentLocation}
-      </span>
-      <p>제품 및 특징</p>
-      <div>
-        <div>
-          <span>제품</span>
-          <p>{data && data[currentLocation].제품설명}</p>
-        </div>
-        <div>
-          <span>특징</span>
-          <ul>
-            {data &&
-              data[currentLocation].특징.map((item, index) => (
-                <li key={item}>
-                  {index + 1}
-                  {item}
-                </li>
-              ))}
-          </ul>
-        </div>
+    <section className="flex flex-col gap-[40px]">
+      <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
+        제품 및 특징
+      </h3>
+      <div className="flex gap-[36px]">
+        <p className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
+          제품
+        </p>
+        <p className="flex-1 font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
+          {data && data[currentLocation].제품설명}
+        </p>
+      </div>
+      <div className="flex desktop:gap-[36px] tablet:gap-[36px] gap-[16px]">
+        <p className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
+          특징
+        </p>
+        <ul className="font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium flex flex-wrap flex-1 desktop:gap-[36px] tablet:gap-[36px] gap-[16px]">
+          {data &&
+            data[currentLocation].특징.map((item) => (
+              <li
+                key={item}
+                className="desktop:min-w-[482px] tablet:min-w-[482px] min-w-[258px] flex flex-col gap-[10px] flex-1 px-[40px] py-[20px] -bg--open-gray-50 rounded-[20px]"
+              >
+                <p className="font-open-label desktop:text-open-font-xl tablet:text-open-font-xl text-open-font-large">
+                  Real Time
+                </p>
+                <p>{item}</p>
+              </li>
+            ))}
+        </ul>
       </div>
     </section>
   );
