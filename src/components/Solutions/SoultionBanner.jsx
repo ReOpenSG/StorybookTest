@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function SoultionBanner({ currentLocation, prevLocation }) {
   return (
-    <section className="flex flex-col gap-[20px] py-[100px] items-center mobile:hidden">
+    <section className="desktop:flex tablet:flex hidden flex-col gap-[20px] py-[100px] items-center">
       <p className="font-open-paragraph w-full text-open-font-large mobile:text-open-font-medium">
         {prevLocation}
         &nbsp; &gt; &nbsp;

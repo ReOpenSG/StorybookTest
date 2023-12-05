@@ -22,11 +22,11 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section className="max-w-[1320px] mt-[200px] w-screen h-full desktop:px-[64px] tablet:px-[64px] mobile:px-[16px]">
+    <section className="max-w-[1320px] mt-[200px] w-screen h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
       <Lnb LnbArray={LnbData.array} />
       <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
       <div className="bg-red-300 flex desktop:gap-[80px] tablet:gap-[36px]">
-        <aside className="mobile:hidden">
+        <aside className="desktop:block tablet:block hidden">
           <nav>
             <ul>
               <li>

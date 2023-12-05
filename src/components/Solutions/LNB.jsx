@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 function Lnb({ LnbArray }) {
   return (
     <nav>
-      <ul className="w-full flex flex-wrap justify-between py-[10px]">
+      <ul className="w-full flex flex-wrap gap-[16px] justify-between py-[10px]">
         {LnbArray &&
           LnbArray.map((item) => (
             <li
               key={item}
-              className="font-open-label text-open-font-large mobile:text-open-font-medium"
+              className="font-open-label text-open-font-medium desktop:text-open-font-large tablet:text-open-font-large"
             >
               <NavLink
                 to={`/solutions/${item}`}
