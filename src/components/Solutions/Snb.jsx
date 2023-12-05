@@ -2,8 +2,8 @@ import React from 'react';
 
 function Snb() {
   return (
-    <aside className="desktop:block tablet:block hidden min-w-[120px]">
-      <nav>
+    <aside className="desktop:block tablet:block hidden min-w-[120px] bg-red-300">
+      <nav className="bg-blue-200 sticky top-[200px]">
         <ul className="flex flex-col gap-[16px] font-open-label text-open-font-large -text--open-gray-300">
           <li>
             <a className="Char px-2 py-1" href="#Char">
