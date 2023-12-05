@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Lnb from '../components/Solutions/Lnb';
 import Data from '../data/solutionsData.json';
-import Banner from '../components/Solutions/Banner';
+import SoultionBanner from '../components/Solutions/SoultionBanner';
 import Char from '../components/Solutions/Char';
 
 function Solutions() {
@@ -22,9 +22,9 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section>
+    <section className="h-full mt-[200px]">
       <Lnb LnbArray={LnbData.array} />
-      <Banner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
+      <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
       <Char currentLocation={LnbData.current} data={Data} />
       {/* <section>
         <h2>기능</h2>
