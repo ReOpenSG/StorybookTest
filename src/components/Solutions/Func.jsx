@@ -1,30 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Solutions.module.css';
 
 function Func({ currentLocation, data, refs }) {
   return (
-    <section
-      id="Func"
-      ref={refs}
-      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
-    >
-      <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
-        기능
-      </h3>
-      <div className="w-full desktop:h-[400px] tablet:h-[400px] h-[200px]">
-        <img
-          src="http://via.placeholder.com/1320x200"
-          className="h-full rounded-tr-[20px] rounded-br-[20px]"
-          alt=""
-        />
+    <section id="Func" ref={refs} className={styles.Func}>
+      <h3 className={styles.title}>기능</h3>
+      <div className={styles.imageWrapper}>
+        <img src="http://via.placeholder.com/1320x200" className={styles.image} alt="솔루션 기능" />
       </div>
-      <ul className="flex flex-col gap-[10px]">
+      <ul className={styles.list}>
         {data &&
           data[currentLocation].기능.map((item) => (
-            <li
-              key={item}
-              className="list-disc list-inside font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium"
-            >
+            <li key={item} className={styles.item}>
               {item}
             </li>
           ))}

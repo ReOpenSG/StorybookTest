@@ -18,9 +18,9 @@ function Solutions() {
     prev: Data[id].솔루션,
   };
 
-  const [refChar, inViewChar] = useInView({ triggerOnce: false, threshold: 0.1 });
-  const [refFunc, inViewFunc] = useInView({ triggerOnce: false, threshold: 0.1 });
-  const [refEffect, inViewEffect] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [refChar, inViewChar] = useInView({ triggerOnce: false, threshold: 0.3 });
+  const [refFunc, inViewFunc] = useInView({ triggerOnce: false, threshold: 0.3 });
+  const [refEffect, inViewEffect] = useInView({ triggerOnce: false, threshold: 0.3 });
 
   useEffect(() => {
     const filteredData = Object.entries(Data).filter(
@@ -30,12 +30,12 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section className="mt-[200px] b-[100px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
+    <section className="b-[100px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
       <h2 className="sr-only">솔루션별 페이지</h2>
       <Lnb LnbArray={LnbData.array} />
       <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
       <div className="flex justify-center">
-        <div className="w-full max-w-[1320px] flex desktop:gap-[80px] tablet:gap-[36px]">
+        <div className="w-full max-w-[1320px] flex desktop:gap-[36px] tablet:gap-[36px]">
           <Snb inViewChar={inViewChar} inViewFunc={inViewFunc} inViewEffect={inViewEffect} />
           <div className="flex flex-col">
             <Char refs={refChar} currentLocation={LnbData.current} data={Data} />

@@ -1,42 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Solutions.module.css';
 
 function Char({ currentLocation, data, refs }) {
   return (
-    <section
-      id="Char"
-      ref={refs}
-      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
-    >
-      <span className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium desktop:mb-[-30px] tablet:mb-[-30px] mb-[-20px]">
+    <section id="Char" ref={refs} className={styles.Char}>
+      <span className={styles.subTitle}>
         Open
         {currentLocation}
       </span>
-      <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
-        제품 및 특징
-      </h3>
-      <div className="flex gap-[36px]">
-        <p className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
-          제품
-        </p>
-        <p className="flex-1 font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
-          {data && data[currentLocation].제품설명}
-        </p>
+      <h3 className={styles.title}>제품 및 특징</h3>
+      <div className={styles.container}>
+        <p className={styles.containerTitle}>제품</p>
+        <p className={styles.product}>{data && data[currentLocation].제품설명}</p>
       </div>
-      <div className="flex desktop:gap-[36px] tablet:gap-[36px] gap-[16px]">
-        <p className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
-          특징
-        </p>
-        <ul className="font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium flex flex-wrap flex-1 desktop:gap-[36px] tablet:gap-[36px] gap-[16px]">
+      <div className={styles.container}>
+        <p className={styles.containerTitle}>특징</p>
+        <ul className={styles.charList}>
           {data &&
             data[currentLocation].특징.map((item) => (
-              <li
-                key={item}
-                className="desktop:min-w-[482px] tablet:min-w-[482px] min-w-[258px] flex flex-col gap-[10px] flex-1 px-[40px] py-[20px] -bg--open-gray-50 rounded-[20px]"
-              >
-                <p className="font-open-label desktop:text-open-font-xl tablet:text-open-font-xl text-open-font-large">
-                  특징 제목
-                </p>
+              <li key={item} className={styles.charItem}>
+                <p className={styles.charItemTitle}>특징 제목</p>
                 <p>{item}</p>
               </li>
             ))}

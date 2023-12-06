@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Solutions.module.css';
 
 function Effect({ currentLocation, data, refs }) {
   return (
-    <section
-      id="Effect"
-      ref={refs}
-      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
-    >
-      <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
-        기대효과
-      </h3>
-      <ul className="flex flex-col gap-[10px]">
+    <section id="Effect" ref={refs} className={styles.Effect}>
+      <h3 className={styles.title}>기대효과</h3>
+      <ul className={styles.list}>
         {data &&
           data[currentLocation].기대효과.map((item) => (
-            <li
-              key={item}
-              className="list-disc list-inside font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium"
-            >
+            <li key={item} className={styles.item}>
               {item}
             </li>
           ))}
