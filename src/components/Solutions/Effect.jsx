@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Effect({ currentLocation, data }) {
+function Effect({ currentLocation, data, refs }) {
   return (
-    <section className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px]">
+    <section
+      id="Effect"
+      ref={refs}
+      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
+    >
       <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
         기대효과
       </h3>
@@ -35,6 +39,10 @@ Effect.propTypes = {
       산업군: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
+  refs: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
 };
 
 export default Effect;

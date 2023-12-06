@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function SoultionBanner({ currentLocation, prevLocation }) {
   return (
     <section className="flex justify-center">
-      <div className="max-w-[1320px] w-full desktop:flex tablet:flex hidden flex-col gap-[20px] py-[100px] items-center">
+      <div className="max-w-[1320px] w-full desktop:flex tablet:flex hidden flex-col gap-[20px] pt-[100px] items-center">
         <h3 className="sr-only">솔루션 배너</h3>
         <p className="font-open-paragraph w-full text-open-font-large mobile:text-open-font-medium">
           {prevLocation}

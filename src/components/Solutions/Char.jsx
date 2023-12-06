@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Char({ currentLocation, data }) {
+function Char({ currentLocation, data, refs }) {
   return (
-    <section className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px]">
+    <section
+      id="Char"
+      ref={refs}
+      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
+    >
+      <span className="font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium desktop:mb-[-30px] tablet:mb-[-30px] mb-[-20px]">
+        Open
+        {currentLocation}
+      </span>
       <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
         제품 및 특징
       </h3>
@@ -51,6 +59,10 @@ Char.propTypes = {
       산업군: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
+  refs: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
 };
 
 export default Char;

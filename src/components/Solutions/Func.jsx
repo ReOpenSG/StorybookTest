@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Func({ currentLocation, data }) {
+function Func({ currentLocation, data, refs }) {
   return (
-    <section className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px]">
+    <section
+      id="Func"
+      ref={refs}
+      className="flex flex-col desktop:gap-[40px] tablet:gap-[40px] gap-[20px] desktop:pt-[100px] tablet:pt-[100px] pt-[50px]"
+    >
       <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl">
         기능
       </h3>
@@ -42,6 +46,10 @@ Func.propTypes = {
       산업군: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
+  refs: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
 };
 
 export default Func;
