@@ -277,18 +277,22 @@ function Community() {
   };
 
   return (
-    <div className="flex flex-col w-[1440px] min-w-[1440px] max-width-[1920px] justify-center items-center">
+    <div className="w-[1440px] min-w-[1440px] max-width-[1920px]">
       <section className="w-full py-20 flex flex-col text-center gap-8">
         <h3 className="text-open-font-xxl">Support</h3>
         <h2 className="text-open-font-xxxxl font-bold">커뮤니티</h2>
       </section>
-
+      <section className="w-full flex justify-end animate-bounce">
+        <button type="button" className="p-4 bg-slate-400 text-black rounded-md">
+          글쓰러 가기
+        </button>
+      </section>
       <div className="flex flex-col justify-center items-center min-w-[500px] gap-4 py-10">
         <p className="text-open-font-medium text-right px-10 min-w-[600px] w-[1320px]">
           Total: {notices.length} [{currentPage} / {pageCount}]
         </p>
 
-        <NoticeList notices={currentNotices} />
+        <NoticeList notices={notices} currentNotices={currentNotices} />
 
         <div className="flex gap-4 py-4 text-open-font-large">
           <button type="button" onClick={handleFirstPage} className="text-open-font-large">

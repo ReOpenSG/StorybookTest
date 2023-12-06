@@ -1,19 +1,51 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CommunityDetail() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { notice, notices } = location.state;
-  const currentNoticeIndex = notices.findIndex((n) => n.id === notice.id);
+  const params = useParams();
+  const [notices, setNotices] = useState([]);
+  const [currentNotice, setCurrentNotice] = useState(null);
+  const [currentNoticeIndex, setCurrentNoticeIndex] = useState(-1);
+  const [nextNotice, setNextNotice] = useState(null);
+  const [prevNotice, setPrevNotice] = useState(null);
 
-  const nextNotice = currentNoticeIndex > 0 ? notices[currentNoticeIndex - 1] : null;
-  const prevNotice =
-    currentNoticeIndex < notices.length - 1 ? notices[currentNoticeIndex + 1] : null;
+  useEffect(() => {
+    const fetchData = async () => {
+      const { notices: locationNotices } = location.state || {};
+
+      if (locationNotices) {
+        setNotices(locationNotices);
+
+        const noticeIndex = locationNotices.findIndex((n) => n.id === params.id);
+        setCurrentNoticeIndex(noticeIndex);
+        console.log(noticeIndex);
+        if (noticeIndex !== -1) {
+          await setCurrentNotice(locationNotices[noticeIndex]);
+          console.log(currentNotice);
+
+          const next =
+            noticeIndex < locationNotices.length - 1 ? locationNotices[noticeIndex + 1] : null;
+          const prev = noticeIndex > 0 ? locationNotices[noticeIndex - 1] : null;
+
+          setNextNotice(next);
+          setPrevNotice(prev);
+        }
+      }
+    };
+
+    fetchData();
+  }, [location.state, params.id, currentNotice]);
 
   const handleComeback = () => {
     navigate('/community');
   };
+  if (!currentNotice) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="flex flex-col w-[1440px] min-w-[1440px] max-width-[1920px]">
@@ -23,55 +55,56 @@ function CommunityDetail() {
       </section>
       <section className="flex flex-col min-w-[500px] w-[1320px] py-5 px-10">
         <div className="flex items-center justify-between border-b -border--open-gray-300 px-10 py-5">
-          <h2 className="text-open-font-xl font-medium decoration-slate-600">{notice.title}</h2>
-          <time className="text-open-font-medium -text--open-gray-600" dateTime={notice.createdAt}>
-            {notice.createdAt}
+          <h2 className="text-open-font-xl font-medium decoration-slate-600">
+            {currentNotice.title}
+          </h2>
+          <time
+            className="text-open-font-medium -text--open-gray-600"
+            dateTime={currentNotice.createdAt}
+          >
+            {currentNotice.createdAt}
           </time>
         </div>
         <div className="flex flex-col gap-4 h-[400px] overflow-y-scroll p-10 border-b -border--open-gray-300">
-          <img src={notice.image} alt={notice.title} width={50} height={50} />
-          <p className="text-open-font-large">{notice.content}</p>
+          <img src={currentNotice.image} alt={currentNotice.title} width={50} height={50} />
+          <p className="text-open-font-large">{currentNotice.content}</p>
         </div>
         <ul className="list-none">
           <li className="py-5 px-10 text-open-font-large border-b -border--open-gray-300">
             {nextNotice ? (
               <NavLink
-                to={{
-                  pathname: `/community/${nextNotice.id}`,
-                  state: { notice: nextNotice, notices },
-                }}
+                to={`/community/${nextNotice.id}`}
+                state={{ notices }}
                 className="flex gap-2.5"
               >
-                {' '}
                 <span className="font-semibold">&uarr; &nbsp; 다음 글</span>
                 <span>{nextNotice.title}</span>
               </NavLink>
             ) : (
-              <NavLink to="#" className="flex gap-2.5">
+              <NavLink to="#" className="flex gap-2.5" onClick={() => toast('다음 글이 없습니다.')}>
                 {' '}
                 <span className="font-semibold">&uarr; &nbsp; 다음 글</span>
-                <span>다음 글이 없습니다.</span>
+                {nextNotice && <span>{nextNotice.title}</span>}
+                {!nextNotice && <span>다음 글이 없습니다.</span>}
               </NavLink>
             )}
           </li>
           <li className="py-5 px-10 text-open-font-large border-b -border--open-gray-300">
             {prevNotice ? (
               <NavLink
-                to={{
-                  pathname: `/community/${prevNotice.id}`,
-                  state: { notice: prevNotice, notices },
-                }}
+                to={`/community/${prevNotice.id}`}
+                state={{ notices }}
                 className="flex gap-2.5"
               >
-                {' '}
                 <span className="font-semibold">&darr; &nbsp; 이전 글</span>
                 <span>{prevNotice.title}</span>
               </NavLink>
             ) : (
-              <NavLink to="#" className="flex gap-2.5">
+              <NavLink to="#" className="flex gap-2.5" onClick={() => toast('이전 글이 없습니다.')}>
                 {' '}
                 <span className="font-semibold">&uarr; &nbsp; 이전 글</span>
-                <span>이전 글이 없습니다.</span>
+                {prevNotice && <span>{prevNotice.title}</span>}
+                {!prevNotice && <span>이전 글이 없습니다.</span>}
               </NavLink>
             )}
           </li>

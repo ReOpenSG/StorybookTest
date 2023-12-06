@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 function Notice({ notice, notices }) {
   return (
-    <NavLink to={`/community/${notice.id}`} state={{ notice, notices }}>
+    <NavLink to={`/community/${notice.id}`} state={{ notices }}>
       <div className="flex items-center justify-between min-w-[500px] w-[1320px] p-10 border-t -border--open-gray-300">
         <h2 className="text-open-font-xxl font-semibold hover:underline decoration-slate-600">
           {notice.title}
