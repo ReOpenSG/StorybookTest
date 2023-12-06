@@ -76,7 +76,7 @@ export const theme = {
       },
       desktop: {
         min: '1280px',
-        max: '1920px',
+        // max: '1920px',
       },
     },
     maxWidth: {
@@ -92,6 +92,22 @@ export const theme = {
     gap: {
       'mobile-gap': '16px',
       'desktop-gap': '64px',
+    },
+    spacing: {
+      'open-sm': '4px',
+      'open-md': '8px',
+      'open-lg': '10px',
+      'open-xl': '20px',
+      'open-2xl': '40px',
+      'open-3xl': '80px',
+      'open-4xl': '100px',
+      'open-5xl': '120px',
+      'open-6xl': '200px',
+      'open-7xl': '300px',
+      'open-gutter-mobile': '16px',
+      'open-gutter-desktop': '36px',
+      'open-margin-mobile': '16px',
+      'open-margin-desktop': '64px',
     },
   },
 };
