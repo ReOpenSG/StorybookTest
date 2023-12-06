@@ -1,23 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
-  const [isFixed, setIsFixed] = useState(false);
-
-  const handleScroll = () => {
-    if (window.scrollY > 65) {
-      setIsFixed(true);
-    } else {
-      setIsFixed(false);
-    }
-  };
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header role="banner" className="h-[80px] flex justify-between w-full pt-4 fixed px-4">
+    <header
+      role="banner"
+      className="fixed h-[96px] flex justify-between items-center w-full py-5 px-[80px] bg-slate-900 text-white font-open-font z-10"
+    >
       <nav className="flex">
         <h1 className="mx-8 text-2xl">
           {' '}
@@ -35,7 +24,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <ul className="flex gap-10 my-1 px-4">
+      <ul className="flex gap-10 px-4">
         <li className="focus:rounded focus:shadow-md focus:shadow-blue-600 active:text-{#373e6a}">
           KOR
         </li>
