@@ -1,12 +1,12 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
+import styles from '@/components/History/History.module.css';
 
 function HistorySlide({ isActive, year, history }) {
   return (
-    <div className={`w-full h-full px-[40px] py-[120px] flex flex-col items-center justify-start rounded-[20px] gap-9 ${isActive ? '-bg--open-gray-950' : '-bg--openfoundation-black'}`}>
-      <span className="block text-center text-open-font-xxxxxl">{year}</span>
-      <ul className="pl-[40px] list-disc font-open-paragraph text-open-font-xl flex flex-col gap-[10px]">
+    <div className={`${styles.historySlide} ${isActive ? styles.isActive : styles.isInActive}`}>
+      <span className={styles.historySlideTitle}>{year}</span>
+      <ul className={styles.historySlideDescription}>
         {history.map((item) => (
           <li key={item}>{item}</li>
         ))}
@@ -17,7 +17,7 @@ function HistorySlide({ isActive, year, history }) {
 
 HistorySlide.propTypes = {
   isActive: PropTypes.bool.isRequired,
-  year: PropTypes.number.isRequired,
+  year: PropTypes.string.isRequired,
   history: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
