@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import Lnb from '../components/Solutions/Lnb';
-import Data from '../data/solutionsData.json';
-import SoultionBanner from '../components/Solutions/SoultionBanner';
-import Char from '../components/Solutions/Char';
-import Snb from '../components/Solutions/Snb';
-import Func from '../components/Solutions/Func';
-import Effect from '../components/Solutions/Effect';
+import Data from '@/data/solutionsData.json';
+import Lnb from '@/components/Solutions/Lnb';
+import SoultionBanner from '@/components/Solutions/SoultionBanner';
+import Char from '@/components/Solutions/Char';
+import Snb from '@/components/Solutions/Snb';
+import Func from '@/components/Solutions/Func';
+import Effect from '@/components/Solutions/Effect';
 
 function Solutions() {
   const { id } = useParams();
