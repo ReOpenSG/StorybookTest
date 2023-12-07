@@ -1,0 +1,20 @@
+.wrapper {
+  @apply flex gap-open-xl items-center grow;
+}
+
+.label {
+  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-4xl tablet:w-open-5xl desktop:w-open-5xl;
+}
+
+.input,
+.textarea {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large -bg--open-gray-50 px-open-xl grow py-open-lg w-full;
+}
+
+.radioInput {
+  @apply hidden;
+}
+
+.radioSpan {
+  @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
+}

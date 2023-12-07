@@ -22,7 +22,7 @@ function ProductIcon({ size, color, contactIcon }) {
 }
 
 ProductIcon.defaultProps = {
-  size: 80,
+  size: 40,
   color: 'black',
   contactIcon: '',
 };

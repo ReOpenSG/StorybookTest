@@ -1,24 +1,23 @@
 import { string } from 'prop-types';
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styles from './Contact.module.css';
 
 function FillingInput({
   labelText, inputType, name, placeholderText,
 }) {
   const id = uuidv4();
   return (
-    <div className="flex items-center gap-5">
+    <div className={styles.wrapper}>
       <label htmlFor={id}>
-        <h3 className="-text--openfoundation-primary font-open-label text-open-font-large mr-5">
-          {labelText}
-        </h3>
+        <h3 className={styles.label}>{labelText}</h3>
       </label>
       <input
         type={inputType}
         id={id}
         name={name}
         placeholder={placeholderText}
-        className="-text--openfoundation-primary text-open-font-large font-open-paragraph -bg--open-gray-50 px-5 py-[10px] grow"
+        className={styles.input}
       />
     </div>
   );
