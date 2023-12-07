@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'operator-linebreak': ['error', 'after'],
+    'import/noextraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
   },
 };
