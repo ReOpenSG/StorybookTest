@@ -1,19 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Industries.module.css';
 
 function Char({ industryDesc, refs }) {
   return (
-    <section
-      id="Char"
-      ref={refs}
-      className="flex flex-col desktop:gap-open-2xl tablet:desktop:gap-open-2xl gap-open-xl desktop:pt-open-5xl tablet:pt-open-5xl pt-open-3xl"
-    >
-      <h3 className="font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-large">
-        산업 특징
-      </h3>
-      <p className="font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium">
-        {industryDesc}
-      </p>
+    <section id="Char" ref={refs} className={styles.Char}>
+      <h3 className={styles.CharTitle}>산업 특징</h3>
+      <p className={styles.CharDesc}>{industryDesc}</p>
     </section>
   );
 }

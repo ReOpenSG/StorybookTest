@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import Char from '../components/Industries/Char';
-import Product from '../components/Industries/Product';
-import Snb from '../components/Industries/Snb';
-import IndustriesData from '../data/industriesData';
-import solutionsData from '../data/solutionsData.json';
+import Char from '@/components/Industries/Char';
+import Product from '@/components/Industries/Product';
+import Snb from '@/components/Industries/Snb';
+import IndustriesData from '@/data/industriesData.js';
+import solutionsData from '@/data/solutionsData.json';
 
 function Industries() {
   const { id } = useParams();

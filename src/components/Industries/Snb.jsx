@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Industries.module.css';
 
 function Snb({ inViewChar, inViewProduct }) {
   return (
-    <aside className="desktop:block tablet:block hidden min-w-[120px] desktop:pt-open-5xl tablet:pt-open-5xl">
-      <nav className="sticky top-open-7xl">
-        <ul className="flex flex-col gap-open-gutter-mobile -text--open-gray-300 font-open-label text-open-font-large">
-          <li className={inViewChar ? '-text--openfoundation-primary' : ''}>
-            <a className="px-open-sm py-open-md" href="#Char">
+    <aside className={styles.Snb}>
+      <nav className={styles.nav}>
+        <ul className={styles.list}>
+          <li className={inViewChar ? styles.item : ''}>
+            <a className={styles.link} href="#Char">
               산업 특징
             </a>
           </li>
-          <li className={!inViewChar && inViewProduct ? '-text--openfoundation-primary' : ''}>
-            <a className="px-open-sm py-open-md" href="#Product">
+          <li className={!inViewChar && inViewProduct ? styles.item : ''}>
+            <a className={styles.link} href="#Product">
               관련 제품
             </a>
           </li>
