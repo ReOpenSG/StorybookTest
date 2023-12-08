@@ -1,62 +1,138 @@
-import { addDoc, collection, doc, getDocs, serverTimestamp, updateDoc } from 'firebase/firestore';
-import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  serverTimestamp,
+  updateDoc,
+} from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import PropTypes from 'prop-types';
 import { db, storage } from '../../firebase';
 
-function CommunityForm() {
+function CommunityForm({ isEditing, data }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { notices } = location.state || {};
-  console.log(notices);
+  const { currentNotice, notices } = location.state || {};
+  const { id } = useParams();
+  useEffect(() => {
+    if (isEditing && data) {
+      setTitle(data.title);
+      setContent(data.content);
+      setImagePreview(data.imageUrl);
+    }
+  }, [isEditing, currentNotice]);
   const handleSave = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'community'));
       const index = querySnapshot.size > 0 ? querySnapshot.size - 1 : 0;
-      console.log(index);
-      const docRef = await addDoc(collection(db, 'community'), {
-        index,
-        title,
-        content,
-        updatedAt: serverTimestamp(),
-      });
 
-      const storageRef = ref(storage, `images/${index}`);
-      await uploadBytes(storageRef, selectedFile);
-      const downloadURL = await getDownloadURL(storageRef);
-      const updateRef = doc(db, 'community', docRef.id);
-      await updateDoc(updateRef, {
-        imageUrl: downloadURL,
-      });
-      toast.success('글이 등록되었습니다.');
+      if (isEditing) {
+        // 수정 모드일 경우 기존 문서 업데이트
+        const updateRef = doc(db, 'community', id);
+        await updateDoc(updateRef, {
+          title,
+          content,
+          updatedAt: serverTimestamp(),
+        });
 
-      navigate(`/community/${docRef.id}`, {
-        state: {
-          notices: [
-            ...notices,
-            {
-              id: docRef.id,
-              data: {
-                index,
-                title,
-                content,
-                imageUrl: downloadURL,
-                updatedAt: serverTimestamp(),
-              },
+        // 이미지가 변경된 경우에만 업로드 수행
+        if (selectedFile) {
+          const storageRef = ref(storage, `images/${id}`);
+          await uploadBytes(storageRef, selectedFile);
+          const downloadURL = await getDownloadURL(storageRef);
+
+          // 이미지 URL 업데이트
+          await updateDoc(updateRef, {
+            imageUrl: downloadURL,
+          });
+        }
+
+        toast.success('글이 수정되었습니다.');
+
+        // 상세 페이지로 돌아갈 때 업데이트된 문서를 읽어오기
+        const updatedDocSnapshot = await getDoc(updateRef);
+        const updatedData = updatedDocSnapshot.data();
+
+        // 상세 페이지로 이동할 때 업데이트된 문서를 함께 전달
+        navigate(`/community/${id}`, {
+          state: {
+            notices,
+            currentNotice: {
+              id,
+              data: updatedData,
             },
-          ],
-        },
-      });
+          },
+        });
+      } else {
+        // 새 글 등록 로직 수행
+        const docRef = await addDoc(collection(db, 'community'), {
+          index,
+          title,
+          content,
+          imageUrl: null, // 이미지 URL 초기값 설정
+          updatedAt: serverTimestamp(),
+        });
+
+        // 이미지가 선택된 경우에만 업로드 수행
+        if (selectedFile) {
+          const storageRef = ref(storage, `images/${docRef.id}`);
+          await uploadBytes(storageRef, selectedFile);
+          const downloadURL = await getDownloadURL(storageRef);
+
+          // 이미지 URL 업데이트
+          const updateRef = doc(db, 'community', docRef.id);
+          await updateDoc(updateRef, {
+            imageUrl: downloadURL,
+          });
+        }
+
+        // 새 글 등록 시에도 imageUrl을 downloadURL로 반영
+        const updatedNotices = [
+          ...notices,
+          {
+            id: docRef.id,
+            data: {
+              index,
+              title,
+              content,
+              imageUrl: selectedFile ? downloadURL : null,
+              updatedAt: serverTimestamp(),
+            },
+          },
+        ];
+
+        toast.success('글이 등록되었습니다.');
+
+        // 상세 페이지로 이동할 때 새로 등록된 문서를 읽어오기
+        const newDocSnapshot = await getDoc(docRef);
+        const newData = newDocSnapshot.data();
+
+        // 상세 페이지로 이동할 때 새로 등록된 문서를 함께 전달
+        navigate(`/community/${docRef.id}`, {
+          state: {
+            notices: updatedNotices,
+            currentNotice: {
+              id: docRef.id,
+              data: newData,
+            },
+          },
+        });
+      }
     } catch (error) {
-      console.log(error);
-      toast('변경 실패하였습니다. 다시 한번 확인해주세요.');
+      console.error(error);
+      toast.error('변경 실패하였습니다. 다시 한번 확인해주세요.');
     }
   };
+
   const handleTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -159,7 +235,7 @@ function CommunityForm() {
             onClick={handleSave}
           >
             {' '}
-            <span className="block font-medium">등록하기</span>
+            <span className="block font-medium">{isEditing ? '수정하기' : '등록하기'} </span>
           </button>
           <button
             type="button"
@@ -176,3 +252,14 @@ function CommunityForm() {
 }
 
 export default CommunityForm;
+
+CommunityForm.propTypes = {
+  isEditing: PropTypes.bool.isRequired,
+  data: PropTypes.objectOf({
+    index: PropTypes.number,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    imageUrl: PropTypes.string,
+    updatedAt: PropTypes.string,
+  }).isRequired,
+};

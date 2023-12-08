@@ -16,6 +16,7 @@ import Community from '@/views/Community';
 import CommunityDetail from '../views/CommunityDetail';
 import Admin from '@/views/Admin';
 import CommunityForm from '@/views/CommunityForm';
+import CommunityEdit from '@/views/CommunityEdit';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
       <Route path="/community" element={<Community />} />
       <Route path="/community/:id" element={<CommunityDetail />} />
       <Route path="/community/write" element={<CommunityForm />} />
+      <Route path="/community/:id/edit" element={<CommunityEdit />} />
       <Route path="/admin" element={<Admin />} />
     </Route>,
   ),
