@@ -17,6 +17,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'react/button-has-type': 'off',
+    "import/prefer-default-export": "off",
     'jsx-a11y/label-has-associated-control': [
       2,
       {
