@@ -27,7 +27,7 @@
   }
 
   &.isInActive {
-    @apply text-open-font-large tablet:text-open-font-xxxl desktop:text-open-font-xxxl -text--open-gray-300;
+    @apply text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl -text--open-gray-300;
   } 
 }
 
