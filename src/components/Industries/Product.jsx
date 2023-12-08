@@ -15,11 +15,11 @@ function Product({ industryProducts, refs }) {
               <div className={styles.image}>
                 <img src="http://via.placeholder.com/200x250" alt="제픔 사진" />
               </div>
-              <ul className={styles.list}>
-                <li className={styles.itemName}>{item[0]}</li>
-                <li className={styles.itemSubName}>{item[1].제품명}</li>
-                <li className={styles.itemDesc}>{item[1].제품설명}</li>
-              </ul>
+              <dl className={styles.list}>
+                <dt className={styles.itemName}>{item[0]}</dt>
+                <dd className={styles.itemSubName}>{item[1].제품명}</dd>
+                <dd className={styles.itemDesc}>{item[1].제품설명}</dd>
+              </dl>
             </div>
           </Link>
         ))}
