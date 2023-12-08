@@ -19,6 +19,7 @@ function HistorySwiper() {
   const historyDataSorted = Object.entries(historyData).toSorted((a, b) => b[0] - a[0]);
   return (
     <section className={styles.section}>
+      <h1 className={styles.hidden}>오픈에스지 연혁</h1>
       <div className={styles.swiperWrapper}>
         <Swiper
           mousewheel

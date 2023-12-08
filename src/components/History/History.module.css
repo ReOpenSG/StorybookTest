@@ -2,6 +2,10 @@
   @apply flex justify-center items-center w-full h-full -bg--openfoundation-primary px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
 }
 
+.hidden {
+  @apply sr-only;
+}
+
 .swiperWrapper {
   @apply w-full h-full flex flex-col font-open-font items-center justify-center  -text--openfoundation-secondary font-open-label max-w-[991px] tablet:max-w-[1311px] desktop:max-w-[1320px] py-open-4xl tablet:py-open-6xl desktop:py-open-6xl gap-open-2xl tablet:gap-open-4xl desktop:gap-open-4xl;
 }
