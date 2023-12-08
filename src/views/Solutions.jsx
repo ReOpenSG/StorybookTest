@@ -30,12 +30,12 @@ function Solutions() {
   }, [id]);
 
   return (
-    <section className="b-[100px] w-full h-full desktop:px-[64px] tablet:px-[64px] px-[16px]">
+    <section className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">
       <h2 className="sr-only">솔루션별 페이지</h2>
       <Lnb LnbArray={LnbData.array} />
       <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
       <div className="flex justify-center">
-        <div className="w-full max-w-[1320px] flex desktop:gap-[36px] tablet:gap-[36px]">
+        <div className="w-full max-w-[1320px] flex desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop">
           <Snb inViewChar={inViewChar} inViewFunc={inViewFunc} inViewEffect={inViewEffect} />
           <div className="flex flex-col">
             <Char refs={refChar} currentLocation={LnbData.current} data={Data} />
