@@ -3,7 +3,7 @@
 }
 
 .label {
-  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-4xl tablet:w-open-5xl desktop:w-open-5xl;
+  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-5xl tablet:w-open-6xl desktop:w-open-6xl;
 }
 
 .input,

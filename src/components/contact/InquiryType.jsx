@@ -10,10 +10,9 @@ function InquiryType() {
   // const [etcStatus, setEtcStatus] = useState(false);
 
   return (
-    <fieldset className="flex flex-row gap-open-lg tablet:gap-open-xl desktop:gap-open-xl">
+    <fieldset className="flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl">
       <h3 className={styles.label}>문의유형</h3>
-
-      <div className="flex flex-wrap gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow">
+      <div className="flex flex-wrap gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop flex-1">
         {data.map((list) => (
           <InquiryInput
             key={list.id}

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ContactTitle() {
   return (
-    <div className="flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-5xl desktop:my-open-5xl">
+    <div className="flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl">
       <h2 className="-text--openfoundation-primary font-open-label text-open-font-large">
         Support
       </h2>
