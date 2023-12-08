@@ -1,7 +1,7 @@
 import { func, oneOf, string } from 'prop-types';
 import React from 'react';
 
-function Button({
+function ContactButton({
   type, buttonText, buttonStyle, onClick,
 }) {
   return (
@@ -11,18 +11,18 @@ function Button({
   );
 }
 
-Button.defaultProps = {
+ContactButton.defaultProps = {
   type: 'button',
   buttonText: '',
   buttonStyle: '',
   onClick: () => null,
 };
 
-Button.propTypes = {
+ContactButton.propTypes = {
   type: oneOf(['submit', 'button', 'reset']),
   buttonText: string,
   buttonStyle: string,
   onClick: func,
 };
 
-export default Button;
+export default ContactButton;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import Button from './Button';
 import styles from '@/components/contact/Contact.module.css';
+import ContactButton from './ContactButton';
 
 function Agreement() {
   const [agreementStatus, setAgreementStatus] = useState(false);
@@ -51,7 +51,7 @@ function Agreement() {
           </label>
         </div>
       </fieldset>
-      <Button
+      <ContactButton
         buttonText="문의하기"
         buttonStyle="-text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl p-open-lg rounded-[20px] -bg--open-blue-900 w-[180px] block mx-auto mb-open-5xl"
         type={`${agreementStatus ? 'submit' : 'button'}`}
