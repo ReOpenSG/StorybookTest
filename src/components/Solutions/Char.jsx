@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 
 function Char({ currentLocation, data, refs }) {
@@ -19,7 +20,7 @@ function Char({ currentLocation, data, refs }) {
         <ul className={styles.charList}>
           {data &&
             data[currentLocation].특징.map((item) => (
-              <li key={item} className={styles.charItem}>
+              <li key={uuidv4()} className={styles.charItem}>
                 <p className={styles.charItemTitle}>특징 제목</p>
                 <p>{item}</p>
               </li>

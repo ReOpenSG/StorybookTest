@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 
 function Func({ currentLocation, data, refs }) {
@@ -12,7 +13,7 @@ function Func({ currentLocation, data, refs }) {
       <ul className={styles.list}>
         {data &&
           data[currentLocation].기능.map((item) => (
-            <li key={item} className={styles.item}>
+            <li key={uuidv4()} className={styles.item}>
               {item}
             </li>
           ))}

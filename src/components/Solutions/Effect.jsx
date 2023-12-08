@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 
 function Effect({ currentLocation, data, refs }) {
@@ -9,7 +10,7 @@ function Effect({ currentLocation, data, refs }) {
       <ul className={styles.list}>
         {data &&
           data[currentLocation].기대효과.map((item) => (
-            <li key={item} className={styles.item}>
+            <li key={uuidv4()} className={styles.item}>
               {item}
             </li>
           ))}
