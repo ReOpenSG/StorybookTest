@@ -72,22 +72,22 @@ export const theme = {
       },
       tablet: {
         min: '1024px',
-        max: '1279px',
+        max: '1439px',
       },
       desktop: {
-        min: '1280px',
+        min: '1440px',
         // max: '1920px',
       },
     },
     maxWidth: {
       'mobile-max': '1023px',
-      'tablet-max': '1279px',
-      'desktop-max': '1920px',
+      'tablet-max': '1439px',
+      // 'desktop-max': '1920px',
     },
     minWidth: {
       'mobile-min': '375px',
       'tablet-min': '1024px',
-      'desktop-min': '1280px',
+      'desktop-min': '1440px',
     },
     gap: {
       'mobile-gap': '16px',

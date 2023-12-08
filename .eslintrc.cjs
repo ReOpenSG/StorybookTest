@@ -18,6 +18,7 @@ module.exports = {
     'import/extensions': 'off',
     'react/button-has-type': 'off',
     "import/prefer-default-export": "off",
+    'import/noextraneous-dependencies': 'off',
     'jsx-a11y/label-has-associated-control': [
       2,
       {
