@@ -18,3 +18,19 @@
 .radioSpan {
   @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
 }
+
+.agreementTitle {
+  @apply -text--openfoundation-primary font-open-label text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl;
+}
+
+.agreementText {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
+}
+
+.agreementOl {
+  @apply rounded-[20px] border -border--open-gray-300 px-open-lg tablet:px-open-xl desktop:px-open-xl py-open-xl tablet:py-open-2xl desktop:py-open-2xl;
+}
+
+.agreementLi {
+  @apply list-inside list-decimal;
+}
