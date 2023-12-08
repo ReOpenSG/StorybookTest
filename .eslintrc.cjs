@@ -16,5 +16,6 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/noextraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
+    'import/extensions': 'off',
   },
 };

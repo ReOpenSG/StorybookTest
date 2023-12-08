@@ -1,7 +1,9 @@
 import React from 'react';
+import HistorySwiper from '@/components/History/HistorySwiper';
 
 function History() {
-  return <div>History</div>;
+  return (
+    <HistorySwiper />
+  );
 }
-
 export default History;
