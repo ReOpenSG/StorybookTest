@@ -1,0 +1,7 @@
+.downloadWrapper {
+  @apply flex flex-col gap-open-sm items-center;
+}
+
+.downloadText {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium;
+}
