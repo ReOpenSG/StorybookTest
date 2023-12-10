@@ -43,6 +43,7 @@ function Agreement() {
           <input
             type="checkbox"
             id="agreement"
+            required
             onClick={handleChangeCheck}
             className="peer appearance-none w-open-xl h-open-xl border-2 -border--open-gray-300 rounded-[2px] -bg--openfoundation-secondary checked:-bg--open-blue-900 checked:border-0"
           />

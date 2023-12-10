@@ -13,15 +13,15 @@ function InquiryType() {
     <fieldset className="flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl">
       <h3 className={styles.label}>문의유형</h3>
       <div className="flex flex-wrap gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop flex-1">
-        {data.map((list) => (
+        {data.map(({ id, defaultValue }) => (
           <InquiryInput
-            key={list.id}
-            id={list.id}
+            key={id}
+            type="radio"
+            id={id}
             name="type"
-            defaultValue={list.defaultValue}
+            defaultValue={defaultValue}
             onClick={() => null}
-            labelText={list.defaultValue}
-            img={list.blackIcon}
+            labelText={defaultValue}
           />
         ))}
       </div>

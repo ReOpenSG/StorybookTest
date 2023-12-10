@@ -1,4 +1,4 @@
-import { func, oneOf, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 function ContactButton({
@@ -11,18 +11,11 @@ function ContactButton({
   );
 }
 
-ContactButton.defaultProps = {
-  type: 'button',
-  buttonText: '',
-  buttonStyle: '',
-  onClick: () => null,
-};
-
 ContactButton.propTypes = {
-  type: oneOf(['submit', 'button', 'reset']),
-  buttonText: string,
-  buttonStyle: string,
-  onClick: func,
+  type: PropTypes.oneOf(['submit', 'button', 'reset']).isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonStyle: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ContactButton;

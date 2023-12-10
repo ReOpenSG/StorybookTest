@@ -1,15 +1,13 @@
-import { number, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-function ProductIcon({ size, color, contactIcon }) {
+function ProductIcon({ color }) {
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 148 148"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={contactIcon}
+      className="w-10 h-10 tablet:w-20 tablet:h-20 desktop:w-20 desktop:h-20"
     >
       <path
         fillRule="evenodd"
@@ -21,16 +19,8 @@ function ProductIcon({ size, color, contactIcon }) {
   );
 }
 
-ProductIcon.defaultProps = {
-  size: 40,
-  color: 'black',
-  contactIcon: '',
-};
-
 ProductIcon.propTypes = {
-  size: number,
-  color: string,
-  contactIcon: string,
+  color: PropTypes.string.isRequired,
 };
 
 export default ProductIcon;
