@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from '@/components/Library/Library.module.css';
 import DownloadCard from './DownloadCard';
 import companyProfileKo from '@/assets/library_companyProfile_ko.pdf';
 import companyBrochureKo from '@/assets/library_compabyBrochure_ko.pdf';
 
 function DownloadSection() {
   return (
-    <div className="flex flex-wrap justify-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow m-open-xl tablet:m-open-5xl desktop:m-open-5xl">
+    <div className={styles.sectionWrapper}>
       <DownloadCard
         text="회사 소개서"
         category="소개서"

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '@/components/Library/Library.module.css';
 
 function LibraryTitleInner({ category, title }) {
   return (
     <>
-      <h2 className="-text--openfoundation-primary font-open-label text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl">
-        {category}
-      </h2>
-      <h3 className="-text--openfoundation-primary font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl">
+      <h2 className={styles.titleCategory}>{category}</h2>
+      <h3 className={styles.titleText}>
         {title}
       </h3>
     </>

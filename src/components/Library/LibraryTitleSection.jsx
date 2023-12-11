@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '@/components/Library/Library.module.css';
 import LibraryTitleInner from './LibraryTitleInner';
 
 function LibraryTitleSection() {
   return (
-    <div className="flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl">
+    <div className={styles.titleWrapper}>
       <LibraryTitleInner category="Support" title="라이브러리" />
     </div>
   );
