@@ -11,7 +11,7 @@
 }
 
 .sectionWrapper {
-  @apply flex flex-wrap justify-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow m-open-xl tablet:m-open-5xl desktop:m-open-5xl;
+  @apply flex flex-wrap justify-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow;
 }
 
 .downloadWrapper {
@@ -23,11 +23,11 @@
 }
 
 .cardWrapper {
-  @apply border -border--open-gray-300 rounded-[20px] px-open-2xl py-open-2xl tablet:py-open-4xl desktop:py-open-4xl tablet:grow desktop:grow;
+  @apply border -border--open-gray-300 rounded-[20px] px-open-2xl py-open-2xl tablet:py-open-4xl desktop:py-open-4xl tablet:grow desktop:grow max-w-[400px];
 }
 
 .cardContainer {
-  @apply w-open-6xl tablet:w-full desktop:w-full h-[170px] tablet:h-[340px] desktop:h-[340px] flex flex-col justify-between;
+  @apply flex flex-col gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop min-w-[240px];
 }
 
 .cardInner {

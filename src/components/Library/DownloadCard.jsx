@@ -4,7 +4,7 @@ import DownloadIcon from './DownloadIcon';
 import styles from '@/components/Library/Library.module.css';
 
 function DownloadCard({
-  text, category, href, download, ariaLabel,
+  mainText, subText, category, href, download, ariaLabel,
 }) {
   return (
     <div className={styles.cardWrapper}>
@@ -12,9 +12,9 @@ function DownloadCard({
         <div className={styles.cardInner}>
           <h4 className={styles.cardTitle}>
             <span>
-              OPENSG
+              {mainText}
               <br />
-              {text}
+              {subText}
             </span>
           </h4>
           <span className={styles.cardCategoryText}>{category}</span>
@@ -33,7 +33,8 @@ function DownloadCard({
 }
 
 DownloadCard.propTypes = {
-  text: PropTypes.string.isRequired,
+  mainText: PropTypes.string.isRequired,
+  subText: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   download: PropTypes.string.isRequired,
