@@ -3,7 +3,9 @@ import React from 'react';
 import styles from '@/components/contact/Contact.module.css';
 import ProductIcon from './icons/ProductIcon';
 
-function InquiryInput({ type, id, name, defaultValue, labelText }) {
+function InquiryInput({
+  type, id, name, defaultValue, labelText,
+}) {
   return (
     <div className="w-[160px]">
       <input type={type} id={id} name={name} defaultValue={defaultValue} className="hidden peer" />
@@ -11,7 +13,16 @@ function InquiryInput({ type, id, name, defaultValue, labelText }) {
         htmlFor={id}
         className="flex flex-col gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl peer-checked:-text--openfoundation-secondary peer-checked:-bg--open-blue-900"
       >
-        <ProductIcon />
+        {/* 추후 아이콘 변경사항을 반영하기 위해 임의로 작성해둔 코드입니다. */}
+        {labelText === '제품 문의' ? (
+          <ProductIcon />
+        ) : labelText === '구매 문의' ? (
+          <ProductIcon />
+        ) : labelText === 'AS 문의' ? (
+          <ProductIcon />
+        ) : (
+          <ProductIcon />
+        )}
         <span className={styles.radioSpan}>{labelText}</span>
       </label>
     </div>
