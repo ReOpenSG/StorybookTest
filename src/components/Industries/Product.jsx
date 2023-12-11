@@ -17,7 +17,7 @@ function Product({ industryProducts, refs }) {
               </div>
               <dl className={styles.list}>
                 <dt className={styles.itemName}>{item[0]}</dt>
-                <dd className={styles.itemSubName}>{item[1].제품명}</dd>
+                <dt className={styles.itemSubName}>{item[1].제품명}</dt>
                 <dd className={styles.itemDesc}>{item[1].제품설명}</dd>
               </dl>
             </div>
