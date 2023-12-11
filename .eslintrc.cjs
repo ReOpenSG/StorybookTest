@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/noextraneous-dependencies': 'off',
+    'import/extensions': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
   },
