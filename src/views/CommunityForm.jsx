@@ -13,8 +13,11 @@ import { toast } from 'react-toastify';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import PropTypes from 'prop-types';
 import { db, storage } from '../../firebase';
+import BannerSection from '@/components/Common/BannerSection';
+import InputSection from '@/components/Community/InputSection';
+import ButtonSection from '@/components/Community/ButtonSection';
 
-function CommunityForm({ isEditing, data }) {
+function CommunityForm({ isEditing = false, data = null }) {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -30,13 +33,13 @@ function CommunityForm({ isEditing, data }) {
       setImagePreview(data.imageUrl);
     }
   }, [isEditing, currentNotice]);
+
   const handleSave = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'community'));
       const index = querySnapshot.size > 0 ? querySnapshot.size - 1 : 0;
 
       if (isEditing) {
-        // 수정 모드일 경우 기존 문서 업데이트
         const updateRef = doc(db, 'community', id);
         await updateDoc(updateRef, {
           title,
@@ -44,13 +47,11 @@ function CommunityForm({ isEditing, data }) {
           updatedAt: serverTimestamp(),
         });
 
-        // 이미지가 변경된 경우에만 업로드 수행
         if (selectedFile) {
           const storageRef = ref(storage, `images/community/${id}`);
           await uploadBytes(storageRef, selectedFile);
           const downloadURL = await getDownloadURL(storageRef);
 
-          // 이미지 URL 업데이트
           await updateDoc(updateRef, {
             imageUrl: downloadURL,
           });
@@ -58,11 +59,9 @@ function CommunityForm({ isEditing, data }) {
 
         toast.success('글이 수정되었습니다.');
 
-        // 상세 페이지로 돌아갈 때 업데이트된 문서를 읽어오기
         const updatedDocSnapshot = await getDoc(updateRef);
         const updatedData = updatedDocSnapshot.data();
 
-        // 상세 페이지로 이동할 때 업데이트된 문서를 함께 전달
         navigate(`/community/${id}`, {
           state: {
             notices,
@@ -73,30 +72,26 @@ function CommunityForm({ isEditing, data }) {
           },
         });
       } else {
-        // 새 글 등록 로직 수행
         const docRef = await addDoc(collection(db, 'community'), {
           index,
           title,
           content,
-          imageUrl: null, // 이미지 URL 초기값 설정
+          imageUrl: null,
           updatedAt: serverTimestamp(),
         });
         let downloadURL;
-        // 이미지가 선택된 경우에만 업로드 수행
-        console.log(docRef);
+
         if (selectedFile) {
           const storageRef = ref(storage, `images/community/${docRef.id}`);
           await uploadBytes(storageRef, selectedFile);
           downloadURL = await getDownloadURL(storageRef);
 
-          // 이미지 URL 업데이트
           const updateRef = doc(db, 'community', docRef.id);
           await updateDoc(updateRef, {
             imageUrl: downloadURL,
           });
         }
 
-        // 새 글 등록 시에도 imageUrl을 downloadURL로 반영
         const updatedNotices = [
           ...notices,
           {
@@ -112,12 +107,9 @@ function CommunityForm({ isEditing, data }) {
         ];
 
         toast.success('글이 등록되었습니다.');
-
-        // 상세 페이지로 이동할 때 새로 등록된 문서를 읽어오기
         const newDocSnapshot = await getDoc(docRef);
         const newData = newDocSnapshot.data();
 
-        // 상세 페이지로 이동할 때 새로 등록된 문서를 함께 전달
         navigate(`/community/${docRef.id}`, {
           state: {
             notices: updatedNotices?.slice().toSorted((a, b) => b.data.index - a.data.index),
@@ -129,124 +121,25 @@ function CommunityForm({ isEditing, data }) {
         });
       }
     } catch (error) {
-      console.error(error);
       toast.error('변경 실패하였습니다. 다시 한번 확인해주세요.');
-    }
-  };
-
-  const handleTitle = (e) => {
-    setTitle(e.target.value);
-  };
-  const handleContent = (e) => {
-    setContent(e.target.value);
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-
-    // 이미지 파일인 경우에만 미리보기 표시
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImagePreview(null);
-    }
-
-    setSelectedFile(file);
-
-    const fileNameInput = document.getElementById('fileName');
-    if (fileNameInput) {
-      fileNameInput.value = file ? file.name : '첨부파일';
-    }
-  };
-  const handleCancel = () => {
-    if (window.confirm('변경을 취소하시겠습니까?')) {
-      navigate(-1);
     }
   };
 
   return (
     <div className="flex flex-col w-[1440px] min-w-[1440px] max-width-[1920px]">
-      <section className="w-full py-20 flex flex-col text-center gap-8">
-        <h3 className="text-open-font-xxl">Support</h3>
-        <h2 className="text-open-font-xxxxl font-bold">커뮤니티</h2>
-      </section>
+      <BannerSection category="Support" part="커뮤니티" />
       <div className="flex flex-col min-w-[500px] w-[1320px] py-5 px-10">
-        <div className="flex items-center justify-between border-b -border--open-gray-300 px-10 py-5">
-          <input
-            type="text"
-            placeholder="제목을 입력하세요."
-            className="text-open-font-xl font-medium decoration-slate-600 p-2 min-w-tablet-min"
-            value={title}
-            onChange={handleTitle}
-          />
-        </div>
-        <div className="flex flex-col gap-4 min-h-[400px] h-full overflow-y-scroll p-10 border-b -border--open-gray-300">
-          <div className="flex items-center gap-2 py-4">
-            {imagePreview ? (
-              <>
-                <img
-                  src={imagePreview}
-                  alt="이미지 미리보기"
-                  className="w-[300px] h-[300px] object-cover"
-                />
-                <label
-                  htmlFor="file"
-                  className="inline-block px-2.5 py-2 h-10 ml-2.5 cursor-pointer align-middle bg-slate-400 -text--openfoundation-white rounded"
-                >
-                  이미지 변경
-                </label>
-              </>
-            ) : (
-              <>
-                <input
-                  type="text"
-                  value={selectedFile ? selectedFile.name : '첨부파일'}
-                  id="fileName"
-                  placeholder="첨부파일"
-                  onChange={() => {}}
-                  className="inline-block h-10 px-2.5 align-middle border -border--open-gray-400 w-1/3"
-                />
-                <label
-                  htmlFor="file"
-                  className="inline-block px-2.5 py-2 h-10 ml-2.5 cursor-pointer align-middle bg-slate-400 -text--openfoundation-white rounded"
-                >
-                  파일 찾기
-                </label>
-              </>
-            )}
-            <input type="file" id="file" onChange={handleFileChange} className="w-0 h-0" />
-          </div>
-          <textarea
-            placeholder="내용을 입력해주세요."
-            rows={12}
-            className="text-open-font-large h-auto p-10 w-full"
-            value={content}
-            onChange={handleContent}
-          />
-        </div>
-
-        <div className="flex justify-end px-10 py-4 gap-2.5">
-          <button
-            type="button"
-            className="flex gap-2 justify-center items-center w-[140px] px-5 py-5 text-open-font-large -text--openfoundation-white bg-blue-400 rounded"
-            onClick={handleSave}
-          >
-            {' '}
-            <span className="block font-medium">{isEditing ? '수정하기' : '등록하기'} </span>
-          </button>
-          <button
-            type="button"
-            className="flex gap-2 justify-center items-center w-[140px] px-5 py-5 text-open-font-large -text--openfoundation-white bg-red-400 rounded"
-            onClick={handleCancel}
-          >
-            {' '}
-            <span className="block font-medium">취소하기</span>
-          </button>
-        </div>
+        <InputSection
+          title={title}
+          setTitle={setTitle}
+          content={content}
+          setContent={setContent}
+          selectedFile={selectedFile}
+          setSelectedFile={setSelectedFile}
+          imagePreview={imagePreview}
+          setImagePreview={setImagePreview}
+        />
+        <ButtonSection isEditing={isEditing} handleSave={handleSave} />
       </div>
     </div>
   );
@@ -255,12 +148,15 @@ function CommunityForm({ isEditing, data }) {
 export default CommunityForm;
 
 CommunityForm.propTypes = {
-  isEditing: PropTypes.bool,
-  data: PropTypes.objectOf({
+  isEditing: PropTypes.bool.isRequired,
+  data: PropTypes.shape({
     index: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
     imageUrl: PropTypes.string,
-    updatedAt: PropTypes.string,
-  }),
+    updatedAt: PropTypes.shape({
+      seconds: PropTypes.number,
+      nanoseconds: PropTypes.number,
+    }),
+  }).isRequired,
 };

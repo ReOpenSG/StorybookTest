@@ -1,5 +1,5 @@
 import React from 'react';
-import { number, shape, string, PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 function Notice({ notice, notices }) {
@@ -14,10 +14,7 @@ function Notice({ notice, notices }) {
   });
 
   return (
-    <NavLink
-      to={`/community/${notice?.id}`}
-      state={{ currentNotice: notice, notices }}
-    >
+    <NavLink to={`/community/${notice?.id}`} state={{ currentNotice: notice, notices }}>
       <div className="flex items-center justify-between min-w-[500px] w-[1320px] p-10 border-t -border--open-gray-300">
         <h2 className="text-open-font-xxl font-semibold hover:underline decoration-slate-600">
           {notice?.data?.title}
@@ -35,27 +32,25 @@ Notice.propTypes = {
   notices: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      index: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      updatedAt: PropTypes.shape({
-        seconds: PropTypes.number.isRequired,
-        nanoseconds: PropTypes.number.isRequired,
+      data: PropTypes.objectOf({
+        index: PropTypes.number,
+        title: PropTypes.string,
+        content: PropTypes.string,
+        imageUrl: PropTypes.string,
+        updatedAt: PropTypes.string,
       }).isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
     }),
   ).isRequired,
   notice: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      index: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      updatedAt: PropTypes.shape({
-        seconds: PropTypes.number.isRequired,
-        nanoseconds: PropTypes.number.isRequired,
+      data: PropTypes.objectOf({
+        index: PropTypes.number,
+        title: PropTypes.string,
+        content: PropTypes.string,
+        imageUrl: PropTypes.string,
+        updatedAt: PropTypes.string,
       }).isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

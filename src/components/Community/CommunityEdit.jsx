@@ -1,5 +1,6 @@
-import { useLocation, useParams } from 'react-router-dom';
-import CommunityForm from './CommunityForm';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import CommunityForm from '../../views/CommunityForm';
 
 function CommunityEdit() {
   const location = useLocation();

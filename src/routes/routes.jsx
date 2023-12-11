@@ -16,7 +16,7 @@ import Community from '@/views/Community';
 import CommunityDetail from '../views/CommunityDetail';
 import Admin from '@/views/Admin';
 import CommunityForm from '@/views/CommunityForm';
-import CommunityEdit from '@/views/CommunityEdit';
+import CommunityEdit from '@/components/Community/CommunityEdit';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
