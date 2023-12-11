@@ -65,7 +65,7 @@ export const theme = {
       'open-highlight': ['500'],
       'open-paragraph': ['400'],
     },
- screens: {
+    screens: {
       mobile: {
         min: '375px',
         max: '1023px',
