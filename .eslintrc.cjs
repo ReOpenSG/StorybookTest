@@ -21,6 +21,7 @@ module.exports = {
     'react/button-has-type': 'off',
     "import/prefer-default-export": "off",
     'import/noextraneous-dependencies': 'off',
+    'no-nested-ternary' : 'off',
     'jsx-a11y/label-has-associated-control': [
       2,
       {
@@ -29,3 +30,4 @@ module.exports = {
     ],
   },
 };
+
