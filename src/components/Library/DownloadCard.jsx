@@ -1,17 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DownloadIcon from './DownloadIcon';
-import styles from '@/components/Library/Library.module.css';
+// import DownloadIcon from './DownloadIcon';
+// import styles from '@/components/Library/Library.module.css';
 
 function DownloadCard({
-  text,
-  category,
-  koHref,
-  koDownload,
-  koAriaLabel,
-  enHref,
-  enDownload,
-  enAriaLabel,
+  text, category, href, download, ariaLabel,
 }) {
   return (
     <div className="border -border--open-gray-300 rounded-[20px] px-open-2xl py-open-2xl tablet:py-open-4xl desktop:py-open-4xl tablet:grow desktop:grow">
@@ -28,24 +22,9 @@ function DownloadCard({
             {category}
           </span>
         </div>
-        <div className="flex justify-end gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop">
-          <a href={koHref} download={koDownload} aria-label={koAriaLabel}>
-            <div className={styles.downloadWrapper}>
-              <DownloadIcon />
-              <span className={styles.downloadText}>
-                국문
-              </span>
-            </div>
-          </a>
-          <a href={enHref} download={enDownload} aria-label={enAriaLabel}>
-            <div className={styles.downloadWrapper}>
-              <DownloadIcon />
-              <span className={styles.downloadText}>
-                영문
-              </span>
-            </div>
-          </a>
-        </div>
+        <a href={href} className="flex justify-end" download={download} aria-label={ariaLabel}>
+          <DownloadIcon />
+        </a>
       </div>
     </div>
   );
@@ -54,12 +33,9 @@ function DownloadCard({
 DownloadCard.propTypes = {
   text: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  koHref: PropTypes.string.isRequired,
-  koDownload: PropTypes.string.isRequired,
-  koAriaLabel: PropTypes.string.isRequired,
-  enHref: PropTypes.string.isRequired,
-  enDownload: PropTypes.string.isRequired,
-  enAriaLabel: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  download: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
 };
 
 export default DownloadCard;
