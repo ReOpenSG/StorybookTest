@@ -24,7 +24,6 @@ const router = createBrowserRouter(
       <Route path="/team" element={<Team />} />
       <Route path="/location" element={<Location />} />
       <Route path="/solutions/:id" element={<Solutions />} />
-      {/* <Route path="/solutions/:id" element={<Solution />} /> */}
       <Route path="/machines" element={<Machines />} />
       <Route path="/device" element={<Device />} />
       <Route path="/industries" element={<Industries />} />
