@@ -7,6 +7,7 @@ import History from '../views/History';
 import Team from '../views/Team';
 import Location from '../views/Location';
 import Solutions from '../views/Solutions';
+// import Solution from '../components/Solutions/Solution';
 import Machines from '../views/Machines';
 import Library from '../views/Library';
 import Industries from '../views/Industries';
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="/history" element={<History />} />
       <Route path="/team" element={<Team />} />
       <Route path="/location" element={<Location />} />
-      <Route path="/solutions" element={<Solutions />} />
+      <Route path="/solutions/:id" element={<Solutions />} />
       <Route path="/machines" element={<Machines />} />
       <Route path="/device" element={<Device />} />
       <Route path="/industries/:id" element={<Industries />} />
