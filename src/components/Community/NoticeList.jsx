@@ -1,10 +1,11 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import Notice from './Notice';
+import styles from './Community.module.css';
 
 function NoticeList({ notices, currentNotices }) {
   return (
-    <div className="border-b -border--open-gray-300">
+    <div className={styles.noticeList}>
       {currentNotices
         ?.slice()
         .toSorted((a, b) => b.data.index - a.data.index)

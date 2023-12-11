@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import styles from './Community.module.css';
 
 function ListButtons({
   currentPage,
@@ -11,8 +12,8 @@ function ListButtons({
   handleLastPage,
 }) {
   return (
-    <div className="flex gap-4 py-4 text-open-font-large">
-      <button type="button" onClick={handleFirstPage} className="text-open-font-large">
+    <div className={styles.listButtons}>
+      <button type="button" onClick={handleFirstPage} className="">
         &#8810;
       </button>
 
@@ -25,9 +26,7 @@ function ListButtons({
           type="button"
           key={pageNumber}
           onClick={() => handlePageChange(pageNumber)}
-          className={`w-9 h-9 text-open-font-medium ${
-            currentPage === pageNumber ? 'bg-black text-white rounded-full' : ''
-          }`}
+          className={`${styles.pageNum} ${currentPage === pageNumber ? styles.currentPage : ''}`}
         >
           {pageNumber}
         </button>

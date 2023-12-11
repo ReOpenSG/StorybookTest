@@ -3,9 +3,13 @@ import { PropTypes } from 'prop-types';
 
 function BannerSection({ category, part }) {
   return (
-    <section className="w-full py-20 flex flex-col text-center gap-8">
-      <h2 className="text-open-font-xxl">{category}</h2>
-      <h3 className="text-open-font-xxxxl font-bold">{part}</h3>
+    <section className="w-full py-open-3xl flex flex-col items-center gap-open-2xl">
+      <p className="text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl font-open-label">
+        {category}
+      </p>
+      <h2 className="text-open-font-xxl desktop:text-open-font-xxxxl  tablet:text-open-font-xxxxl font-open-heading">
+        {part}
+      </h2>
     </section>
   );
 }

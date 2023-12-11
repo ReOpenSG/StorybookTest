@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import NoticeList from './NoticeList';
 import ListButtons from './ListButtons';
+import styles from './Community.module.css';
 
 function NoticeSection({ sortedNotices }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,8 +47,9 @@ function NoticeSection({ sortedNotices }) {
     handleLastPage,
   };
   return (
-    <section className="flex flex-col justify-center items-center min-w-[500px] gap-4 py-10">
-      <p className="text-open-font-medium text-right px-10 min-w-[600px] w-[1320px]">
+    <section className={styles.NoticeWrapper}>
+      <h3 className="sr-only">커뮤니티 리스트</h3>
+      <p className={styles.pageCount}>
         Total: {sortedNotices?.length} [{currentPage} / {ListButtonsProps.pageCount}]
       </p>
 
