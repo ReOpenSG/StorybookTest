@@ -34,7 +34,7 @@ function CommunityDetail() {
   }, [location.state, params.id]);
 
   return (
-    <div className="flex flex-col w-[1440px] min-w-[1440px] max-width-[1920px]">
+    <div className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">
       <BannerSection category="Support" part="커뮤니티" />
       <ContentsSection
         notices={notices}

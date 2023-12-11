@@ -40,13 +40,17 @@ function Community() {
     navigate('write', { state: { notices: sortedNotices } });
   };
   return (
-    <div className="w-[1440px] min-w-[1440px] max-width-[1920px]">
+    <div className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">
       <BannerSection category="Support" part="커뮤니티" />
-      <div className="w-full flex justify-end animate-bounce">
+      <div
+        className="w-full flex justify-end
+      p-open-gutter-mobile
+      tablet:p-open-gutter-desktop desktop:p-open-gutter-desktop  animate-bounce"
+      >
         {isLoggedIn ? (
           <button
             type="button"
-            className="p-4 bg-slate-400 text-black rounded-md"
+            className="p-open-lg tablet:p-open-xl desktop:p-open-xl text-open-font-medium tablet:text-open-font-large desktop:text-open-font-xl bg-slate-400 -text--openfoundation-black rounded-md"
             onClick={handleWrite}
           >
             글쓰러 가기

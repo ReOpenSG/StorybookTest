@@ -126,9 +126,9 @@ function CommunityForm({ isEditing = false, data = null }) {
   };
 
   return (
-    <div className="flex flex-col w-[1440px] min-w-[1440px] max-width-[1920px]">
+    <div className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">
       <BannerSection category="Support" part="커뮤니티" />
-      <div className="flex flex-col min-w-[500px] w-[1320px] py-5 px-10">
+      <div className="flex flex-col px-open-gutter-mobile desktop:px-open-gutter-desktop ">
         <InputSection
           title={title}
           setTitle={setTitle}
