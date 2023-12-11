@@ -21,7 +21,6 @@ function InputSection({
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
-    // 이미지 파일인 경우에만 미리보기 표시
     if (file && file.type.startsWith('image/')) {
       const reader = new FileReader();
       reader.onload = () => {

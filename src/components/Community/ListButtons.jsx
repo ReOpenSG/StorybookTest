@@ -1,7 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-// 컴포넌트로 분리한 페이지 정보와 버튼을 보여주는 컴포넌트
 function ListButtons({
   currentPage,
   pageCount,
