@@ -39,13 +39,13 @@ function Agreement() {
             사항의 처리가 제한될 수 있습니다.
           </li>
         </ol>
-        <div className="flex items-center justify-end pt-open-lg pb-open-2xl tablet:pt-open-2xl desktop:pt-open-2xl tablet:pb-open-3xl desktop:pb-open-3xl">
+        <div className={styles.checkboxWrapper}>
           <input
             type="checkbox"
             id="agreement"
             required
             onClick={handleChangeCheck}
-            className="peer appearance-none w-open-xl h-open-xl border-2 -border--open-gray-300 rounded-[2px] -bg--openfoundation-secondary checked:-bg--open-blue-900 checked:border-0"
+            className={`peer ${styles.checkboxInput}`}
           />
           <label htmlFor="agreement" className={`${styles.agreementText} pl-open-lg`}>
             (필수) 위 개인정보 수집 및 이용에 동의합니다.

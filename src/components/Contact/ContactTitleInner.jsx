@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '@/components/contact/Contact.module.css';
 
 function ContactTitleInner({ category, title, desc }) {
   return (
     <>
-      <h2 className="-text--openfoundation-primary font-open-label text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl">
-        {category}
-      </h2>
-      <h3 className="-text--openfoundation-primary font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl">
+      <h2 className={styles.titleCategory}>{category}</h2>
+      <h3 className={styles.title}>
         {title}
       </h3>
-      <p className="-text--openfoundation-primary font-open-paragraph text-open-font-medium">
+      <p className={styles.titleDesc}>
         {desc}
       </p>
     </>

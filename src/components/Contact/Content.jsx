@@ -7,7 +7,7 @@ function Content() {
   const textareaId = uuidv4();
 
   return (
-    <fieldset className="flex flex-col gap-open-lg tablet:gap-open-xl desktop:gap-open-xl grow py-open-2xl">
+    <fieldset className={styles.contentWrapper}>
       <FillingInput
         labelText="제목"
         inputType="text"

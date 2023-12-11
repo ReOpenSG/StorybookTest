@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '@/components/contact/Contact.module.css';
 import ContactTitleInner from './ContactTitleInner';
 
 function ContactTitleSection() {
   return (
-    <div className="flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl">
+    <div className={styles.titleWrapper}>
       <ContactTitleInner
         category="Support"
         title="고객문의"

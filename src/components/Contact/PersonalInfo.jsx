@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '@/components/contact/Contact.module.css';
 import FillingInput from './FillingInput';
 
 function PersonalInfo() {
   return (
-    <fieldset className="flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200">
+    <fieldset className={styles.personalInfoWrapper}>
       <FillingInput
         labelText="받으실 이메일"
         inputType="email"

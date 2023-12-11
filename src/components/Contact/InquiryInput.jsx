@@ -11,7 +11,7 @@ function InquiryInput({
       <input type={type} id={id} name={name} defaultValue={defaultValue} className="hidden peer" />
       <label
         htmlFor={id}
-        className="flex flex-col gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl peer-checked:-text--openfoundation-secondary peer-checked:-bg--open-blue-900"
+        className={`peer-checked:-text--openfoundation-secondary peer-checked:-bg--open-blue-900 ${styles.inquiryLabel}`}
       >
         {/* 추후 아이콘 변경사항을 반영하기 위해 임의로 작성해둔 코드입니다. */}
         {labelText === '제품 문의' ? (

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '@/components/contact/Contact.module.css';
 
 function ProductIcon() {
   return (
@@ -6,7 +7,7 @@ function ProductIcon() {
       viewBox="0 0 148 148"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-10 h-10 tablet:w-20 tablet:h-20 desktop:w-20 desktop:h-20"
+      className={styles.iconStyle}
     >
       <path
         fillRule="evenodd"

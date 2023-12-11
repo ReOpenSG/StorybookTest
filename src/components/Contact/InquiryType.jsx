@@ -5,9 +5,9 @@ import styles from '@/components/contact/Contact.module.css';
 
 function InquiryType() {
   return (
-    <fieldset className="flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl">
+    <fieldset className={styles.inquiryWrapper}>
       <h3 className={styles.label}>문의유형</h3>
-      <div className="flex flex-wrap gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop flex-1">
+      <div className={styles.inquiryContainer}>
         {data.map(({ id, defaultValue }) => (
           <InquiryInput
             key={id}
