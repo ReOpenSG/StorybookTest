@@ -19,43 +19,20 @@ function CommunityDetail() {
   const [prevNotice, setPrevNotice] = useState(null);
   const isLoggedIn = useRecoilValue(isLoggedInState);
 
-  // useEffect(() => {
-  //  const fetchData = async () => {
-  //    const { notices: locationNotices } = location.state || {};
-  //    if (locationNotices) {
-  //      setNotices(locationNotices);
-  //      const noticeIndex = locationNotices.findIndex((n) => n?.id === params?.id);
-  //      setCurrentNoticeIndex(noticeIndex);
-  //      if (noticeIndex !== -1) {
-  //        const current = locationNotices[noticeIndex];
-  //        await setCurrentNotice(locationNotices[noticeIndex]);
-
-  //        const next =
-  //          noticeIndex < locationNotices.length - 1 ? locationNotices[noticeIndex + 1] : null;
-  //        const prev = noticeIndex > 0 ? locationNotices[noticeIndex - 1] : null;
-  //        setNextNotice(next);
-  //        setPrevNotice(prev);
-  //        setCurrentNotice(current);
-  //      }
-  //      console.log(currentNotice);
-  //    }
-  //  };
-
-  //  fetchData();
-  // }, [location.state, params.id]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const { currentNotice: locationNotice } = location.state || {};
+      const { currentNotice: locationNotice, notices: totalNotices } = location.state || {};
       if (locationNotice) {
         setCurrentNotice(locationNotice);
-
-        const noticeIndex = notices.findIndex((n) => n?.id === params?.id);
+        console.log(totalNotices);
+        console.log(locationNotice);
+        const noticeIndex = totalNotices.findIndex((n) => n?.id === params?.id);
         setCurrentNoticeIndex(noticeIndex);
+        console.log(noticeIndex);
+        const next = noticeIndex > 0 ? totalNotices[noticeIndex - 1] : null;
+        const prev = noticeIndex < totalNotices.length - 1 ? totalNotices[noticeIndex + 1] : null;
 
-        const next = noticeIndex < notices.length - 1 ? notices[noticeIndex + 1] : null;
-        const prev = noticeIndex > 0 ? notices[noticeIndex - 1] : null;
-
+        setNotices(totalNotices);
         setNextNotice(next);
         setPrevNotice(prev);
 
@@ -64,9 +41,11 @@ function CommunityDetail() {
     };
 
     fetchData();
-  }, [location.state, params.id, notices]);
+  }, [location.state, params.id]);
   const handleEdit = () => {
-    navigate(`/community/${currentNotice?.id}/edit`, { state: { currentNotice, notices } });
+    navigate(`/community/${currentNotice?.id}/edit`, {
+      state: { currentNotice, notices },
+    });
   };
   const handleDelete = async () => {
     try {
@@ -81,7 +60,7 @@ function CommunityDetail() {
       if (currentDocSnapshot.exists()) {
         const { imageUrl } = currentDocSnapshot.data();
         if (imageUrl) {
-          const storageRef = ref(storage, `images/${currentNoticeIndex}`);
+          const storageRef = ref(storage, `images/community/${params.id}`);
           await deleteObject(storageRef);
         }
       }
@@ -156,7 +135,7 @@ function CommunityDetail() {
             {nextNotice ? (
               <NavLink
                 to={`/community/${nextNotice?.id}`}
-                state={{ notices }}
+                state={{ currentNotice: nextNotice, notices }}
                 className="flex gap-2.5"
               >
                 <span className="font-semibold">&uarr; &nbsp; 다음 글</span>
@@ -175,7 +154,7 @@ function CommunityDetail() {
             {prevNotice ? (
               <NavLink
                 to={`/community/${prevNotice?.id}`}
-                state={{ notices }}
+                state={{ currentNotice: prevNotice, notices }}
                 className="flex gap-2.5"
               >
                 <span className="font-semibold">&darr; &nbsp; 이전 글</span>

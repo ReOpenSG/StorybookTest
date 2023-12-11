@@ -46,7 +46,7 @@ function CommunityForm({ isEditing, data }) {
 
         // 이미지가 변경된 경우에만 업로드 수행
         if (selectedFile) {
-          const storageRef = ref(storage, `images/${id}`);
+          const storageRef = ref(storage, `images/community/${id}`);
           await uploadBytes(storageRef, selectedFile);
           const downloadURL = await getDownloadURL(storageRef);
 
@@ -81,12 +81,13 @@ function CommunityForm({ isEditing, data }) {
           imageUrl: null, // 이미지 URL 초기값 설정
           updatedAt: serverTimestamp(),
         });
-
+        let downloadURL;
         // 이미지가 선택된 경우에만 업로드 수행
+        console.log(docRef);
         if (selectedFile) {
-          const storageRef = ref(storage, `images/${docRef.id}`);
+          const storageRef = ref(storage, `images/community/${docRef.id}`);
           await uploadBytes(storageRef, selectedFile);
-          const downloadURL = await getDownloadURL(storageRef);
+          downloadURL = await getDownloadURL(storageRef);
 
           // 이미지 URL 업데이트
           const updateRef = doc(db, 'community', docRef.id);
@@ -119,7 +120,7 @@ function CommunityForm({ isEditing, data }) {
         // 상세 페이지로 이동할 때 새로 등록된 문서를 함께 전달
         navigate(`/community/${docRef.id}`, {
           state: {
-            notices: updatedNotices,
+            notices: updatedNotices?.slice().toSorted((a, b) => b.data.index - a.data.index),
             currentNotice: {
               id: docRef.id,
               data: newData,
@@ -254,12 +255,12 @@ function CommunityForm({ isEditing, data }) {
 export default CommunityForm;
 
 CommunityForm.propTypes = {
-  isEditing: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool,
   data: PropTypes.objectOf({
     index: PropTypes.number,
     title: PropTypes.string,
     content: PropTypes.string,
     imageUrl: PropTypes.string,
     updatedAt: PropTypes.string,
-  }).isRequired,
+  }),
 };
