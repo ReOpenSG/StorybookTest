@@ -25,11 +25,7 @@ function Desc({ data, id, currentLocation }) {
         <div className="flex justify-center items-center mobile:w-full -bg--open-gray-50 p-open-xl rounded-[20px]">
           <picture>
             <source media="(max-width: 1023px)" srcSet="http://via.placeholder.com/200x150" />
-            <img
-              src="http://via.placeholder.com/400x300"
-              alt="Machines"
-              className="w-ful h-[150px]l"
-            />
+            <img src="http://via.placeholder.com/400x300" alt="Machines" />
           </picture>
         </div>
         <div className="flex-1 min-w-[288px]">
