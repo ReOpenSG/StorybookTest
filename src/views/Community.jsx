@@ -4,8 +4,8 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { db } from '../../firebase';
-import BannerSection from '../components/common/BannerSection';
-import NoticeSection from '../components/Community/NoticeSection';
+import BannerSection from '@/components/Common/BannerSection';
+import NoticeSection from '@/components/Community/NoticeSection';
 import { isLoggedInState } from '@/recoil/atoms/authStore';
 
 function Community() {
