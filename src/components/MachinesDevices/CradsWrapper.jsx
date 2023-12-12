@@ -29,6 +29,7 @@ CradsWrapper.propTypes = {
       }),
     ),
   ).isRequired,
+  currentLocation: PropTypes.string.isRequired,
 };
 
 export default CradsWrapper;

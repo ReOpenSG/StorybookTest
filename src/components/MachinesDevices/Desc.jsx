@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 function Desc({ data, id, currentLocation }) {
   const [desc, setDesct] = useState({});
@@ -42,5 +43,18 @@ function Desc({ data, id, currentLocation }) {
     </div>
   );
 }
+
+Desc.propTypes = {
+  data: PropTypes.objectOf(
+    PropTypes.objectOf(
+      PropTypes.shape({
+        설명: PropTypes.string.isRequired,
+        특징: PropTypes.arrayOf(PropTypes.string).isRequired,
+      }),
+    ),
+  ).isRequired,
+  id: PropTypes.string.isRequired,
+  currentLocation: PropTypes.string.isRequired,
+};
 
 export default Desc;
