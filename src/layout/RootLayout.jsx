@@ -6,7 +6,7 @@ function RootLayout() {
   return (
     <>
       <Header />
-      <main className="flex justify-center mx-auto font-open-font pt-[96px]">
+      <main className="flex justify-center mx-auto font-open-font pt-[80px]">
         <ScrollRestoration />
         <Outlet />
       </main>

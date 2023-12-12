@@ -1,0 +1,11 @@
+.productLink {
+  @apply relative;
+}
+
+.productLink:hover .productTooltip {
+  @apply visible;
+}
+
+.productLink .productTooltip {
+  @apply absolute invisible px-open-sm block rounded left-[120px] z-20 min-w-[200px] -bg--openfoundation-secondary -text--openfoundation-primary;
+}
