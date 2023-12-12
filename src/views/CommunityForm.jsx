@@ -148,7 +148,7 @@ function CommunityForm({ isEditing = false, data = null }) {
 export default CommunityForm;
 
 CommunityForm.propTypes = {
-  isEditing: PropTypes.bool.isRequired,
+  isEditing: PropTypes.bool,
   data: PropTypes.shape({
     index: PropTypes.number,
     title: PropTypes.string,
@@ -158,5 +158,19 @@ CommunityForm.propTypes = {
       seconds: PropTypes.number,
       nanoseconds: PropTypes.number,
     }),
-  }).isRequired,
+  }),
+};
+
+CommunityForm.defaultProps = {
+  isEditing: false,
+  data: {
+    index: 0,
+    title: '',
+    content: '',
+    imageUrl: '',
+    updatedAt: {
+      seconds: 0,
+      nanoseconds: 0,
+    },
+  },
 };

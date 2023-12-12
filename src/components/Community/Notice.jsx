@@ -34,20 +34,57 @@ Notice.propTypes = {
         title: PropTypes.string,
         content: PropTypes.string,
         imageUrl: PropTypes.string,
-        updatedAt: PropTypes.string,
+        updatedAt: PropTypes.arrayOf({
+          seconds: PropTypes.number,
+          nanoseconds: PropTypes.number,
+        }),
       }).isRequired,
     }),
   ).isRequired,
-  notice: PropTypes.arrayOf(
+  notice: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
-      data: PropTypes.objectOf({
+      data: PropTypes.shape({
         index: PropTypes.number,
         title: PropTypes.string,
         content: PropTypes.string,
         imageUrl: PropTypes.string,
-        updatedAt: PropTypes.string,
+        updatedAt: PropTypes.shape({
+          seconds: PropTypes.number,
+          nanoseconds: PropTypes.number,
+        }),
       }).isRequired,
     }),
   ).isRequired,
+};
+
+Notice.propTypes = {
+  notices: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      data: PropTypes.shape({
+        index: PropTypes.number,
+        title: PropTypes.string,
+        content: PropTypes.string,
+        imageUrl: PropTypes.string,
+        updatedAt: PropTypes.shape({
+          seconds: PropTypes.number,
+          nanoseconds: PropTypes.number,
+        }),
+      }).isRequired,
+    }),
+  ).isRequired,
+  notice: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+      index: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      imageUrl: PropTypes.string,
+      updatedAt: PropTypes.shape({
+        seconds: PropTypes.number,
+        nanoseconds: PropTypes.number,
+      }),
+    }).isRequired,
+  }).isRequired,
 };
