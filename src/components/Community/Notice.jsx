@@ -4,8 +4,9 @@ import { NavLink } from 'react-router-dom';
 import styles from './Community.module.css';
 
 function Notice({ notice, notices }) {
-  const updatedAtDate = notice?.data?.updatedAt?.toDate();
-
+  const updatedAtDate = notice?.data?.updatedAt
+    ? new Date(notice.data.updatedAt.seconds * 1000 + notice.data.updatedAt.nanoseconds / 1000000)
+    : null;
   const formattedDate = updatedAtDate?.toLocaleDateString('en-US', {
     year: 'numeric',
     month: '2-digit',

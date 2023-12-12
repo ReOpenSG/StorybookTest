@@ -13,7 +13,12 @@ function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, param
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInState);
 
-  const updatedAtDate = currentNotice?.data?.updatedAt?.toDate();
+  const updatedAtDate = currentNotice?.data?.updatedAt
+    ? new Date(
+        currentNotice.data.updatedAt.seconds * 1000 +
+          currentNotice.data.updatedAt.nanoseconds / 1000000,
+      )
+    : null;
 
   const formattedDate = updatedAtDate?.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -160,10 +165,10 @@ ContentsSection.propTypes = {
       title: PropTypes.string,
       content: PropTypes.string,
       imageUrl: PropTypes.string,
-      updatedAt: PropTypes.shape({
+      updatedAt: PropTypes.objectOf({
         seconds: PropTypes.number,
         nanoseconds: PropTypes.number,
-      }).isRequired,
+      }),
     }).isRequired,
   }),
   nextNotice: PropTypes.shape({
