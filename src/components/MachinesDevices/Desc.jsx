@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
+import styles from './MachinesDevices.module.css';
 
 function Desc({ data, id, currentLocation }) {
   const [desc, setDesct] = useState({});
@@ -12,29 +13,22 @@ function Desc({ data, id, currentLocation }) {
   }, [data, id]);
 
   return (
-    <div className="flex flex-col max-w-[1320px] w-full  gap-open-xl desktop:py-open-5xl tablet:py-open-5xl py-open-3xl">
-      <h3
-        className={`font-open-heading desktop:text-open-font-xxxl tablet:text-open-font-xxxl text-open-font-xl ${
-          currentLocation === 'devices' ? 'text-center' : ''
-        }`}
-      >
+    <div className={styles.Desc}>
+      <h3 className={`${styles.title} ${currentLocation === 'devices' ? 'text-center' : ''}`}>
         {Object.keys(data)[0]}
         <span> - </span>
         {id}
       </h3>
-      <div className="flex flex-wrap gap-open-xl justify-center  desktop:gap-x-open-margin-desktop tablet:gap-x-open-margin-desktop gap-x-open-margin-mobile">
-        <div className="flex justify-center items-center mobile:w-full -bg--open-gray-50 p-open-xl rounded-[20px]">
+      <div className={styles.descContentsWrapper}>
+        <div className={styles.imgWrapper}>
           <picture>
             <source media="(max-width: 1023px)" srcSet="http://via.placeholder.com/200x150" />
             <img src="http://via.placeholder.com/400x300" alt="Machines" />
           </picture>
         </div>
-        <div className="flex-1 min-w-[288px]">
+        <div className={styles.textWrapper}>
           {desc.설명 && (
-            <p
-              key={uuidv4()}
-              className="font-open-paragraph desktop:text-open-font-xl tablet:text-open-font-xl text-open-font-medium"
-            >
+            <p key={uuidv4()} className={styles.description}>
               {desc.설명}
             </p>
           )}
