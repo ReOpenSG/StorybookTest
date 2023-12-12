@@ -1,22 +1,23 @@
 import React from 'react';
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
-import RootLayout from '@/layout/RootLayout';
-import About from '@/views/About';
-import Home from '@/views/Home';
-import History from '@/views/History';
-import Team from '@/views/Team';
-import Location from '@/views/Location';
-import Solutions from '@/views/Solutions';
-import Machines from '@/views/Machines';
-import Library from '@/views/Library';
-import Industries from '@/views/Industries';
-import Contact from '@/views/Contact';
-import Device from '@/views/Device';
-import Community from '@/views/Community';
-import CommunityDetail from '../views/CommunityDetail';
-import Admin from '@/views/Admin';
+import RootLayout from '../layout/RootLayout';
+import About from '../views/About';
+import Home from '../views/Home';
+import History from '../views/History';
+import Team from '../views/Team';
+import Location from '../views/Location';
+import Solutions from '../views/Solutions';
+// import Solution from '../components/Solutions/Solution';
+import Machines from '../views/Machines';
+import Library from '../views/Library';
+import Industries from '../views/Industries';
+import Contact from '../views/Contact';
+import Device from '../views/Device';
+import Community from '../views/Community';
+import CommunityDetail from '@/views/CommunityDetail';
 import CommunityForm from '@/views/CommunityForm';
 import CommunityEdit from '@/components/Community/CommunityEdit';
+import Admin from '@/views/Admin';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,10 +27,10 @@ const router = createBrowserRouter(
       <Route path="/history" element={<History />} />
       <Route path="/team" element={<Team />} />
       <Route path="/location" element={<Location />} />
-      <Route path="/solutions" element={<Solutions />} />
+      <Route path="/solutions/:id" element={<Solutions />} />
       <Route path="/machines" element={<Machines />} />
       <Route path="/device" element={<Device />} />
-      <Route path="/industries" element={<Industries />} />
+      <Route path="/industries/:id" element={<Industries />} />
       <Route path="/library" element={<Library />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/community" element={<Community />} />
