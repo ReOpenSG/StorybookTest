@@ -7,7 +7,7 @@
     @apply tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop;
 
     & .form {
-      @apply w-full flex flex-col justify-center items-center gap-open-xl;
+      @apply w-full flex flex-col justify-center items-center gap-open-2xl;
       @apply tablet:gap-open-3xl desktop:gap-open-3xl;
 
       & .inputWrapper {
@@ -16,6 +16,7 @@
         & .label {
           @apply text-open-font-large;
           @apply tablet:text-open-font-xxl desktop:text-open-font-xxl;
+          @apply flex-1;
         }
 
         & .input {
