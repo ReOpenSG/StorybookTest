@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import styles from './MachinesDevices.module.css';
 
-function FuncChar({ data, id }) {
-  const [desc, setDesct] = useState({});
-
-  useEffect(() => {
-    if (data && Object.values(data).length > 0) {
-      setDesct(Object.values(data)[0][id]);
-    }
-  }, [data, id]);
-
+function FuncChar({ desc }) {
   return (
     <div className={styles.FuncChar}>
       <h3 className={styles.title}>기능 및 특징</h3>
@@ -32,15 +24,10 @@ function FuncChar({ data, id }) {
 }
 
 FuncChar.propTypes = {
-  data: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        설명: PropTypes.string.isRequired,
-        특징: PropTypes.arrayOf(PropTypes.string).isRequired,
-      }),
-    ),
-  ).isRequired,
-  id: PropTypes.string.isRequired,
+  desc: PropTypes.shape({
+    설명: PropTypes.string.isRequired,
+    특징: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
 };
 
 export default FuncChar;

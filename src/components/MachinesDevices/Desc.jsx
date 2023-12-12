@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import styles from './MachinesDevices.module.css';
 
-function Desc({ data, id, currentLocation }) {
-  const [desc, setDesct] = useState({});
-
-  useEffect(() => {
-    if (data && Object.values(data).length > 0) {
-      setDesct(Object.values(data)[0][id]);
-    }
-  }, [data, id]);
-
+function Desc({ desc, id, currentLocation }) {
   return (
     <div className={styles.Desc}>
       <h3 className={`${styles.title} ${currentLocation === 'devices' ? 'text-center' : ''}`}>
-        {Object.keys(data)[0]}
+        {desc.제품}
         <span> - </span>
         {id}
       </h3>
@@ -39,14 +31,11 @@ function Desc({ data, id, currentLocation }) {
 }
 
 Desc.propTypes = {
-  data: PropTypes.objectOf(
-    PropTypes.objectOf(
-      PropTypes.shape({
-        설명: PropTypes.string.isRequired,
-        특징: PropTypes.arrayOf(PropTypes.string).isRequired,
-      }),
-    ),
-  ).isRequired,
+  desc: PropTypes.shape({
+    설명: PropTypes.string.isRequired,
+    특징: PropTypes.arrayOf(PropTypes.string).isRequired,
+    제품: PropTypes.string.isRequired,
+  }).isRequired,
   id: PropTypes.string.isRequired,
   currentLocation: PropTypes.string.isRequired,
 };

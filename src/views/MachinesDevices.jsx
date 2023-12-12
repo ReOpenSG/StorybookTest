@@ -8,6 +8,7 @@ import FuncChar from '@/components/MachinesDevices/FuncChar';
 
 function MachinesDevices() {
   const [data, setData] = useState({});
+  const [desc, setDesct] = useState({ 설명: '', 특징: [], 제품: '' });
   const [currentLocation, setCurrentLocation] = useState('');
   const location = useLocation();
   const { id } = useParams();
@@ -22,6 +23,16 @@ function MachinesDevices() {
     }
   }, [location]);
 
+  useEffect(() => {
+    if (data && Object.values(data).length > 0) {
+      setDesct((prev) => ({
+        ...prev,
+        ...data[Object.keys(data)[0]][id],
+        제품: Object.keys(data)[0],
+      }));
+    }
+  }, [data, id]);
+
   return (
     <section className="w-full flex flex-col items-center">
       <section className="desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile flex flex-col items-center w-full">
@@ -30,13 +41,13 @@ function MachinesDevices() {
       <section className="w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
         <div className="w-full flex flex-col items-center">
           <h2 className="sr-only">제품 소개</h2>
-          <Desc data={data} id={id} currentLocation={currentLocation} />
+          <Desc desc={desc} id={id} currentLocation={currentLocation} />
         </div>
       </section>
       <section className="-bg--open-gray-50 w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile ">
         <div className="w-full flex flex-col items-center">
           <h2 className="sr-only">기능 및 특징</h2>
-          <FuncChar data={data} id={id} />
+          <FuncChar desc={desc} id={id} />
         </div>
       </section>
     </section>
