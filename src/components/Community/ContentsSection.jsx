@@ -7,10 +7,19 @@ import { useRecoilValue } from 'recoil';
 import { PropTypes } from 'prop-types';
 import { db, storage } from '../../../firebase';
 import { isLoggedInState } from '@/recoil/atoms/authStore';
+import styles from './Community.module.css';
 
 function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, params }) {
   const navigate = useNavigate();
   const isLoggedIn = useRecoilValue(isLoggedInState);
+
+  const updatedAtDate = currentNotice?.data?.updatedAt?.toDate();
+
+  const formattedDate = updatedAtDate?.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
 
   const handleEdit = () => {
     navigate(`/community/${currentNotice?.id}/edit`, {
@@ -47,31 +56,26 @@ function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, param
     return <div>Loading...</div>;
   }
   return (
-    <section className="flex flex-col min-w-[500px] w-[1320px] py-5 px-10">
-      <div className="flex items-center justify-between border-b -border--open-gray-300 px-10 py-5">
-        <h3 className="text-open-font-xl font-medium decoration-slate-600">
-          {currentNotice?.data?.title}
-        </h3>
-        <time
-          className="text-open-font-medium -text--open-gray-600"
-          dateTime={currentNotice?.data?.createdAt}
-        >
-          {currentNotice?.data?.createdAt}
+    <section className={styles.detailWrapper}>
+      <div className={styles.titleWrapper}>
+        <h3 className={styles.title}>{currentNotice?.data?.title}</h3>
+        <time className={styles.updatedAt} dateTime={formattedDate}>
+          {formattedDate}
         </time>
       </div>
-      <div className="flex justify-end px-10 gap-10 pt-5">
+      <div className={styles.buttonWrapper}>
         {isLoggedIn ? (
           <>
             <button
               type="button"
-              className="text-open-font-large bg-gray-700 -text--openfoundation-white p-2 rounded"
+              className={`${styles.button} ${styles.editButton}`}
               onClick={handleEdit}
             >
               수정
             </button>
             <button
               type="button"
-              className="text-open-font-large bg-gray-400 -text--openfoundation-white p-2 rounded"
+              className={`${styles.button} ${styles.deleteButton}`}
               onClick={handleDelete}
             >
               삭제
@@ -81,28 +85,31 @@ function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, param
           ''
         )}
       </div>
-      <div className="flex flex-col gap-4 min-h-[400px] h-full overflow-y-scroll p-10 border-b -border--open-gray-300">
+      <div className={styles.contentWrapper}>
         <img
           src={currentNotice?.data?.imageUrl}
           alt={currentNotice?.data?.title}
-          width={300}
-          height={300}
+          className={styles.imagePreview}
         />
-        <p className="text-open-font-large">{currentNotice?.data?.content}</p>
+        <p className={styles.contentText}>{currentNotice?.data?.content}</p>
       </div>
-      <ul className="list-none">
-        <li className="py-5 px-10 text-open-font-large border-b -border--open-gray-300">
+      <ul className={styles.navWrapper}>
+        <li className={styles.list}>
           {nextNotice ? (
             <NavLink
               to={`/community/${nextNotice?.id}`}
               state={{ currentNotice: nextNotice, notices }}
-              className="flex gap-2.5"
+              className="flex gap-open-lg"
             >
               <span className="font-semibold">&uarr; &nbsp; 다음 글</span>
               <span>{nextNotice?.data?.title}</span>
             </NavLink>
           ) : (
-            <NavLink to="#" className="flex gap-2.5" onClick={() => toast('다음 글이 없습니다.')}>
+            <NavLink
+              to="#"
+              className="flex gap-open-lg"
+              onClick={() => toast('다음 글이 없습니다.')}
+            >
               {' '}
               <span className="font-semibold">&uarr; &nbsp; 다음 글</span>
               {nextNotice && <span>{nextNotice?.data?.title}</span>}
@@ -110,18 +117,22 @@ function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, param
             </NavLink>
           )}
         </li>
-        <li className="py-5 px-10 text-open-font-large border-b -border--open-gray-300">
+        <li className={styles.list}>
           {prevNotice ? (
             <NavLink
               to={`/community/${prevNotice?.id}`}
               state={{ currentNotice: prevNotice, notices }}
-              className="flex gap-2.5"
+              className="flex gap-open-lg"
             >
               <span className="font-semibold">&darr; &nbsp; 이전 글</span>
               <span>{prevNotice?.data?.title}</span>
             </NavLink>
           ) : (
-            <NavLink to="#" className="flex gap-2.5" onClick={() => toast('이전 글이 없습니다.')}>
+            <NavLink
+              to="#"
+              className="flex gap-open-lg"
+              onClick={() => toast('이전 글이 없습니다.')}
+            >
               {' '}
               <span className="font-semibold">&darr; &nbsp; 이전 글</span>
               {prevNotice && <span>{prevNotice?.data?.title}</span>}
@@ -130,13 +141,9 @@ function ContentsSection({ currentNotice, nextNotice, prevNotice, notices, param
           )}
         </li>
       </ul>
-      <button
-        type="button"
-        className="flex gap-2 justify-end items-center px-10 py-5 text-open-font-large"
-        onClick={handleComeback}
-      >
+      <button type="button" className={styles.comebackButton} onClick={handleComeback}>
         {' '}
-        <span className="block font-medium">목록으로</span>
+        <span className="block font-open-highlight">목록으로</span>
         <span className="font-extralight">&gt; </span> &nbsp;{' '}
       </button>
     </section>
@@ -147,35 +154,44 @@ export default ContentsSection;
 
 ContentsSection.propTypes = {
   currentNotice: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     data: PropTypes.shape({
       index: PropTypes.number,
       title: PropTypes.string,
       content: PropTypes.string,
       imageUrl: PropTypes.string,
-      createdAt: PropTypes.string,
+      updatedAt: PropTypes.shape({
+        seconds: PropTypes.number,
+        nanoseconds: PropTypes.number,
+      }).isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
   nextNotice: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     data: PropTypes.shape({
       index: PropTypes.number,
       title: PropTypes.string,
       content: PropTypes.string,
       imageUrl: PropTypes.string,
-      createdAt: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
+      updatedAt: PropTypes.shape({
+        seconds: PropTypes.number,
+        nanoseconds: PropTypes.number,
+      }),
+    }),
+  }),
   prevNotice: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     data: PropTypes.shape({
       index: PropTypes.number,
       title: PropTypes.string,
       content: PropTypes.string,
       imageUrl: PropTypes.string,
-      createdAt: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
+      updatedAt: PropTypes.shape({
+        seconds: PropTypes.number,
+        nanoseconds: PropTypes.number,
+      }),
+    }),
+  }),
   notices: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -184,11 +200,56 @@ ContentsSection.propTypes = {
         title: PropTypes.string,
         content: PropTypes.string,
         imageUrl: PropTypes.string,
-        createdAt: PropTypes.string,
+        updatedAt: PropTypes.shape({
+          seconds: PropTypes.number,
+          nanoseconds: PropTypes.number,
+        }),
       }).isRequired,
     }),
   ).isRequired,
   params: PropTypes.shape({
     id: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+ContentsSection.defaultProps = {
+  currentNotice: {
+    id: '',
+    data: {
+      index: 0,
+      title: '',
+      content: '',
+      imageUrl: '',
+      updatedAt: {
+        seconds: 0,
+        nanoseconds: 0,
+      },
+    },
+  },
+  nextNotice: {
+    id: '',
+    data: {
+      index: 0,
+      title: '',
+      content: '',
+      imageUrl: '',
+      updatedAt: {
+        seconds: 0,
+        nanoseconds: 0,
+      },
+    },
+  },
+  prevNotice: {
+    id: '',
+    data: {
+      index: 0,
+      title: '',
+      content: '',
+      imageUrl: '',
+      updatedAt: {
+        seconds: 0,
+        nanoseconds: 0,
+      },
+    },
+  },
 };

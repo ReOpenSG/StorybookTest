@@ -54,7 +54,7 @@
   }
 }
 & .contentWrapper {
-  @apply flex flex-col items-center gap-open-xl h-full overflow-y-scroll  p-open-2xl border-b -border--open-gray-300;
+  @apply flex flex-col items-center gap-open-xl h-full overflow-y-scroll  p-open-2xl border-b -border--open-gray-300 border-opacity-0;
 
   & .imageContainer {
     @apply flex justify-center items-center gap-open-xl py-open-md w-full;
@@ -90,5 +90,71 @@
     @apply flex gap-open-md justify-center items-center px-open-xl py-open-lg rounded;
     @apply text-open-font-large -text--openfoundation-white;
     @apply tablet:px-open-2xl desktop:px-open-2xl tablet:py-open-xl desktop:py-open-xl tablet:text-open-font-xl desktop:text-open-font-xl;
+  }
+}
+
+.detailWrapper {
+  @apply flex flex-col w-full px-open-gutter-mobile;
+  @apply tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
+
+  & .titleWrapper {
+    @apply flex items-center justify-between border-b -border--open-gray-300 py-open-lg px-open-xl tablet:px-open-2xl desktop:px-open-2xl;
+
+    & .title {
+      @apply text-open-font-xl decoration-slate-600;
+      @apply tablet:text-open-font-xxl desktop:text-open-font-xxl;
+    }
+
+    & .updatedAt {
+      @apply text-open-font-medium -text--open-gray-600;
+      @apply tablet:text-open-font-large desktop:text-open-font-large;
+    }
+  }
+
+  & .buttonWrapper {
+    @apply flex flex-row justify-end px-open-xl gap-open-xl py-open-md;
+    @apply tablet:gap-open-2xl desktop:gap-open-2xl
+    tablet:py-open-lg desktop:py-open-lg;
+
+    & .button {
+      @apply py-open-md px-open-xl rounded;
+      @apply text-open-font-large  -text--openfoundation-white;
+      @apply tablet:text-open-font-xl desktop:text-open-font-xl tablet:py-open-lg tablet:px-open-2xl desktop:py-open-lg desktop:px-open-2xl;
+    }
+    & .editButton {
+      @apply bg-gray-700;
+    }
+
+    & .deleteButton {
+      @apply bg-gray-400;
+    }
+  }
+
+  & .contentWrapper {
+    @apply flex flex-col items-start h-full overflow-y-scroll p-open-2xl border-b -border--open-gray-300;
+
+    & .imagePreview {
+      @apply w-open-6xl h-open-6xl object-cover;
+      @apply tablet:w-open-7xl tablet:h-open-7xl desktop:w-open-7xl desktop:h-open-7xl;
+    }
+
+    & .contentText {
+      @apply text-open-font-large;
+      @apply tablet:text-open-font-xl desktop:text-open-font-xl;
+    }
+  }
+  & .navWrapper {
+    @apply flex flex-col list-none;
+
+    & .list {
+      @apply text-open-font-large  p-open-lg border-b -border--open-gray-300;
+      @apply tablet:text-open-font-xl desktop:text-open-font-xl;
+    }
+  }
+
+  & .comebackButton {
+    @apply flex justify-end gap-open-lg  p-open-lg;
+    @apply text-open-font-large;
+    @apply tablet:text-open-font-xl desktop:text-open-font-xl;
   }
 }
