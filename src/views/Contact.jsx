@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
+import styles from '@/components/Contact/Contact.module.css';
 import PersonalInfo from '@/components/contact/PersonalInfo';
 import InquiryType from '@/components/contact/InquiryType';
 import Content from '@/components/contact/Content';
@@ -24,7 +25,7 @@ function Contact() {
 
   return (
     <div className="w-full px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop">
-      <form ref={form} onSubmit={sendEmail}>
+      <form ref={form} onSubmit={sendEmail} className={styles.formWrapper}>
         <ContactTitleSection />
         <InquiryType />
         <PersonalInfo />

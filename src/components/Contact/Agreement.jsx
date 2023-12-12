@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import styles from '@/components/contact/Contact.module.css';
+import styles from './Contact.module.css';
 import ContactButton from './ContactButton';
 
 function Agreement() {

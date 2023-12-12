@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from '@/components/contact/Contact.module.css';
+import styles from './Contact.module.css';
 import ProductIcon from './icons/ProductIcon';
 
 function InquiryInput({

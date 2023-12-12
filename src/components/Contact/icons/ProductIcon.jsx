@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/components/contact/Contact.module.css';
+import styles from '@/components/Contact/Contact.module.css';
 
 function ProductIcon() {
   return (
