@@ -30,7 +30,7 @@
       @apply tablet:text-open-font-xl desktop:text-open-font-xl tablet:w-1/3 desktop:w-1/3 tablet:p-open-xl desktop:p-open-xl;
     }
     & .buttonWrapper {
-      @apply flex flex-col justify-center items-center gap-open-xl;
+      @apply flex flex-col w-full justify-center items-center gap-open-xl;
       @apply tablet:gap-open-2xl desktop:gap-open-2xl;
     }
   }
