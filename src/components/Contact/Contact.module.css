@@ -1,3 +1,7 @@
+.formWrapper {
+  @apply max-w-[1320px] w-full m-auto bg-yellow-200;
+}
+
 .wrapper {
   @apply flex gap-open-xl items-center grow;
 }
