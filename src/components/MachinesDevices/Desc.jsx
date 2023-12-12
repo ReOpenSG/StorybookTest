@@ -12,7 +12,7 @@ function Desc({ data, id, currentLocation }) {
   }, [data, id]);
 
   return (
-    <div className="desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile flex flex-col gap-open-xl desktop:py-open-5xl tablet:py-open-5xl py-open-3xl">
+    <div className="flex flex-col max-w-[1320px] w-full  gap-open-xl desktop:py-open-5xl tablet:py-open-5xl py-open-3xl">
       <h3
         className={`font-open-heading desktop:text-open-font-xxxl tablet:text-open-font-xxxl text-open-font-xl ${
           currentLocation === 'devices' ? 'text-center' : ''

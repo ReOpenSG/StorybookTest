@@ -23,19 +23,21 @@ function MachinesDevices() {
   }, [location]);
 
   return (
-    <section className="w-full">
-      <section className="w-full desktop:py-open-2xl tablet:py-open-2xl py-open-xl">
-        {Object.keys(data).length > 0 && (
-          <CradsWrapper data={data} currentLocation={currentLocation} />
-        )}
+    <section className="w-full flex flex-col items-center">
+      <section className="desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile flex flex-col items-center w-full">
+        <CradsWrapper data={data} currentLocation={currentLocation} />
       </section>
-      <section>
-        {Object.keys(data).length > 0 && (
+      <section className="w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
+        <div className="w-full flex flex-col items-center">
+          <h2 className="sr-only">제품 소개</h2>
           <Desc data={data} id={id} currentLocation={currentLocation} />
-        )}
+        </div>
       </section>
-      <section className="-bg--open-gray-50 desktop:py-open-5xl tablet:py-open-5xl py-open-3xl">
-        {Object.keys(data).length > 0 && <FuncChar data={data} id={id} />}
+      <section className="-bg--open-gray-50 w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile ">
+        <div className="w-full flex flex-col items-center">
+          <h2 className="sr-only">기능 및 특징</h2>
+          <FuncChar data={data} id={id} />
+        </div>
       </section>
     </section>
   );

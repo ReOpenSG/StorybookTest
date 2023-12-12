@@ -5,7 +5,7 @@ import Card from './Card';
 
 function CradsWrapper({ data, currentLocation }) {
   return (
-    <div className="flex flex-wrap w-full desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-gutter-mobile desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
+    <nav className="flex flex-wrap w-full max-w-[1320px] desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-gutter-mobile desktop:py-open-2xl tablet:py-open-2xl py-open-xl">
       {Object.entries(data).map(([title, types]) =>
         Object.entries(types).map(([subTitle]) => (
           <Card
@@ -16,7 +16,7 @@ function CradsWrapper({ data, currentLocation }) {
           />
         )),
       )}
-    </div>
+    </nav>
   );
 }
 
