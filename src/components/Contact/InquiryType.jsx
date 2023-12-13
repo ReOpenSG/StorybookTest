@@ -6,8 +6,8 @@ import styles from './Contact.module.css';
 function InquiryType() {
   return (
     <fieldset className={styles.inquiryWrapper}>
-      <h3 className={styles.label}>문의유형</h3>
-      <div className={styles.inquiryContainer}>
+      <h4 className={styles.label}>문의유형</h4>
+      <div>
         {data.map(({ id, defaultValue }) => (
           <InquiryInput
             key={id}

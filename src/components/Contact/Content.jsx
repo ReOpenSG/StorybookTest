@@ -16,7 +16,7 @@ function Content() {
       />
       <div className={styles.wrapper}>
         <label htmlFor={textareaId}>
-          <h3 className={styles.label}>내용</h3>
+          <h4 className={styles.label}>내용</h4>
         </label>
         <textarea
           name="message"

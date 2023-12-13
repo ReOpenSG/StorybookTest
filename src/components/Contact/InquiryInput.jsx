@@ -23,7 +23,7 @@ function InquiryInput({
         ) : (
           <ProductIcon />
         )}
-        <span className={styles.radioSpan}>{labelText}</span>
+        <span>{labelText}</span>
       </label>
     </div>
   );
