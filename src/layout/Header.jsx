@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuLink from '@/components/Header/MenuLink';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const menuRef = useRef(null);
 
   const handleMenuActive = (menu) => {
     setActiveMenu(menu);
@@ -12,6 +13,46 @@ function Header() {
   const handleMenuLeave = () => {
     setActiveMenu(null);
   };
+
+  useEffect(() => {
+    if (activeMenu) {
+      const menuElement = menuRef.current;
+      const focusableElements = menuElement.querySelectorAll(
+        '[href]',
+      );
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      const handleTabKeyPress = (event) => {
+        if (event.key === 'Tab') {
+          if (event.shiftKey && document.activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+          } else if (
+            !event.shiftKey
+            && document.activeElement === lastElement
+          ) {
+            event.preventDefault();
+            firstElement.focus();
+          }
+        }
+      };
+
+      const handleEscapeKeyPress = (event) => {
+        if (event.key === 'Escape') {
+          setActiveMenu(null);
+        }
+      };
+
+      menuElement.addEventListener('keydown', handleTabKeyPress);
+      menuElement.addEventListener('keydown', handleEscapeKeyPress);
+
+      return () => {
+        menuElement.removeEventListener('keydown', handleTabKeyPress);
+        menuElement.removeEventListener('keydown', handleEscapeKeyPress);
+      };
+    }
+  }, [activeMenu, setActiveMenu]);
 
   return (
     <header
@@ -30,7 +71,7 @@ function Header() {
             <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
-              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
+              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef}>
                 <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 pl-[225px]">
                   <MenuLink linkName="회사개요" linkAddress="/about" />
                   <MenuLink linkName="연혁" linkAddress="/history" />
@@ -45,7 +86,7 @@ function Header() {
           <li className="px-open-md py-open-sm" to="/solutions" onMouseEnter={() => handleMenuActive('Products')}>
             <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef}>
               <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 pl-[365px]">
                 <li>
                   Solutions
@@ -117,7 +158,7 @@ function Header() {
           <li className="px-open-md py-open-sm" to="/community" onMouseEnter={() => handleMenuActive('Support')}>
             <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef}>
               <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 pl-[505px]">
                 <MenuLink linkName="커뮤니티" linkAddress="/community" />
                 <MenuLink linkName="라이브러리" linkAddress="/library" />
@@ -137,9 +178,10 @@ function Header() {
           {activeMenu === 'Sitemap' ? (
             <>
               <button type="button" onClick={() => handleMenuActive(null)}><img src="/src/assets/header_close.svg" alt="사이트맵 닫기" /></button>
-              <div className="absolute left-0 top-[80px] w-full">
+              <div className="absolute left-0 top-[80px] w-full" ref={menuRef}>
                 <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary">
                   <li>이곳에 사이트맵을 구현할 예정입니다.</li>
+                  <MenuLink linkName="고객문의" linkAddress="/contact" />
                 </ul>
               </div>
             </>
