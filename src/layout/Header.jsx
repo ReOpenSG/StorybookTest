@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MenuLink from '@/components/Header/MenuLink';
 
 function Header() {
@@ -10,9 +10,15 @@ function Header() {
     setActiveMenu(menu);
   };
 
-  const handleMenuLeave = () => {
+  const handleMenuInactive = () => {
     setActiveMenu(null);
   };
+
+  const location = useLocation();
+
+  useEffect(() => {
+    handleMenuInactive();
+  }, [location]);
 
   useEffect(() => {
     if (activeMenu) {
@@ -71,7 +77,7 @@ function Header() {
             <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
-              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuLeave}>
+              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
                 <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 pl-[225px]">
                   <MenuLink linkName="회사개요" linkAddress="/about" />
                   <MenuLink linkName="연혁" linkAddress="/history" />
@@ -86,7 +92,7 @@ function Header() {
           <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('Products')}>
             <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuLeave}>
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
               <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 pl-[365px]">
                 <li>
                   Solutions
@@ -158,7 +164,7 @@ function Header() {
           <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('Support')}>
             <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuLeave}>
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
               <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 pl-[505px]">
                 <MenuLink linkName="커뮤니티" linkAddress="/community" />
                 <MenuLink linkName="라이브러리" linkAddress="/library" />

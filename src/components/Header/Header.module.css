@@ -3,9 +3,9 @@
 }
 
 .linkName:hover .tooltip {
-  @apply visible;
+  @apply block;
 }
 
 .linkName .tooltip {
-  @apply absolute invisible px-open-sm block rounded left-[120px] z-20 min-w-[200px] -bg--openfoundation-secondary -text--openfoundation-primary;
+  @apply absolute hidden px-open-sm rounded left-[120px] z-20 min-w-[200px] -bg--openfoundation-secondary -text--openfoundation-primary;
 }
