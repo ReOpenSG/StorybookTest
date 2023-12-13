@@ -1,39 +1,43 @@
 .contactUsWrapper {
-  @apply bg-[url('@/assets/footer_background.svg')] bg-cover py-[60px] tablet:py-open-6xl desktop:py-open-6xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
-}
+  @apply bg-[url('@/assets/footer_background.svg')] bg-cover;
 
-.contactUsContainer {
-  @apply max-w-[1320px] w-full m-auto;
-}
+  .link {
+    @apply block py-[60px] tablet:py-open-6xl desktop:py-open-6xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
+  }
 
-.contactUsInner {
-  @apply flex justify-between items-center;
-}
+  .container {
+    @apply max-w-[1320px] w-full m-auto;
+  }
 
-.contactUsContent {
-  @apply flex flex-col;
-}
+  .inner {
+    @apply flex justify-between items-center;
+  }
 
-.contactUsTitle {
-  @apply -text--openfoundation-secondary font-open-heading text-open-font-xxxl tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
-}
+  .content {
+    @apply flex flex-col;
+  }
 
-.contactUsText {
-  @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+  .title {
+    @apply -text--openfoundation-secondary font-open-heading text-open-font-xxxl tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
+  }
+
+  .text {
+    @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+  }
 }
 
 .officeWrapper {
   @apply -bg--openfoundation-primary flex flex-wrap gap-open-lg justify-between items-end py-open-lg tablet:py-open-xl desktop:py-open-xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-4xl;
-}
 
-.officeText {
-  @apply -text--openfoundation-secondary text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium;
-}
+  .text {
+    @apply -text--openfoundation-secondary text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium;
+  }
 
-.officeInfo {
-  @apply font-open-label flex flex-col gap-open-sm;
-}
+  .info {
+    @apply font-open-label flex flex-col gap-open-sm;
+  }
 
-.officeCopyright {
-  @apply font-open-paragraph;
+  .copyright {
+    @apply font-open-paragraph;
+  }
 }
