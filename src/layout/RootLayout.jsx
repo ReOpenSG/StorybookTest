@@ -1,7 +1,6 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import Header from './Header';
 import Footer from './Footer';
 import 'react-toastify/dist/ReactToastify.css';
