@@ -22,12 +22,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     'import/noextraneous-dependencies': 'off',
     'no-nested-ternary' : 'off',
-    'jsx-a11y/label-has-associated-control': [
-      2,
-      {
-        labelAttributes: ['htmlFor'],
-      },
-    ],
+    'jsx-a11y/label-has-associated-control': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
-

@@ -10,4 +10,16 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          reactRouter: ['react-router-dom'],
+          animations: ['framer-motion'],
+          extra: ['recoil'],
+        },
+      },
+    },
+  },
 });
