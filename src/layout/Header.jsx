@@ -76,11 +76,11 @@ function Header() {
             <Link className="px-open-md py-open-sm" to="/"><img src="/src/assets/header_opensg.png" alt="오픈에스지" width={100} /></Link>
           </li>
           {activeMenu !== 'Sitemap' && (
-            <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('AboutUs')}>
+            <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
               <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-                <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 pl-[214px]">
+                <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 tablet:pl-[150px] desktop:pl-[214px]">
                   <MenuLink linkName="회사개요" linkAddress="/about" />
                   <MenuLink linkName="연혁" linkAddress="/history" />
                   <MenuLink linkName="직무소개" linkAddress="/team" />
@@ -91,11 +91,11 @@ function Header() {
             </li>
           )}
           {activeMenu !== 'Sitemap' && (
-          <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('Products')}>
+          <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('Products')}>
             <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-              <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 pl-[362px]">
+              <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 tablet:pl-[280px] desktop:pl-[362px]">
                 <li>
                   Solutions
                   <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-lg">
@@ -163,11 +163,11 @@ function Header() {
           </li>
           )}
           {activeMenu !== 'Sitemap' && (
-          <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('Support')}>
+          <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('Support')}>
             <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-              <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 pl-[495px]">
+              <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 tablet:pl-[390px] desktop:pl-[495px]">
                 <MenuLink linkName="커뮤니티" linkAddress="/community" />
                 <MenuLink linkName="라이브러리" linkAddress="/library" />
                 <MenuLink linkName="고객문의" linkAddress="/contact" />
@@ -178,7 +178,7 @@ function Header() {
           )}
         </ul>
       </nav>
-      <ul className="flex justify-center items-center gap-open-gutter-desktop">
+      <ul className="flex justify-center items-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop">
         <li className="flex justify-center items-center px-open-md py-open-sm text-open-font-medium">
           KOR
         </li>
