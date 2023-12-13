@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductLink from '@/components/Header/ProductLink';
+import MenuLink from '@/components/Header/MenuLink';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
 
-  const handleMenuHover = (menu) => {
+  const handleMenuActive = (menu) => {
     setActiveMenu(menu);
   };
 
@@ -26,65 +26,58 @@ function Header() {
           <li>
             <Link className="px-open-md py-open-sm" to="/"><img src="/src/assets/header_opensg.png" alt="오픈에스지" width={100} /></Link>
           </li>
-          <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuHover('AboutUs')}>
-            <button type="button" onClick={() => handleMenuHover('AboutUs')}>About Us</button>
-            {activeMenu === 'AboutUs' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
-              <ul className="flex flex-col gap-open-md py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 pl-[225px]">
-                <li>
-                  <Link to="/about">
-                    회사개요
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/history">연혁</Link>
-                </li>
-                <li>
-                  <Link to="/team">직무소개</Link>
-                </li>
-                <li>
-                  <Link to="/location">오시는길</Link>
-                </li>
-              </ul>
-            </div>
-            )}
-          </li>
-          <li className="px-open-md py-open-sm" to="/solutions" onMouseEnter={() => handleMenuHover('Products')}>
-            <button type="button" onClick={() => handleMenuHover('Products')}>Products</button>
+          {activeMenu !== 'Sitemap' && (
+            <li className="px-open-md py-open-sm" onMouseEnter={() => handleMenuActive('AboutUs')}>
+              <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
+              {activeMenu === 'AboutUs' && (
+              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
+                <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 pl-[225px]">
+                  <MenuLink linkName="회사개요" linkAddress="/about" />
+                  <MenuLink linkName="연혁" linkAddress="/history" />
+                  <MenuLink linkName="직무소개" linkAddress="/team" />
+                  <MenuLink linkName="오시는길" linkAddress="/location" />
+                </ul>
+              </div>
+              )}
+            </li>
+          )}
+          {activeMenu !== 'Sitemap' && (
+          <li className="px-open-md py-open-sm" to="/solutions" onMouseEnter={() => handleMenuActive('Products')}>
+            <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
-              <ul className="flex flex-row gap-open-2xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 pl-[365px]">
+              <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 pl-[365px]">
                 <li>
                   Solutions
-                  <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-xl">
+                  <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-lg">
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Equipment Control System
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <ProductLink productName="ACS/FMS" productTooltip="AGV Control System / Fleet Management System" />
-                        <ProductLink productName="OCS" productTooltip="OHT Control System" />
-                        <ProductLink productName="SCS" productTooltip="Stocker Control System" />
-                        <ProductLink productName="CCS" productTooltip="Conveyor Control System" />
-                        <ProductLink productName="IDX Controller" productTooltip="Index Control System" />
+                        <MenuLink linkName="ACS/FMS" tooltip="AGV Control System / Fleet Management System" linkAddress="solutions/ACS" />
+                        <MenuLink linkName="OCS" tooltip="OHT Control System" linkAddress="solutions/OCS" />
+                        <MenuLink linkName="SCS" tooltip="Stocker Control System" linkAddress="solutions/SCS" />
+                        <MenuLink linkName="CCS" tooltip="Conveyor Control System" linkAddress="solutions/CCS" />
+                        <MenuLink linkName="IDX Controller" tooltip="Index Control System" linkAddress="solutions/IDX Controller" />
                       </ul>
                     </li>
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Smart Tools
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <ProductLink productName="Map Designer" />
-                        <ProductLink productName="ACS Simulator" productTooltip="AGV Control System Simulator" />
-                        <ProductLink productName="SCS Simulator" productTooltip="Stocker Control System Simulator" />
+                        <MenuLink linkName="Map Designer" linkAddress="solutions/Map Designer" />
+                        <MenuLink linkName="ACS Simulator" tooltip="AGV Control System Simulator" linkAddress="solutions/ACS Simulator" />
+                        <MenuLink linkName="SCS Simulator" tooltip="Stocker Control System Simulator" linkAddress="solutions/SCS Simulator" />
                       </ul>
                     </li>
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Monitoring Solution
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <ProductLink productName="AIMS" productTooltip="Advanced Integrated Monitoring Solution" />
+                        <MenuLink linkName="AIMS" tooltip="Advanced Integrated Monitoring Solution" linkAddress="solutions/AIMS" />
                       </ul>
                     </li>
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Comm Driver
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <ProductLink productName="Open HSMS" />
+                        <MenuLink linkName="Open HSMS" linkAddress="solutions/Open HSMS" />
                       </ul>
                     </li>
                   </ul>
@@ -92,10 +85,10 @@ function Header() {
                 <li>
                   Smart Machine
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <li>AGV - Lift Type</li>
-                    <li>AGV - Lift Type</li>
-                    <li>AGV - Lift Type</li>
-                    <li>AGV - Lift Type</li>
+                    <MenuLink linkName="AGV - Lift Type" linkAddress="/" />
+                    <MenuLink linkName="AGV - Conveyor Type" linkAddress="/" />
+                    <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/" />
+                    <MenuLink linkName="AGV - 협동 Robot 탑재 Type" linkAddress="/" />
                   </ul>
                 </li>
                 <li>
@@ -108,39 +101,32 @@ function Header() {
                 <li className="text-[#FFE500]">
                   Industries
                   <ul className="flex flex-col items-center pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
-                    <li>
-                      <Link to="/industries/semiconductor">반도체</Link>
-                    </li>
-                    <li>
-                      <Link to="/industries/display">디스플레이</Link>
-                    </li>
-                    <li>
-                      <Link to="/industries/">자동차</Link>
-                    </li>
-                    <li>
-                      <Link to="/industries/battery">2차전지</Link>
-                    </li>
-                    <li>
-                      <Link to="/industries/port">항만</Link>
-                    </li>
+                    <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
+                    <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
+                    <MenuLink linkName="자동차" linkAddress="/" />
+                    <MenuLink linkName="2차전지" linkAddress="/industries/port" />
+                    <MenuLink linkName="항만" linkAddress="/industries/semiconductor" />
                   </ul>
                 </li>
               </ul>
             </div>
             )}
           </li>
-          <li className="px-open-md py-open-sm" to="/community" onMouseEnter={() => handleMenuHover('Support')}>
-            <button type="button" onClick={() => handleMenuHover('Support')}>Support</button>
+          )}
+          {activeMenu !== 'Sitemap' && (
+          <li className="px-open-md py-open-sm" to="/community" onMouseEnter={() => handleMenuActive('Support')}>
+            <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]">
               <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 pl-[505px]">
-                <li><Link to="/community">커뮤니티</Link></li>
-                <li><Link to="/library">라이브러리</Link></li>
-                <li><Link to="/contact">고객문의</Link></li>
+                <MenuLink linkName="커뮤니티" linkAddress="/community" />
+                <MenuLink linkName="라이브러리" linkAddress="/library" />
+                <MenuLink linkName="고객문의" linkAddress="/contact" />
               </ul>
             </div>
             )}
           </li>
+          )}
         </ul>
       </nav>
       <ul className="flex justify-center items-center gap-open-gutter-desktop px-4">
@@ -148,13 +134,17 @@ function Header() {
           KOR
         </li>
         <li className="flex justify-center items-center">
-          <button type="button" onClick={() => handleMenuHover('Sitemap')}><img src="/src/assets/header_hamburger.svg" alt="사이트맵" /></button>
-          {activeMenu === 'Sitemap' && (
-            <div className="absolute left-0 top-[80px] w-full" onMouseLeave={handleMenuLeave}>
-              <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary">
-                <li>이곳에 사이트맵을 구현할 예정입니다.</li>
-              </ul>
-            </div>
+          {activeMenu === 'Sitemap' ? (
+            <>
+              <button type="button" onClick={() => handleMenuActive(null)}><img src="/src/assets/header_close.svg" alt="사이트맵 닫기" /></button>
+              <div className="absolute left-0 top-[80px] w-full">
+                <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary">
+                  <li>이곳에 사이트맵을 구현할 예정입니다.</li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img src="/src/assets/header_hamburger.svg" alt="사이트맵" /></button>
           )}
         </li>
       </ul>
