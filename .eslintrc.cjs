@@ -15,10 +15,10 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    'import/noextraneous-dependencies': 'off',
-    'import/extensions': 'off',
+    'react-refresh/only-export-components': ['off', { allowConstantExport: true }],
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

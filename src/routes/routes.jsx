@@ -13,6 +13,10 @@ import Library from '../views/Library';
 import Industries from '../views/Industries';
 import Contact from '../views/Contact';
 import Community from '../views/Community';
+import CommunityDetail from '@/views/CommunityDetail';
+import CommunityForm from '@/views/CommunityForm';
+import CommunityEdit from '@/components/Community/CommunityEdit';
+import Admin from '@/views/Admin';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +33,10 @@ const router = createBrowserRouter(
       <Route path="/library" element={<Library />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/community" element={<Community />} />
+      <Route path="/community/:id" element={<CommunityDetail />} />
+      <Route path="/community/write" element={<CommunityForm />} />
+      <Route path="/community/:id/edit" element={<CommunityEdit />} />
+      <Route path="/admin" element={<Admin />} />
     </Route>,
   ),
 );
