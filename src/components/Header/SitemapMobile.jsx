@@ -5,7 +5,7 @@ import AccordionItem from '@/components/Header/AccordionItem';
 
 function SitemapMobile({ sitemapRef }) {
   return (
-    <div className="tablet:hidden desktop:hidden absolute left-0 top-[80px] w-full h-[500px] overflow-scroll" ref={sitemapRef}>
+    <div className="tablet:hidden desktop:hidden block absolute left-0 top-[40px] w-full h-[500px] overflow-auto" ref={sitemapRef}>
       <ul className="flex flex-col justify-center gap-open-lg -bg--openfoundation-primary px-open-gutter-mobile py-open-gutter-mobile text-open-font-xl font-open-heading">
         <AccordionItem title="About Us">
           <ul className="flex flex-col gap-open-md py-open-lg text-open-font-large font-open-paragraph">

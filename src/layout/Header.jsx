@@ -6,7 +6,12 @@ import SitemapMobile from '@/components/Header/SitemapMobile';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
+  const [activeLanguage, setActiveLanguage] = useState(null);
   const menuRef = useRef(null);
+
+  const handleLanguageActive = (lang) => {
+    setActiveLanguage(lang);
+  };
 
   const handleMenuActive = (menu) => {
     setActiveMenu(menu);
@@ -21,6 +26,18 @@ function Header() {
   useEffect(() => {
     handleMenuInactive();
   }, [location]);
+
+  useEffect(() => {
+    if (activeMenu === 'Sitemap') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [activeMenu]);
 
   useEffect(() => {
     if (activeMenu) {
@@ -65,18 +82,23 @@ function Header() {
   return (
     <header
       role="banner"
-      className="fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -bg--openfoundation-primary -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[80px] z-10"
+      className="fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -bg--openfoundation-primary -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[40px] tablet:h-[80px] desktop:h-[80px] z-20"
     >
+      {activeMenu === 'Sitemap' && (
+      <div className="block w-[100vw] h-[100vh] absolute top-[80px] left-0 backdrop-blur-sm">
+        <div className="w-full h-full -bg--openfoundation-secondary opacity-20" />
+      </div>
+      )}
       <h1 className="sr-only">
         오픈에스지
       </h1>
       <nav className="flex">
         <ul className="flex justify-center items-center gap-open-gutter-mobile desktop:gap-open-gutter-desktop">
           <li>
-            <Link className="px-open-md py-open-sm" to="/"><img src="/src/assets/header_opensg.png" alt="오픈에스지" width={100} /></Link>
+            <Link className="px-open-md py-open-sm" to="/"><img className="w-[50px] tablet:w-[100px] desktop:w-[100px]" src="/src/assets/header_opensg.png" alt="오픈에스지" /></Link>
           </li>
           {activeMenu !== 'Sitemap' && (
-            <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
+            <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
               <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
@@ -91,7 +113,7 @@ function Header() {
             </li>
           )}
           {activeMenu !== 'Sitemap' && (
-          <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('Products')}>
+          <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Products')}>
             <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
@@ -163,7 +185,7 @@ function Header() {
           </li>
           )}
           {activeMenu !== 'Sitemap' && (
-          <li className="px-open-md py-open-sm mobile:hidden" onMouseEnter={() => handleMenuActive('Support')}>
+          <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Support')}>
             <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
@@ -179,18 +201,22 @@ function Header() {
         </ul>
       </nav>
       <ul className="flex justify-center items-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop">
-        <li className="flex justify-center items-center px-open-md py-open-sm text-open-font-medium">
-          <button type="button">KOR</button>
+        <li className="flex justify-center items-center px-open-md py-open-sm text-open-font-small desktop:text-open-font-medium tablet:text-open-font-medium">
+          <div className="flex flex-row gap-open-md">
+            <button className={activeLanguage !== 'ENG' ? '-text--openfoundation-secondary' : '-text--openfoundation-tertiary'} type="button" onClick={() => handleLanguageActive('KOR')}>KOR</button>
+            <div className="w-[1px] -bg--openfoundation-secondary" />
+            <button className={activeLanguage === 'ENG' ? '-text--openfoundation-secondary' : '-text--openfoundation-tertiary'} type="button" onClick={() => handleLanguageActive('ENG')}>ENG</button>
+          </div>
         </li>
         <li className="flex justify-center items-center">
           {activeMenu === 'Sitemap' ? (
             <>
-              <button type="button" onClick={() => handleMenuActive(null)}><img src="/src/assets/header_close.svg" alt="사이트맵 닫기" /></button>
+              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src="/src/assets/header_close.svg" alt="사이트맵 닫기" /></button>
               <Sitemap sitemapRef={menuRef} />
               <SitemapMobile sitemapRef={menuRef} />
             </>
           ) : (
-            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img src="/src/assets/header_hamburger.svg" alt="사이트맵" /></button>
+            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src="/src/assets/header_hamburger.svg" alt="사이트맵" /></button>
           )}
         </li>
       </ul>
