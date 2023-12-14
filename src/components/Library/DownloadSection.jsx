@@ -23,14 +23,6 @@ function DownloadSection() {
         download="OPENSG_회사_브로슈어_국문"
         ariaLabel="오픈에스지 회사 브로슈어 국문"
       />
-      <DownloadCard
-        mainText="OPENSG"
-        subText="회사 브로슈어"
-        category="브로슈어"
-        href={companyBrochureKo}
-        download="OPENSG_회사_브로슈어_국문"
-        ariaLabel="오픈에스지 회사 브로슈어 국문"
-      />
     </div>
   );
 }
