@@ -180,7 +180,7 @@ function Header() {
       </nav>
       <ul className="flex justify-center items-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop">
         <li className="flex justify-center items-center px-open-md py-open-sm text-open-font-medium">
-          KOR
+          <button type="button">KOR</button>
         </li>
         <li className="flex justify-center items-center">
           {activeMenu === 'Sitemap' ? (
