@@ -1,0 +1,38 @@
+.container {
+  @apply w-full flex flex-col justify-center items-center;
+  @apply gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop;
+
+  & .section {
+    @apply w-2/3 flex flex-col justify-center items-center gap-open-gutter-mobile;
+    @apply tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop;
+
+    & .form {
+      @apply w-full flex flex-col justify-center items-center gap-open-2xl;
+      @apply tablet:gap-open-3xl desktop:gap-open-3xl;
+
+      & .inputWrapper {
+        @apply flex w-full justify-center items-center gap-open-2xl;
+
+        & .label {
+          @apply text-open-font-large;
+          @apply tablet:text-open-font-xxl desktop:text-open-font-xxl;
+          @apply flex-1;
+        }
+
+        & .input {
+          @apply flex-auto p-open-lg  border -border--open-gray-300 rounded text-open-font-medium;
+          @apply tablet:p-open-xl desktop:p-open-xl tablet:text-open-font-xl desktop:text-open-font-xl;
+        }
+      }
+    }
+    & .button {
+      @apply -bg--open-blue-900 w-2/3  p-open-lg  my-open-xl;
+      @apply text-open-font-large  -text--openfoundation-white rounded-xl;
+      @apply tablet:text-open-font-xl desktop:text-open-font-xl tablet:w-1/3 desktop:w-1/3 tablet:p-open-xl desktop:p-open-xl;
+    }
+    & .buttonWrapper {
+      @apply flex flex-col w-full justify-center items-center gap-open-xl;
+      @apply tablet:gap-open-2xl desktop:gap-open-2xl;
+    }
+  }
+}

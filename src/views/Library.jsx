@@ -5,8 +5,10 @@ import DownloadSection from '@/components/Library/DownloadSection';
 function Library() {
   return (
     <div className="w-full px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop">
-      <LibraryTitleSection />
-      <DownloadSection />
+      <div className="max-w-[1320px] m-auto w-full">
+        <LibraryTitleSection />
+        <DownloadSection />
+      </div>
     </div>
   );
 }

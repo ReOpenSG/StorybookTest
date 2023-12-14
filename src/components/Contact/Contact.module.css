@@ -1,0 +1,88 @@
+.formWrapper {
+  @apply max-w-[1320px] w-full m-auto;
+}
+
+.wrapper {
+  @apply flex gap-open-xl items-center grow;
+}
+
+.titleWrapper {
+  @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl;
+}
+
+.titleCategory {
+  @apply -text--openfoundation-primary font-open-label text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl;
+}
+.title {
+  @apply -text--openfoundation-primary font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl;
+}
+
+.titleDesc {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+}
+
+.label {
+  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-5xl tablet:w-open-6xl desktop:w-open-6xl;
+}
+
+.input,
+.textarea {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large -bg--open-gray-50 px-open-xl grow py-open-lg w-full;
+}
+
+.iconStyle {
+  @apply w-10 h-10 tablet:w-20 tablet:h-20 desktop:w-20 desktop:h-20;
+}
+
+.agreementText {
+  @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
+
+  & h4 {
+    @apply -text--openfoundation-primary font-open-label text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl;
+  }
+
+  & p {
+    @apply my-open-xl tablet:my-open-2xl desktop:my-open-2xl;
+  }
+}
+
+.agreementOl {
+  @apply rounded-[20px] border -border--open-gray-300 px-open-lg tablet:px-open-xl desktop:px-open-xl py-open-xl tablet:py-open-2xl desktop:py-open-2xl;
+
+  & li {
+    @apply list-inside list-decimal;
+  }
+
+  .warning {
+    @apply list-none text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium mt-open-md;
+  }
+}
+
+.checkboxWrapper {
+  @apply flex items-center justify-end pt-open-lg pb-open-2xl tablet:pt-open-2xl desktop:pt-open-2xl tablet:pb-open-3xl desktop:pb-open-3xl;
+
+  & input {
+    @apply appearance-none w-open-xl h-open-xl border-2 -border--open-gray-300 rounded-[2px] -bg--openfoundation-secondary checked:-bg--open-blue-900 checked:border-0;
+  }
+}
+
+.contentWrapper {
+  @apply flex flex-col gap-open-lg tablet:gap-open-xl desktop:gap-open-xl grow py-open-2xl;
+}
+
+.inquiryLabel {
+  @apply flex flex-col gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl;
+  @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
+}
+
+.inquiryWrapper {
+  @apply flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl;
+
+  & div {
+    @apply flex flex-wrap gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop flex-1;
+  }
+}
+
+.personalInfoWrapper {
+  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200;
+}
