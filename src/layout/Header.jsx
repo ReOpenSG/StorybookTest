@@ -3,6 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import MenuLink from '@/components/Header/MenuLink';
 import Sitemap from '@/components/Header/Sitemap';
 import SitemapMobile from '@/components/Header/SitemapMobile';
+import opensgLogo from '@/assets/header_opensg.png';
+import hamburgerIcon from '@/assets/header_hamburger.svg';
+import closeIcon from '@/assets/header_close.svg';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -95,7 +98,7 @@ function Header() {
       <nav className="flex">
         <ul className="flex justify-center items-center gap-open-gutter-mobile desktop:gap-open-gutter-desktop">
           <li>
-            <Link className="px-open-md py-open-sm" to="/"><img className="w-[50px] tablet:w-[100px] desktop:w-[100px]" src="/src/assets/header_opensg.png" alt="오픈에스지" /></Link>
+            <Link className="px-open-md py-open-sm" to="/"><img className="w-[50px] tablet:w-[100px] desktop:w-[100px]" src={opensgLogo} alt="오픈에스지" /></Link>
           </li>
           {activeMenu !== 'Sitemap' && (
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
@@ -211,12 +214,12 @@ function Header() {
         <li className="flex justify-center items-center">
           {activeMenu === 'Sitemap' ? (
             <>
-              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src="/src/assets/header_close.svg" alt="사이트맵 닫기" /></button>
+              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src={closeIcon} alt="사이트맵 닫기" /></button>
               <Sitemap sitemapRef={menuRef} />
               <SitemapMobile sitemapRef={menuRef} />
             </>
           ) : (
-            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src="/src/assets/header_hamburger.svg" alt="사이트맵" /></button>
+            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src={hamburgerIcon} alt="사이트맵" /></button>
           )}
         </li>
       </ul>
