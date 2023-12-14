@@ -1,0 +1,15 @@
+.pinIcon {
+  @apply absolute w-2 h-3 desktop:w-[24px] desktop:h-[58px] tablet:w-[16px] tablet:h-[42px] mobile:w-[12px] mobile:h-[24px] top-[29.8%] left-[43.8%] translate-x-[-43.8%] translate-y-[-29.5%]
+}
+
+.pinIcon::after {
+  @apply hidden hover:block absolute right-6 bottom-10 content-["본사/자동화연구소"] bg-[#151F2D] -text--openfoundation-secondary text-center z-20 w-[160px] px-open-md rounded-[30px] opacity-80
+}
+
+.pinIconUSA {
+  @apply absolute w-2 h-3 desktop:w-[24px] desktop:h-[58px] tablet:w-[16px] tablet:h-[42px] mobile:w-[12px] mobile:h-[24px] top-[30.5%] left-[82.8%] translate-x-[-83.8%] translate-y-[-29.5%]
+}
+
+.pinIconUSA::after {
+  @apply hidden hover:block absolute right-6 bottom-10 content-["미국지사"] bg-[#151F2D] -text--openfoundation-secondary text-center z-20 w-[160px] px-open-md rounded-[30px] opacity-80
+}
