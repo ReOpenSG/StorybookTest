@@ -6,7 +6,7 @@ import styles from './MachinesDevices.module.css';
 function FuncChar({ desc }) {
   return (
     <div className={styles.FuncChar}>
-      <h3 className={styles.title}>기능 및 특징</h3>
+      <p className={styles.title}>기능 및 특징</p>
       <ul className={styles.list}>
         {desc.특징 &&
           desc.특징.map((item) => (
