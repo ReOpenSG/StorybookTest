@@ -24,5 +24,6 @@ module.exports = {
     'no-nested-ternary' : 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'no-confusing-arrow': 'off'
   },
 };
