@@ -1,0 +1,90 @@
+.Card {
+  @apply flex flex-col text-center items-center border -border--open-gray-200 rounded-[20px] p-open-lg gap-open-lg w-open-5xl -text--open-gray-200;
+  @apply desktop:p-open-xl desktop:gap-open-xl desktop:w-open-7xl;
+  @apply tablet:p-open-xl tablet:gap-open-xl tablet:w-open-7xl;
+
+  &[aria-current='page'] {
+    @apply -text--openfoundation-secondary -bg--open-blue-900;
+  }
+
+  & .linkTextWrapper {
+    @apply flex flex-col gap-open-lg;
+
+    & .title {
+      @apply font-open-heading text-open-font-medium;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
+    }
+
+    & .subtitle {
+      @apply font-open-label text-open-font-medium;
+    }
+  }
+}
+
+.CardWrapper {
+  @apply flex flex-wrap w-full max-w-[1320px] gap-open-gutter-mobile py-open-xl;
+  @apply desktop:gap-open-gutter-desktop desktop:py-open-2xl;
+  @apply tablet:gap-open-gutter-desktop tablet:py-open-2xl;
+}
+
+.Desc {
+  @apply flex flex-col max-w-[1320px] w-full  gap-open-xl py-open-3xl;
+  @apply desktop:py-open-5xl;
+  @apply tablet:py-open-5xl;
+
+  & .title {
+    @apply font-open-heading text-open-font-xl;
+    @apply desktop:text-open-font-xxxl;
+    @apply tablet:text-open-font-xxxl;
+  }
+
+  & .descContentsWrapper {
+    @apply flex flex-wrap gap-open-xl justify-center gap-x-open-margin-mobile;
+    @apply desktop:gap-x-open-margin-desktop;
+    @apply tablet:gap-x-open-margin-desktop;
+
+    & .imgWrapper {
+      @apply flex justify-center items-center -bg--open-gray-50 p-open-xl rounded-[20px];
+      @apply mobile:w-full;
+    }
+
+    & .textWrapper {
+      @apply flex-1 min-w-[288px];
+
+      & .description {
+        @apply font-open-paragraph text-open-font-medium;
+        @apply desktop:text-open-font-xl;
+        @apply tablet:text-open-font-xl;
+      }
+    }
+  }
+}
+
+.FuncChar {
+  @apply flex flex-col max-w-[1320px] w-full py-open-3xl gap-open-lg;
+  @apply desktop:py-open-5xl desktop:gap-open-xl;
+  @apply tablet:py-open-5xl tablet:gap-open-xl;
+
+  & .title {
+    @apply font-open-label text-open-font-large;
+    @apply desktop:text-open-font-xxl;
+    @apply tablet:text-open-font-xxl;
+  }
+
+  & .list {
+    @apply flex flex-wrap gap-open-gutter-mobile;
+    @apply desktop:gap-open-gutter-desktop;
+    @apply tablet:gap-open-gutter-desktop;
+
+    & .item {
+      @apply flex flex-col flex-1 basis-open-8xl items-center justify-center font-open-label text-open-font-medium p-open-2xl -bg--openfoundation-secondary rounded-[20px];
+      @apply desktop:text-open-font-xl desktop:gap-open-2xl;
+      @apply tablet:text-open-font-xl tablet:gap-open-2xl gap-open-xl;
+
+      & .itemText {
+        @apply flex-1;
+      }
+    }
+  }
+}
