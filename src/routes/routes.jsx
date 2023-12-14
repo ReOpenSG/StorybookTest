@@ -7,7 +7,6 @@ import History from '../views/History';
 import Team from '../views/Team';
 import Location from '../views/Location';
 import Solutions from '../views/Solutions';
-// import Solution from '../components/Solutions/Solution';
 import MachinesDevices from '../views/MachinesDevices';
 import Library from '../views/Library';
 import Industries from '../views/Industries';
