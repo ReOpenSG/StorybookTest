@@ -1,0 +1,27 @@
+.linkName {
+  @apply relative px-open-md py-open-sm;
+}
+
+.linkName:hover .tooltip {
+  @apply block;
+}
+
+.linkName .tooltip {
+  @apply absolute hidden px-open-sm rounded left-[120px] z-20 min-w-[200px] -bg--openfoundation-secondary -text--openfoundation-primary;
+}
+
+.accordionItemSmall {
+  @apply -bg--open-gray-950 px-open-gutter-mobile rounded-[20px] py-open-sm;
+}
+
+.accrodioItemLarge {
+  @apply -bg--open-gray-950 px-open-md py-open-sm text-open-font-xl font-open-heading;
+}
+
+.arrowDefault {
+  @apply transition-all duration-300;
+}
+
+.arrowDown {
+  @apply transition-all duration-300 rotate-180;
+}
