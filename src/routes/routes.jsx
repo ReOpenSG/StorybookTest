@@ -7,12 +7,10 @@ import History from '../views/History';
 import Team from '../views/Team';
 import Location from '../views/Location';
 import Solutions from '../views/Solutions';
-// import Solution from '../components/Solutions/Solution';
-import Machines from '../views/Machines';
+import MachinesDevices from '../views/MachinesDevices';
 import Library from '../views/Library';
 import Industries from '../views/Industries';
 import Contact from '../views/Contact';
-import Device from '../views/Device';
 import Community from '../views/Community';
 import CommunityDetail from '@/views/CommunityDetail';
 import CommunityForm from '@/views/CommunityForm';
@@ -28,8 +26,8 @@ const router = createBrowserRouter(
       <Route path="/team" element={<Team />} />
       <Route path="/location" element={<Location />} />
       <Route path="/solutions/:id" element={<Solutions />} />
-      <Route path="/machines" element={<Machines />} />
-      <Route path="/device" element={<Device />} />
+      <Route path="/machines/:id" element={<MachinesDevices />} />
+      <Route path="/devices/:id" element={<MachinesDevices />} />
       <Route path="/industries/:id" element={<Industries />} />
       <Route path="/library" element={<Library />} />
       <Route path="/contact" element={<Contact />} />
