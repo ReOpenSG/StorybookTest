@@ -1,17 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Contact.module.css';
-import ContactTitleInner from './ContactTitleInner';
 
-function ContactTitleSection() {
+function ContactTitleSection({ category, title, desc }) {
   return (
     <div className={styles.titleWrapper}>
-      <ContactTitleInner
-        category="Support"
-        title="고객문의"
-        desc="상세하게 작성해 주시면 더 빠르게 답변드릴 수 있습니다."
-      />
+      <h2 className={styles.titleCategory}>{category}</h2>
+      <h3 className={styles.title}>{title}</h3>
+      <p className={styles.titleDesc}>{desc}</p>
     </div>
   );
 }
+
+ContactTitleSection.propTypes = {
+  category: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+};
 
 export default ContactTitleSection;
