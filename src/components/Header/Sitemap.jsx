@@ -5,7 +5,7 @@ import MenuLink from '@/components/Header/MenuLink';
 function Sitemap({ sitemapRef }) {
   return (
     <div className="mobile:hidden absolute left-0 top-[80px] w-full" ref={sitemapRef}>
-      <ul className="flex flex-row justify-center gap-open-2xl -bg--openfoundation-primary">
+      <ul className="flex flex-row justify-center gap-open-3xl py-open-gutter-desktop -bg--openfoundation-primary">
         <li className="px-open-md py-open-sm text-open-font-xl font-open-heading">
           About Us
           <ul className="flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph border-t-[1px] -border--openfoundation-secondary">
