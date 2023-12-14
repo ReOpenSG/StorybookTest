@@ -7,33 +7,31 @@ function TeamLnb({ data }) {
   const id = useParams();
   return (
     <ul className={styles.lnbUl}>
-      <li
-        className={
-          id.id === undefined ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
-        }
-      >
+      <li>
         <button
           type="button"
           id={id}
           onClick={() => {
             window.location.pathname = '/team';
           }}
+          className={
+            id.id === undefined ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
+          }
         >
           전체
         </button>
       </li>
       {data.map((list) => (
-        <li
-          className={
-            list[0] === id.id ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
-          }
-        >
+        <li>
           <button
             type="button"
             id={id}
             onClick={() => {
               window.location.pathname = `/team/${list[0]}`;
             }}
+            className={
+              list[0] === id.id ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
+            }
           >
             {list[0]}
           </button>
