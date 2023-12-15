@@ -70,10 +70,19 @@
   @apply flex flex-col gap-open-lg tablet:gap-open-xl desktop:gap-open-xl grow py-open-2xl;
 }
 
+.inquiryInput {
+  @apply absolute top-0 left-0;
+}
+
 .inquiryLabel {
-  @apply flex flex-col gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl;
+  @apply flex flex-col flex-1 gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl min-w-[200px];
   @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
 }
+
+.inquiryInput:checked + .inquiryLabel {
+  @apply -text--openfoundation-secondary -bg--open-blue-900
+}
+
 
 .inquiryWrapper {
   @apply flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl;
