@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.partnerSwiper .swiper-wrapper {
+  @apply relative ease-linear !important;
+}
