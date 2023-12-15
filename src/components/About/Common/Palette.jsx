@@ -5,8 +5,8 @@ import styles from '../About.module.css';
 function Palette({ rgb, cmyk, hex, roundedLeft, roundedRight }) {
   return (
     <li
+      style={{ backgroundColor: hex }}
       className={`
-        bg-[${hex}] 
         ${styles.CommonPalette}
         ${roundedLeft && styles.left}
         ${roundedRight && styles.right}
