@@ -4,7 +4,7 @@
   @apply tablet:p-open-xl tablet:gap-open-xl tablet:w-open-7xl;
 
   &[aria-current='page'] {
-    @apply -text--openfoundation-secondary -bg--open-blue-900;
+    @apply -text--openfoundation-secondary -bg--open-accent-accent;
   }
 
   & .linkTextWrapper {
