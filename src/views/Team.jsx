@@ -7,7 +7,7 @@ import RoleSection from '@/components/Team/RoleSection';
 
 function Team() {
   const data = Object.entries(roleData);
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('전체');
 
   return (
     <div className={styles.teamWrapper}>

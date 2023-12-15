@@ -14,7 +14,7 @@ function RoleSection({ data, state }) {
   return (
     <ul>
       <li className={styles.sectionWrapper}>
-        {state === '전체' || state === '' ? <RoleAllSection /> : ''}
+        {state === '전체' && <RoleAllSection />}
         {content?.map((item) => (
           <RoleCard title={item.team} text={item.desc} key={item.team} />
         ))}
