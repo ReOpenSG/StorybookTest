@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import defaultImage from '@/assets/location_defaultImage.png';
 import linkIcon from '@/assets/location_link.svg';
@@ -6,6 +7,7 @@ import styles from '@/components/Location/Location.module.css';
 
 function LocationContainer({
   locationName,
+  locationPostal,
   locationAddress,
   locationTel,
   locationFax,
@@ -18,12 +20,15 @@ function LocationContainer({
       <address className={styles.locationAddress}>
         <div className={styles.locationInfoContainer}>
           <p className={styles.locationName}>{locationName}</p>
-          <p>{locationAddress}</p>
+          <div className={styles.addressWrapper}>
+            <p>{locationPostal}</p>
+            <p>{locationAddress}</p>
+          </div>
           <div className={styles.locationContact}>
-            <p>
+            <Link className={styles.locationTel} to={locationTel}>
               Tel. &nbsp;
               {locationTel}
-            </p>
+            </Link>
             <p>
               Fax. &nbsp;
               {locationFax}
@@ -40,6 +45,7 @@ function LocationContainer({
 
 LocationContainer.propTypes = {
   locationName: PropTypes.string.isRequired,
+  locationPostal: PropTypes.string.isRequired,
   locationAddress: PropTypes.string.isRequired,
   locationTel: PropTypes.string.isRequired,
   locationFax: PropTypes.string.isRequired,

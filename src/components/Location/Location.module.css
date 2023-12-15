@@ -42,6 +42,10 @@
   @apply desktop:w-[400px] desktop:h-[400px] tablet:w-[400px] tablet:h-[400px] w-[160px] h-[160px] object-cover
 }
 
+.locationAddressWrapper {
+  @apply flex flex-col gap-0
+}
+
 .locationAddress {
   @apply flex flex-col justify-center w-full h-full desktop:gap-open-2xl tablet:gap-open-2xl gap-open-md desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium font-open-paragraph not-italic
 }
@@ -56,6 +60,10 @@
 
 .locationContact {
   @apply flex flex-col desktop:gap-open-md tablet:gap-open-md gap-0
+}
+
+.locationTel:hover {
+  @apply underline underline-offset-2
 }
 
 .locationLink {
