@@ -11,8 +11,6 @@ function RoleSection({ data, state }) {
     data.filter((list) => (list[0] === state ? setContent(list[1]) : ''));
   });
 
-  useEffect(() => {});
-
   return (
     <ul>
       <li className={styles.sectionWrapper}>
