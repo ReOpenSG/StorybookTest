@@ -207,7 +207,7 @@ function Header() {
         <li className="flex justify-center items-center px-open-md py-open-sm text-open-font-small desktop:text-open-font-medium tablet:text-open-font-medium">
           <div className="flex flex-row gap-open-md">
             <button className={activeLanguage !== 'ENG' ? '-text--openfoundation-secondary' : '-text--openfoundation-tertiary'} type="button" onClick={() => handleLanguageActive('KOR')}>KOR</button>
-            <div className="w-[1px] -bg--openfoundation-secondary" />
+            <div className="w-[1px] -bg--openfoundation-tertiary" />
             <button className={activeLanguage === 'ENG' ? '-text--openfoundation-secondary' : '-text--openfoundation-tertiary'} type="button" onClick={() => handleLanguageActive('ENG')}>ENG</button>
           </div>
         </li>
