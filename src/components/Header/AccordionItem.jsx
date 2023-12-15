@@ -14,7 +14,7 @@ function AccordionItem({ title, children, small }) {
     <li className={small ? styles.accordionItemSmall : styles.accordionItemLarge}>
       <button type="button" onClick={toggle} className="flex flex-row w-full items-center justify-between gap-open-gutter-mobile">
         <div>{title}</div>
-        {isOpen ? <SitemapArrow /> : <SitemapArrow down />}
+        <SitemapArrow down={!isOpen} />
       </button>
       {isOpen && <ul>{children}</ul>}
     </li>
