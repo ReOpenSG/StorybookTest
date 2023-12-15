@@ -5,7 +5,6 @@ import Card from './Common/Card';
 function Vision() {
   return (
     <section className="w-full flex flex-col gap-open-5xl items-center -bg--openfoundation-primary -text--openfoundation-secondary desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile desktop:py-open-7xl tablet:py-open-7xl py-open-margin-desktop">
-      <h3 className="sr-only">비전 소개</h3>
       <Title title="OUR VISION" subtitle="오픈에스지가 추구하는 길" />
       <ul className="flex flex-wrap desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-gutter-mobile max-w-[1320px]">
         <Card
