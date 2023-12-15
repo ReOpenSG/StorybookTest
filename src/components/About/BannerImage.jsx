@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './About.module.css';
 
 function BannerImage() {
   return (
-    <section className="w-full desktop:h-[720px] tablet:h-[480px] h-[320px]">
-      <h3 className="sr-only">소개 이미지</h3>
+    <section className={styles.BannerImage}>
+      <h3 className={styles.title}>소개 이미지</h3>
       <picture>
         <source
           media="(max-width: 1024px)"
@@ -16,7 +17,7 @@ function BannerImage() {
         <img
           src="http://via.placeholder.com/1920x720/FFFFFF/000000"
           alt="About Banner"
-          className="w-full h-full"
+          className={styles.img}
         />
       </picture>
     </section>

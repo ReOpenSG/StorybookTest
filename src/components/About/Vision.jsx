@@ -1,12 +1,13 @@
 import React from 'react';
 import Title from './Common/Title';
 import Card from './Common/Card';
+import styles from './About.module.css';
 
 function Vision() {
   return (
-    <section className="flex flex-col items-center gap-open-5xl -bg--openfoundation-primary -text--openfoundation-secondary desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile desktop:py-open-7xl tablet:py-open-7xl py-open-margin-desktop">
+    <section className={styles.Vision}>
       <Title title="OUR VISION" subtitle="오픈에스지가 추구하는 길" />
-      <ul className="flex flex-wrap desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-gutter-mobile max-w-[1320px]">
+      <ul className={styles.list}>
         <Card
           title="Respect"
           desc="우리는 수평적이고 개방적인 문화를 통해 모든 직원들 의견을 존중, 공유할 수 있는 환경을 조성하며, 협력과 열린 소통을 통해 함께 성장하는 가치를 추구합니다."

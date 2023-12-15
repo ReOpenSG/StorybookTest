@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../About.module.css';
 
 function Palette({ rgb, cmyk, hex, roundedLeft, roundedRight }) {
   return (
     <li
-      className={`flex items-end flex-1 desktop:h-open-8xl tablet:h-open-8xl desktop:px-open-2xl tablet:px-open-2xl px-open-xl py-open-xl bg-[${hex}] 
-        mobile:rounded-l-[20px]
-        ${roundedLeft && 'desktop:rounded-l-[20px] tablet:rounded-l-[20px]'} 
-        ${roundedRight && 'desktop:rounded-r-[20px] tablet:rounded-r-[20px]'}
+      className={`
+        bg-[${hex}] 
+        ${styles.CommonPalette}
+        ${roundedLeft && styles.left}
+        ${roundedRight && styles.right}
       `}
     >
-      <ul className="w-full flex flex-col items-end gap-open-lg">
+      <ul className={styles.innerList}>
         <li>{rgb}</li>
         <li>{cmyk}</li>
         <li>{hex}</li>
