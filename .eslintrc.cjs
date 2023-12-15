@@ -19,11 +19,12 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
     'react/button-has-type': 'off',
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
     'import/noextraneous-dependencies': 'off',
-    'no-nested-ternary' : 'off',
+    'no-nested-ternary': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'import/no-extraneous-dependencies': 'off',
-    'no-confusing-arrow': 'off'
+    'no-confusing-arrow': 'off',
+    'react/forbid-prop-types': 'off',
   },
 };
