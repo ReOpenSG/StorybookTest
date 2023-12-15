@@ -13,11 +13,7 @@ function TeamLnb({ data, state, setState }) {
           id={id}
           value="전체"
           onClick={(e) => setState(e.target.value)}
-          className={
-            state === '전체' || state === ''
-              ? '-bg--open-accent-accent'
-              : '-bg--openfoundation-quaternary'
-          }
+          className={state === '전체' ? styles.isClicked : ''}
         >
           전체
         </button>
@@ -29,9 +25,7 @@ function TeamLnb({ data, state, setState }) {
             id={id}
             value={list[0]}
             onClick={(e) => setState(e.target.value)}
-            className={
-              list[0] === state ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
-            }
+            className={list[0] === state ? styles.isClicked : ''}
           >
             {list[0]}
           </button>

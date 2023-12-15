@@ -15,7 +15,11 @@
   @apply flex gap-open-md tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop mb-open-2xl tablet:mb-open-5xl desktop:mb-open-5xl;
 
   & button {
-    @apply px-open-xl tablet:px-open-2xl py-open-sm rounded-[20px];
+    @apply px-open-xl tablet:px-open-2xl py-open-sm rounded-[20px] -bg--openfoundation-quaternary;
+
+    &.isClicked {
+      @apply -bg--open-accent-accent;
+    }
   }
 }
 
