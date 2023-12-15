@@ -2,31 +2,38 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import { Link } from 'react-router-dom';
 import Image1 from '@/assets/home_industry1.png';
+import Image2 from '@/assets/home_industry2.png';
+import Image3 from '@/assets/home_industry3.png';
+import Image4 from '@/assets/home_industry4.png';
 
 function Industries() {
   const industryData = [
     {
       id: uuid(),
-      img: Image1,
-      title: 'Secondary Battery',
+      img: Image4,
+      enTitle: 'Secondary Battery',
+      krTitle: '2차 전지',
       route: 'battery',
     },
     {
       id: uuid(),
       img: Image1,
-      title: 'Display',
+      enTitle: 'Display',
+      krTitle: '디스플레이',
       route: 'display',
     },
     {
       id: uuid(),
-      img: Image1,
-      title: 'Port',
+      img: Image2,
+      enTitle: 'Port',
+      krTitle: '항만',
       route: 'port',
     },
     {
       id: uuid(),
-      img: Image1,
-      title: 'Semi-conductor',
+      img: Image3,
+      enTitle: 'Semi-conductor',
+      krTitle: '반도체',
       route: 'semiconductor',
     },
   ];
@@ -50,24 +57,23 @@ function Industries() {
         </div>
       </div>
 
-      <div className="w-full flex flex-col justify-center h-[288px] tablet:h-[650px] desktop:h-[650px] bg-black rounded-l-[30px] overflow-hidden">
-        <div className="w-full h-fit flex py-open-xl pl-open-xl gap-open-gutter-desktop tablet:py-open-2xl desktop:py-open-2xl tablet:pl-open-5xl desktop:pl-open-5xl tablet:gap-open-margin-desktop desktop:gap-open-margin-desktop">
+      <div className="w-full flex flex-wrap flex-col justify-center pr-open-gutter-mobile tablet:pr-0 desktop:pr-0 rounded-l-[30px] overflow-hidden">
+        <div className="w-full flex items-center tablet:items-stretch desktop:items-stretch  grow flex-wrap py-open-xl gap-open-gutter-mobile tablet:py-open-2xl desktop:py-open-2xl  tablet:gap-open-margin-mobile desktop:gap-open-margin-mobile">
           {industryData.map((item) => (
-            <Link to={`/industries/${item.route}`}>
-              <div
-                key={item.id}
-                className=" flex w-open-6xl tablet:w-open-8xl desktop:w-open-8xl gap-open-lg tablet:gap-open-lg desktop:gap-open-lg flex-col items-center transform opacity-80 active:opacity-100 transition-all duration-300 hover:opacity-100 hover:skew-y-0 hover:scale-105 hover:z-10"
-              >
-                <img
-                  src={item.img}
-                  alt="industries"
-                  className="w-open-6xl tablet:w-open-8xl  desktop:w-open-8xl"
-                />
-                <p className="font-open-label text-open-font-small tablet:text-open-font-xl desktop:text-open-font-xl -text--openfoundation-white pt-4 tablet:pt-open-xl desktop:pt-open-xl break-words">
-                  {item.title}
+            <div
+              key={item.id}
+              className="w-full max-w-[705px] flex flex-1 flex-col justify-center tablet:justify-normal desktop:justify-normal flex-wrap bg-cover rounded-[20px]  min-w-[343px] tablet:min-w-[315px] desktop:min-w-[315px] h-[180px] tablet:h-[360px] desktop:h-[360px] gap-open-sm opacity-80 active:opacity-100 pointerhover:hover:opacity-100 pointerhover:hover:scale-105 hover:z-10 mouse  -text--openfoundation-tertiary hover:-text--openfoundation-white"
+              style={{ backgroundImage: `url('${item.img}')` }}
+            >
+              <Link to={`/industries/${item.route}`} className="block p-open-2xl h-full">
+                <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large ">
+                  {item.krTitle}
                 </p>
-              </div>
-            </Link>
+                <p className="font-open-heading text-open-font-large tablet:text-open-font-xl desktop:text-open-font-xl">
+                  {item.enTitle}
+                </p>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
