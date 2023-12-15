@@ -15,7 +15,9 @@ function Home() {
       "
       >
         <Slogan />
-        <Universe />
+      </div>
+      <Universe />
+      <div className="w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile -bg--openfoundation-black">
         <Solutions />
         <Products />
       </div>
