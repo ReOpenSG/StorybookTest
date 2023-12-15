@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import PropTypes, { string } from 'prop-types';
+import PropTypes, { array } from 'prop-types';
 import styles from './Team.module.css';
 
-function TeamLnb({ data }) {
+function TeamLnb({ data, state, setState }) {
   const id = useParams();
   return (
     <ul className={styles.lnbUl}>
@@ -11,26 +11,26 @@ function TeamLnb({ data }) {
         <button
           type="button"
           id={id}
-          onClick={() => {
-            window.location.pathname = '/team';
-          }}
+          value="전체"
+          onClick={(e) => setState(e.target.value)}
           className={
-            id.id === undefined ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
+            state === '전체' || state === ''
+              ? '-bg--open-accent-accent'
+              : '-bg--openfoundation-quaternary'
           }
         >
           전체
         </button>
       </li>
       {data.map((list) => (
-        <li>
+        <li key={list[0]}>
           <button
             type="button"
             id={id}
-            onClick={() => {
-              window.location.pathname = `/team/${list[0]}`;
-            }}
+            value={list[0]}
+            onClick={(e) => setState(e.target.value)}
             className={
-              list[0] === id.id ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
+              list[0] === state ? '-bg--open-accent-accent' : '-bg--openfoundation-quaternary'
             }
           >
             {list[0]}
@@ -42,7 +42,9 @@ function TeamLnb({ data }) {
 }
 
 TeamLnb.propTypes = {
-  data: PropTypes.arrayOf(string).isRequired,
+  data: PropTypes.arrayOf(array).isRequired,
+  state: PropTypes.string.isRequired,
+  setState: PropTypes.func.isRequired,
 };
 
 export default TeamLnb;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '@/components/Team/Team.module.css';
 import TeamLnb from '@/components/Team/TeamLnb';
 import { roleData } from '@/data/teamData';
@@ -7,6 +7,7 @@ import RoleSection from '@/components/Team/RoleSection';
 
 function Team() {
   const data = Object.entries(roleData);
+  const [category, setCategory] = useState('');
 
   return (
     <div className={styles.teamWrapper}>
@@ -18,8 +19,8 @@ function Team() {
       /> */}
       <div className={styles.teamContainer}>
         <div className={styles.sectionWrapper}>
-          <TeamLnb data={data} />
-          <RoleSection data={data} />
+          <TeamLnb data={data} state={category} setState={setCategory} />
+          <RoleSection data={data} state={category} />
         </div>
       </div>
     </div>
