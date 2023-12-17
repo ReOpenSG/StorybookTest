@@ -2,10 +2,6 @@
   @apply max-w-[1320px] w-full m-auto;
 }
 
-.wrapper {
-  @apply flex gap-open-xl items-center grow;
-}
-
 .titleWrapper {
   @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center py-[60px] tablet:py-open-6xl desktop:py-open-6xl;
 }
@@ -19,6 +15,10 @@
 
 .titleDesc {
   @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+}
+
+.wrapper {
+  @apply flex gap-open-xl items-center grow;
 }
 
 .label {
@@ -80,9 +80,8 @@
 }
 
 .inquiryInput:checked + .inquiryLabel {
-  @apply -text--openfoundation-secondary -bg--open-blue-900
+  @apply -text--openfoundation-secondary -bg--open-accent-accent;
 }
-
 
 .inquiryWrapper {
   @apply flex flex-row gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl;
@@ -93,5 +92,10 @@
 }
 
 .personalInfoWrapper {
-  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200;
+  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200 bg-red-200 relative;
+}
+
+.message {
+  @apply text-red-500 font-open-paragraph text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium text-right;
+  @apply absolute bottom-open-lg right-0;
 }
