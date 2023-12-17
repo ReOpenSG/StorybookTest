@@ -1,6 +1,25 @@
 import React from 'react';
+import ProductCard from './ProductCard';
 
 function Products() {
+  const productData = [
+    {
+      id: 1,
+      name: 'Open Solutions',
+      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+    },
+    {
+      id: 2,
+      name: 'Open Machines',
+      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+    },
+    {
+      id: 3,
+      name: 'Open Devices',
+      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+    },
+  ];
+
   return (
     <section className="w-full flex flex-col items-center px-open-gutter-mobile py-open-5xl tablet:items-stretch desktop:items-stretch mx-auto gap-open-2xl tablet:gap-open-4xl desktop:gap-open-4xl  -text--openfoundation-white tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
       <h3 className="font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
@@ -27,37 +46,12 @@ function Products() {
         </p>
       </div>
       <div className="flex flex-col gap-open-gutter-mobile tablet:gap-open-2xl desktop:gap-open-2xl">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        {productData.map((product) => (
+          <ProductCard key={product.id} name={product.name} desc={product.desc} />
+        ))}
       </div>
     </section>
   );
 }
 
 export default Products;
-
-function ProductCard() {
-  return (
-    <div className="w-full flex justify-between items-center gap-open-4xl p-open-2xl tablet:p-open-4xl desktop:px-open-5xl desktop:py-open-4xl -bg--open-gray-950 rounded-[30px]">
-      <div className="flex flex-col items-center tablet:items-start desktop:items-start gap-open-xl">
-        <h4 className="flex tablet:flex-col desktop:flex-col gap-open-sm font-open-label text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxxl">
-          <span>Open</span>
-          <span>Solutions</span>
-        </h4>
-        <div className="flex flex-col items-center tablet:items-start desktop:items-start gap-open-lg">
-          <p className="font-open-paragraph text-open-font-medium desktop:text-open-font-large">
-            OpenSG 솔루션에 관한 짧은 소개를 작성하는 란
-          </p>
-          <button
-            type="button"
-            className="font-open-label text-open-font-medium desktop:text-open-font-large"
-          >
-            Learn More &gt;
-          </button>
-        </div>
-      </div>
-      <div className="hidden tablet:w-[300px] desktop:w-[400px] text-center">이미지</div>
-    </div>
-  );
-}
