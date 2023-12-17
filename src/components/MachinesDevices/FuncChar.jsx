@@ -23,11 +23,16 @@ function FuncChar({ descProps, selectedProduct }) {
   );
 }
 
-// FuncChar.propTypes = {
-//   desc: PropTypes.shape({
-//     설명: PropTypes.string.isRequired,
-//     특징: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   }).isRequired,
-// };
+FuncChar.propTypes = {
+  descProps: PropTypes.shape({
+    types: PropTypes.objectOf(
+      PropTypes.shape({
+        char: PropTypes.arrayOf(PropTypes.string),
+        desc: PropTypes.arrayOf(PropTypes.string),
+      }),
+    ),
+    product: PropTypes.string,
+  }).isRequired,
+};
 
 export default FuncChar;
