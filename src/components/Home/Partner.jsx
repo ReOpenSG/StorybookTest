@@ -75,7 +75,7 @@ function Partner() {
     <section className="w-full flex flex-col py-open-3xl tablet:py-open-7xl desktop:py-open-7xl gap-open-2xl tablet:gap-open-5xl desktop:gap-open-5xl">
       <h3 className="sr-only">Partner</h3>
 
-      <div className="w-full flex flex-col gap-open-xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop max-w-[1320px]">
+      <div className="w-full flex flex-col mx-auto gap-open-xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop max-w-[1320px]">
         <p className="flex flex-col desktop:flex-row font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl max-w-[265px] tablet:max-w-full desktop:max-w-full ">
           <span>최고기업들이 선택한&nbsp;</span>
 

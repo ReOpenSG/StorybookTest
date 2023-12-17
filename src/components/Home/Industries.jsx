@@ -38,7 +38,7 @@ function Industries() {
     },
   ];
   return (
-    <section className="w-full flex flex-col px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl py-open-5xl tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
+    <section className="w-full flex flex-col mx-auto px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl py-open-5xl tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
       <div className="flex flex-col gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl">
         <h3 className="-text--openfoundation-black font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
           Industries
