@@ -38,7 +38,7 @@ function Industries() {
     },
   ];
   return (
-    <section className="flex flex-col mx-auto   gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl py-open-5xl tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
+    <section className="w-full flex flex-col px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl py-open-5xl tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
       <div className="flex flex-col gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl">
         <h3 className="-text--openfoundation-black font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
           Industries
@@ -62,7 +62,7 @@ function Industries() {
           {industryData.map((item) => (
             <div
               key={item.id}
-              className="w-full max-w-[705px] flex flex-1 flex-col justify-center tablet:justify-normal desktop:justify-normal flex-wrap bg-cover rounded-[20px]  tablet:max-w-[315px] brightness-50 desktop:max-w-[315px] h-[180px] tablet:h-[360px] desktop:h-[360px] gap-open-sm  active:opacity-100 pointerhover:hover:brightness-100 pointerhover:hover:scale-105 hover:z-10 mouse  -text--openfoundation-tertiary hover:-text--openfoundation-white"
+              className="w-full min-w-[300px] max-w-[705px] flex flex-1 flex-col justify-center tablet:justify-normal desktop:justify-normal flex-wrap bg-cover rounded-[20px] brightness-50 h-[180px] tablet:h-[360px] desktop:h-[360px] gap-open-sm  active:opacity-100 pointerhover:hover:brightness-100 pointerhover:hover:scale-105 hover:z-10 mouse  -text--openfoundation-tertiary hover:-text--openfoundation-white"
               style={{ backgroundImage: `url('${item.img}')` }}
             >
               <Link to={`/industries/${item.route}`} className="block p-open-2xl h-full">
