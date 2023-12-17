@@ -11,6 +11,7 @@ import FoupType from '@/assets/machines_Foup Type.png';
 import L300 from '@/assets/machines_L300.png';
 import L1000 from '@/assets/machines_L1000.png';
 import P200 from '@/assets/machines_P200.png';
+import HoloLens2 from '@/assets/devices_HoloLens 2.png';
 
 function Desc({ descProps, id, currentLocation, selectedProduct, setSelectedProduct }) {
   useEffect(() => {
@@ -32,6 +33,7 @@ function Desc({ descProps, id, currentLocation, selectedProduct, setSelectedProd
     L300,
     L1000,
     P200,
+    'HoloLens 2': HoloLens2,
   };
   const selectedProductImage = imageMap[selectedProduct];
 
@@ -59,11 +61,9 @@ function Desc({ descProps, id, currentLocation, selectedProduct, setSelectedProd
       </ul>
       <div className={styles.descContentsWrapper}>
         <div className={styles.imgWrapper}>
-          <div className={styles.imgWrapper}>
-            {selectedProductImage && (
-              <img src={selectedProductImage} alt="Machines" className={styles.img} />
-            )}
-          </div>
+          {selectedProductImage && (
+            <img src={selectedProductImage} alt="Machines" className={styles.img} />
+          )}
         </div>
         <div className={styles.textWrapper}>
           <ul>
