@@ -168,7 +168,7 @@ function Header() {
                 <li>
                   Smart Device
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft Hololens 2" />
+                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft" />
                   </ul>
                 </li>
                 <div className="w-[1px] -bg--openfoundation-secondary" />
