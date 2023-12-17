@@ -103,13 +103,13 @@ function Keywords() {
             <Link to="/solutions/SCS Simulator">SCS Simulator</Link>
           </li>
           <li>
-            <Link to="/machines/Lift Type">Lift Type</Link>
+            <Link to="/machines/Lift Type">AGV Lift Type</Link>
           </li>
           <li>
-            <Link to="/machines/Lift Type2">Lift Type2</Link>
+            <Link to="/machines/Lift Type2">AGV Lift Type2</Link>
           </li>
           <li>
-            <Link to="/machines/Fork-Lift Type">Fork-Lift Type</Link>
+            <Link to="/machines/Fork-Lift Type">AGV Fork-Lift Type</Link>
           </li>
           <li>
             <Link to="/devices/Microsoft HoloLens 2">HoloLens</Link>
