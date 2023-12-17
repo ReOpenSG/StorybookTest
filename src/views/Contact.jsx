@@ -3,10 +3,10 @@ import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { emailConfig } from '@/data/emailConfig';
 import styles from '@/components/Contact/Contact.module.css';
-import PersonalInfo from '@/components/contact/PersonalInfo';
-import InquiryType from '@/components/contact/InquiryType';
-import Content from '@/components/contact/Content';
-import Agreement from '@/components/contact/Agreement';
+import PersonalInfo from '@/components/Contact/PersonalInfo';
+import InquiryType from '@/components/Contact/InquiryType';
+import Content from '@/components/Contact/Content';
+import Agreement from '@/components/Contact/Agreement';
 import ContactTitleSection from '@/components/Contact/ContactTitleSection';
 import ContactButton from '@/components/Contact/ContactButton';
 
@@ -40,7 +40,11 @@ function Contact() {
   return (
     <div className="w-full px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop">
       <form ref={form} onSubmit={sendEmail} className={styles.formWrapper}>
-        <ContactTitleSection />
+        <ContactTitleSection
+          category="Support"
+          title="고객문의"
+          desc="상세하게 작성해 주시면 더 빠르게 답변드릴 수 있습니다."
+        />
         <InquiryType />
         <PersonalInfo />
         <Content />

@@ -2,12 +2,8 @@
   @apply max-w-[1320px] w-full m-auto;
 }
 
-.wrapper {
-  @apply flex gap-open-xl items-center grow;
-}
-
 .titleWrapper {
-  @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl;
+  @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center py-[60px] tablet:py-open-6xl desktop:py-open-6xl;
 }
 
 .titleCategory {
@@ -19,6 +15,10 @@
 
 .titleDesc {
   @apply -text--openfoundation-primary font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+}
+
+.wrapper {
+  @apply flex gap-open-xl items-center grow;
 }
 
 .label {
@@ -70,9 +70,17 @@
   @apply flex flex-col gap-open-lg tablet:gap-open-xl desktop:gap-open-xl grow py-open-2xl;
 }
 
+.inquiryInput {
+  @apply absolute top-0 left-0;
+}
+
 .inquiryLabel {
-  @apply flex flex-col gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl;
+  @apply flex flex-col flex-1 gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl min-w-[200px];
   @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
+}
+
+.inquiryInput:checked + .inquiryLabel {
+  @apply -text--openfoundation-secondary -bg--open-accent-accent;
 }
 
 .inquiryWrapper {
@@ -84,5 +92,10 @@
 }
 
 .personalInfoWrapper {
-  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200;
+  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200 bg-red-200 relative;
+}
+
+.message {
+  @apply text-red-500 font-open-paragraph text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium text-right;
+  @apply absolute bottom-open-lg right-0;
 }

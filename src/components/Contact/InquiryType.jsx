@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InquiryInput from './InquiryInput';
 import { data } from '@/data/contactData';
 import styles from './Contact.module.css';
 
 function InquiryType() {
+  const [state, setState] = useState(false);
+
+  const handleRadioClick = () => {
+    setState(true);
+  };
   return (
     <fieldset className={styles.inquiryWrapper}>
       <h4 className={styles.label}>문의유형</h4>
@@ -15,8 +20,9 @@ function InquiryType() {
             id={id}
             name="type"
             defaultValue={defaultValue}
-            onClick={() => null}
             labelText={defaultValue}
+            onClick={handleRadioClick}
+            checked={state}
           />
         ))}
       </div>
