@@ -1,6 +1,7 @@
 import tagCanvas from 'tag-canvas';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import BgCircle from '@/assets/home_universeCircle.png';
 
 function Keywords() {
   const [canvasSize, setCanvasSize] = useState({ width: 700, height: 700 });
@@ -46,8 +47,8 @@ function Keywords() {
   }, [canvasSize]);
 
   return (
-    <>
-      <div id="myCanvasContainer" className="rounded-full shadow-2xl">
+    <div style={{ backgroundImage: `url('${BgCircle}')` }} className="border-none bg-cover">
+      <div id="myCanvasContainer" className="">
         <canvas id="myCanvas" width={canvasSize.width} height={canvasSize.height}>
           <p>
             Anything in here will be replaced on browsers that do not support the canvas element
@@ -115,7 +116,7 @@ function Keywords() {
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
