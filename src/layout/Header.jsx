@@ -159,16 +159,16 @@ function Header() {
                 <li>
                   Smart Machine
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <MenuLink linkName="AGV - Lift Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - Conveyor Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - 협동 Robot 탑재 Type" linkAddress="/" />
+                    <MenuLink linkName="AGV - Lift Type1" linkAddress="/machines/Lift Type1" />
+                    <MenuLink linkName="AGV - Lift Type2" linkAddress="/machines/Lift Type2" />
+                    <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/machines/Fork-Lift Type" />
+                    <MenuLink linkName="AGV - Foup Type" linkAddress="/machines/Foup Type" />
                   </ul>
                 </li>
                 <li>
                   Smart Device
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/" />
+                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft Hololens 2" />
                   </ul>
                 </li>
                 <div className="w-[1px] -bg--openfoundation-secondary" />
@@ -177,7 +177,6 @@ function Header() {
                   <ul className="flex flex-col items-center pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
                     <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                     <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
-                    <MenuLink linkName="자동차" linkAddress="/" />
                     <MenuLink linkName="2차전지" linkAddress="/industries/port" />
                     <MenuLink linkName="항만" linkAddress="/industries/semiconductor" />
                   </ul>
