@@ -92,13 +92,14 @@
 }
 
 .personalInfoWrapper {
-  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200 bg-red-200 relative;
+  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200;
 }
 
 .regWrapper {
-  @apply flex flex-col gap-open-sm tablet:gap-open-lg desktop:gap-open-lg grow;
+  @apply relative grow;
 }
 
 .message {
   @apply text-red-500 font-open-paragraph text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium text-right;
+  @apply absolute right-0;
 }
