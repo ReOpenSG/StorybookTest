@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 function Products() {
@@ -6,17 +7,20 @@ function Products() {
     {
       id: 1,
       name: 'Open Solutions',
-      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+      desc: 'OpenSG의 solution을 경험해보세요.',
+      route: '/solutions/ACS',
     },
     {
       id: 2,
       name: 'Open Machines',
-      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+      desc: 'OpenSG의 machine을 경험해보세요.',
+      route: '/machines/Lift Type',
     },
     {
       id: 3,
       name: 'Open Devices',
-      desc: 'OpenSG 솔루션에 관한 짧은 소개를 작성하는 란',
+      desc: 'OpenSG의 device를 경험해보세요.',
+      route: '/devices/Microsoft',
     },
   ];
 
@@ -47,7 +51,9 @@ function Products() {
       </div>
       <div className="flex flex-col gap-open-gutter-mobile tablet:gap-open-2xl desktop:gap-open-2xl">
         {productData.map((product) => (
-          <ProductCard key={product.id} name={product.name} desc={product.desc} />
+          <Link to={`${product.route}`} key={product.id}>
+            <ProductCard key={product.id} name={product.name} desc={product.desc} />
+          </Link>
         ))}
       </div>
     </section>

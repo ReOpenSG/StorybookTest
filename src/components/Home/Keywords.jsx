@@ -112,6 +112,9 @@ function Keywords() {
             <Link to="/machines/Fork-Lift Type">AGV Fork-Lift Type</Link>
           </li>
           <li>
+            <Link to="/machines/Foup Type">AGV Foup Type</Link>
+          </li>
+          <li>
             <Link to="/devices/Microsoft">HoloLens</Link>
           </li>
         </ul>
