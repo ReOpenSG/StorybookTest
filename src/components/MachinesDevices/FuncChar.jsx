@@ -3,13 +3,13 @@ import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import styles from './MachinesDevices.module.css';
 
-function FuncChar({ desc }) {
+function FuncChar({ descProps, selectedProduct }) {
   return (
     <div className={styles.FuncChar}>
       <p className={styles.title}>기능 및 특징</p>
       <ul className={styles.list}>
-        {desc.특징 &&
-          desc.특징.map((item) => (
+        {descProps.types &&
+          descProps.types[selectedProduct]?.char.map((item) => (
             <li key={uuidv4()} className={styles.item}>
               <picture>
                 <source media="(max-width: 1023px)" srcSet="http://via.placeholder.com/60x60" />
@@ -23,11 +23,11 @@ function FuncChar({ desc }) {
   );
 }
 
-FuncChar.propTypes = {
-  desc: PropTypes.shape({
-    설명: PropTypes.string.isRequired,
-    특징: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }).isRequired,
-};
+// FuncChar.propTypes = {
+//   desc: PropTypes.shape({
+//     설명: PropTypes.string.isRequired,
+//     특징: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   }).isRequired,
+// };
 
 export default FuncChar;
