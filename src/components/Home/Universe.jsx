@@ -5,7 +5,7 @@ import BgImg from '@/assets/home_universe.png';
 function Universe() {
   return (
     <section
-      className="flex flex-col justify-center items-center py-open-4xl tablet:py-open-5xl desktop:py-open-5xl gap-open-4xl tablet:gap-open-5xl desktop:gap-open-5xl -bg--openfoundation-black"
+      className="flex flex-col justify-center items-center py-open-4xl tablet:py-open-5xl desktop:py-open-5xl gap-open-4xl tablet:gap-open-5xl desktop:gap-open-5xl -bg--openfoundation-black bg-cover"
       style={{ backgroundImage: `url('${BgImg}')` }}
     >
       <div className="flex flex-col items-center -text--openfoundation-white gap-open-lg tablet:gap-open-xl desktop:gap-open-xl">
