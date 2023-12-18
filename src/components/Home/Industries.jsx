@@ -45,7 +45,7 @@ function Industries() {
         </h3>
         <div className="flex flex-col  gap-open-lg">
           <p
-            className="tablet:max-w-full desktop:max-w-full flex font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl  desktop:text-open-font-xxxxl
+            className="tablet:max-w-full desktop:max-w-full flex flex-col tablet:flex-row desktop:flex-row font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl  desktop:text-open-font-xxxxl
           "
           >
             다양한 산업군에서 빛나는&nbsp;
