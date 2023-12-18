@@ -28,6 +28,8 @@ export const theme = {
       '--open-gray-900': '#3b3b3e',
       '--open-gray-950': '#161617',
       '--open-accent-accent': '#0071E3',
+      '--open-accent-accent-1': '#3fa9f5',
+      '--open-accent-accent-2': '#0b6399',
       '--open-accent-linear':
         'linear-gradient( 90deg, rgba(63, 169, 245, 1) 0%, rgba(11, 99, 153, 1) 100% )',
     },
@@ -35,7 +37,7 @@ export const theme = {
       'open-font': ['Pretendard', 'sans-serif'],
     },
     fontSize: {
-      'open-font-small': ['12.003000259399414px', '140%'],
+      'open-font-small': ['14px', '140%'],
       'open-font-medium': ['16px', '140%'],
       'open-font-large': ['18px', '140%'],
       'open-font-xl': ['21px', '140%'],
@@ -51,9 +53,6 @@ export const theme = {
       'open-paragraph': ['400'],
     },
     screens: {
-      pointerhover: {
-        raw: '(hover: hover) and (pointer: fine)',
-      },
       mobile: {
         min: '375px',
         max: '1023px',

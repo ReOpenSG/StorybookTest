@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import BgCircle from '@/assets/home_universeCircle.png';
 
 function Keywords() {
-  const [canvasSize, setCanvasSize] = useState({ width: 700, height: 700 });
+  const [canvasSize, setCanvasSize] = useState({ width: 550, height: 550 });
   const [textHeight, setTextHeight] = useState(21);
   useEffect(() => {
     // Set canvas size based on viewport width
@@ -13,7 +13,7 @@ function Keywords() {
         setCanvasSize({ width: 330, height: 330 });
         setTextHeight(15);
       } else {
-        setCanvasSize({ width: 700, height: 700 });
+        setCanvasSize({ width: 550, height: 550 });
         setTextHeight(21);
       }
     };

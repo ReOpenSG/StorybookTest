@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
 import styles from './Industries.module.css';
+import imageArray from './importImage.js';
 
 function Product({ industryProducts, refs }) {
   return (
@@ -13,7 +14,7 @@ function Product({ industryProducts, refs }) {
           <Link key={uuidv4()} to={`/solutions/${item[0]}`} className={styles.ProductLink}>
             <div className={styles.linkWrapper}>
               <div className={styles.image}>
-                <img src="http://via.placeholder.com/200x250" alt="제픔 사진" />
+                <img src={imageArray[item[0]]} alt="제픔 사진" />
               </div>
               <dl className={styles.list}>
                 <dt className={styles.itemName}>{item[0]}</dt>
