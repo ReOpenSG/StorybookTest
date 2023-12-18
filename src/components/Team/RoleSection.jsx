@@ -16,7 +16,13 @@ function RoleSection({ data, state }) {
       <li className={styles.sectionWrapper}>
         {state === '전체' && <RoleAllSection />}
         {content?.map((item) => (
-          <RoleCard title={item.team} text={item.desc} key={item.team} />
+          <RoleCard
+            src={item.img}
+            alt={item.team}
+            title={item.team}
+            text={item.desc}
+            key={item.team}
+          />
         ))}
       </li>
     </ul>
