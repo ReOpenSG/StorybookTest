@@ -47,7 +47,7 @@
 }
 
 .locationAddress {
-  @apply flex flex-col justify-center w-full h-full desktop:gap-open-2xl tablet:gap-open-2xl gap-open-md desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium font-open-paragraph not-italic
+  @apply flex flex-col justify-center w-full h-full desktop:gap-open-2xl tablet:gap-open-2xl gap-open-md desktop:text-open-font-large tablet:text-open-font-large text-open-font-small font-open-paragraph not-italic
 }
 
 .locationInfoContainer{

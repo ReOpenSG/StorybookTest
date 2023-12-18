@@ -2,7 +2,7 @@
   @apply bg-[url('@/assets/footer_background.svg')] bg-cover;
 
   .link {
-    @apply block py-[60px] tablet:py-open-6xl desktop:py-open-6xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
+    @apply block py-open-3xl tablet:py-open-6xl desktop:py-open-6xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
   }
 
   .container {
@@ -18,11 +18,11 @@
   }
 
   .title {
-    @apply -text--openfoundation-secondary font-open-heading text-open-font-xxxl tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
+    @apply -text--openfoundation-secondary font-open-label text-open-font-xxl tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
   }
 
   .text {
-    @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+    @apply -text--openfoundation-secondary font-open-paragraph text-open-font-small tablet:text-open-font-xl desktop:text-open-font-xl;
   }
 }
 
@@ -30,11 +30,11 @@
   @apply -bg--openfoundation-primary flex flex-wrap gap-open-lg justify-between items-end py-open-lg tablet:py-open-xl desktop:py-open-xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-4xl;
 
   .text {
-    @apply -text--openfoundation-secondary text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium not-italic;
+    @apply -text--openfoundation-tertiary text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium not-italic;
   }
 
   .info {
-    @apply font-open-label flex flex-col gap-open-sm;
+    @apply font-open-paragraph flex flex-col gap-open-sm;
   }
 
   .copyright {
