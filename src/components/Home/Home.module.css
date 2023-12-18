@@ -192,7 +192,7 @@
     }
 
     & .industriesContainer {
-      @apply w-full flex flex-wrap flex-col justify-center rounded-l-[30px] overflow-hidden;
+      @apply w-full flex flex-wrap flex-col justify-center rounded-l-[30px] overflow-visible;
 
       & .cardWrapper {
         @apply w-full flex justify-center items-center  grow flex-wrap py-open-xl gap-open-gutter-mobile;
