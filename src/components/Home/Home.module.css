@@ -127,11 +127,11 @@
     }
 
     & .cardContainer {
-      @apply flex flex-col gap-open-gutter-mobile;
+      @apply w-full flex flex-col gap-open-gutter-mobile;
       @apply tablet:gap-open-2xl desktop:gap-open-2xl;
 
       & .cardWrapper {
-        @apply w-full flex justify-between items-center gap-open-4xl p-open-2xl  -bg--open-gray-950 rounded-[30px] border-2  border-transparent;
+        @apply w-full flex flex-1 justify-between items-center gap-open-4xl p-open-2xl tablet:h-[400px] desktop:h-[400px] -bg--open-gray-950 rounded-[30px] border-2  border-transparent;
         @apply tablet:p-open-4xl desktop:px-open-5xl desktop:py-open-4xl pointerhover:hover:-border--open-accent-accent;
 
         & .summaryWrapper {
