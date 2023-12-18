@@ -85,7 +85,7 @@ function Header() {
   return (
     <header
       role="banner"
-      className="fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -bg--openfoundation-primary -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[40px] tablet:h-[80px] desktop:h-[80px] z-20"
+      className="fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -bg--openfoundation-primary -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[50px] tablet:h-[80px] desktop:h-[80px] z-20"
     >
       {activeMenu === 'Sitemap' && (
       <div className="block w-[100vw] h-[100vh] absolute top-[80px] left-0 backdrop-blur-sm">
@@ -98,7 +98,7 @@ function Header() {
       <nav className="flex">
         <ul className="flex justify-center items-center gap-open-gutter-mobile desktop:gap-open-gutter-desktop">
           <li>
-            <Link className="px-open-md py-open-sm" to="/"><img className="w-[50px] tablet:w-[100px] desktop:w-[100px]" src={opensgLogo} alt="오픈에스지" /></Link>
+            <Link className="px-open-md py-open-sm" to="/"><img className="w-[60px] tablet:w-[100px] desktop:w-[100px]" src={opensgLogo} alt="오픈에스지" /></Link>
           </li>
           {activeMenu !== 'Sitemap' && (
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
@@ -151,7 +151,7 @@ function Header() {
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Comm Driver
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <MenuLink linkName="Open HSMS" linkAddress="solutions/Open HSMS" />
+                        <MenuLink linkName="Open HSMS" linkAddress="solutions/HSMS" />
                       </ul>
                     </li>
                   </ul>
@@ -159,16 +159,16 @@ function Header() {
                 <li>
                   Smart Machine
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <MenuLink linkName="AGV - Lift Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - Conveyor Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/" />
-                    <MenuLink linkName="AGV - 협동 Robot 탑재 Type" linkAddress="/" />
+                    <MenuLink linkName="AGV - Lift Type1" linkAddress="/machines/Lift Type1" />
+                    <MenuLink linkName="AGV - Lift Type2" linkAddress="/machines/Lift Type2" />
+                    <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/machines/Fork-Lift Type" />
+                    <MenuLink linkName="AGV - Foup Type" linkAddress="/machines/Foup Type" />
                   </ul>
                 </li>
                 <li>
                   Smart Device
                   <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/" />
+                    <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft" />
                   </ul>
                 </li>
                 <div className="w-[1px] -bg--openfoundation-secondary" />
@@ -177,9 +177,8 @@ function Header() {
                   <ul className="flex flex-col items-center pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
                     <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                     <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
-                    <MenuLink linkName="자동차" linkAddress="/" />
-                    <MenuLink linkName="2차전지" linkAddress="/industries/port" />
-                    <MenuLink linkName="항만" linkAddress="/industries/semiconductor" />
+                    <MenuLink linkName="2차전지" linkAddress="/industries/battery" />
+                    <MenuLink linkName="항만" linkAddress="/industries/port" />
                   </ul>
                 </li>
               </ul>
@@ -214,12 +213,12 @@ function Header() {
         <li className="flex justify-center items-center">
           {activeMenu === 'Sitemap' ? (
             <>
-              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src={closeIcon} alt="사이트맵 닫기" /></button>
+              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[16px] tablet:w-[28px] desktop:w-[28px]" src={closeIcon} alt="사이트맵 닫기" /></button>
               <Sitemap sitemapRef={menuRef} />
               <SitemapMobile sitemapRef={menuRef} />
             </>
           ) : (
-            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[14px] tablet:w-[28px] desktop:w-[28px]" src={hamburgerIcon} alt="사이트맵" /></button>
+            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[16px] tablet:w-[28px] desktop:w-[28px]" src={hamburgerIcon} alt="사이트맵" /></button>
           )}
         </li>
       </ul>
