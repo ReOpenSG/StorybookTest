@@ -11,7 +11,7 @@
 }
 
 .BannerImage {
-  @apply w-full h-[320px];
+  @apply h-[320px];
   @apply desktop:h-[720px];
   @apply tablet:h-[480px];
 
@@ -20,7 +20,7 @@
   }
 
   & .img {
-    @apply w-full h-full;
+    @apply w-full h-full object-cover bg-black;
   }
 }
 
