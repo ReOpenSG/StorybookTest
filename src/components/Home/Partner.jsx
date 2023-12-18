@@ -72,21 +72,16 @@ function Partner() {
   ];
 
   return (
-    <section className="w-full flex flex-col py-open-3xl tablet:py-open-7xl desktop:py-open-7xl gap-open-2xl tablet:gap-open-5xl desktop:gap-open-5xl">
+    <section className={styles.partner}>
       <h3 className="sr-only">Partner</h3>
 
-      <div className="w-full flex flex-col mx-auto gap-open-xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop max-w-[1320px]">
-        <p className="flex flex-col desktop:flex-row font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl tablet:max-w-full desktop:max-w-full ">
+      <div className={styles.titleWrapper}>
+        <p className={styles.mainKeyword}>
           <span>최고기업들이 선택한&nbsp;</span>
-          <span
-            className="bg-clip-text
-        text-transparent bg-gradient-to-r -from--open-accent-accent-1 -to--open-accent-accent-2"
-          >
-            OpenSG
-          </span>
+          <span className={styles.gradient}>OpenSG</span>
         </p>
 
-        <small className="flex flex-col font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl">
+        <small className={styles.subKeyword}>
           <span>최정상 기업들과 함께한 경험으로,</span>
 
           <span>고객사가 찾는 최적의 솔루션을 제공합니다</span>

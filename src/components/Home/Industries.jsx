@@ -5,6 +5,7 @@ import Image1 from '@/assets/home_industry1.png';
 import Image2 from '@/assets/home_industry2.png';
 import Image3 from '@/assets/home_industry3.png';
 import Image4 from '@/assets/home_industry4.png';
+import styles from './Home.module.css';
 
 function Industries() {
   const industryData = [
@@ -38,45 +39,29 @@ function Industries() {
     },
   ];
   return (
-    <section className="w-full flex flex-col mx-auto px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl py-open-5xl tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
-      <div className="flex flex-col gap-open-3xl tablet:gap-open-5xl desktop:gap-open-5xl">
-        <h3 className="-text--openfoundation-black font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
-          Industries
-        </h3>
+    <section className={styles.industry}>
+      <div className={styles.titleWrapper}>
+        <h3 className={styles.title}>Industries</h3>
         <div className="flex flex-col  gap-open-lg">
-          <p
-            className="tablet:max-w-full desktop:max-w-full flex font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl  desktop:text-open-font-xxxxl
-          "
-          >
+          <p className={styles.mainKeyword}>
             다양한 산업군에서 빛나는&nbsp;
-            <span
-              className="bg-clip-text
-        text-transparent bg-gradient-to-r -from--open-accent-accent-1 -to--open-accent-accent-2"
-            >
-              OpenSG
-            </span>
+            <span className={styles.gradient}>OpenSG</span>
           </p>
-          <small className="font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl">
-            OpenSG 제품의 무한한 가능성을 경험하세요.
-          </small>
+          <small className={styles.subKeyword}>OpenSG 제품의 무한한 가능성을 경험하세요.</small>
         </div>
       </div>
 
-      <div className="w-full flex flex-wrap flex-col justify-center rounded-l-[30px] overflow-hidden">
-        <div className="w-full flex justify-center items-center tablet:items-stretch desktop:items-stretch  grow flex-wrap py-open-xl gap-open-gutter-mobile tablet:py-open-2xl desktop:py-open-2xl  tablet:gap-open-margin-mobile desktop:gap-open-margin-mobile">
+      <div className={styles.industriesContainer}>
+        <div className={styles.cardWrapper}>
           {industryData.map((item) => (
             <div
               key={item.id}
-              className="w-full min-w-[280px] max-w-[705px] flex flex-1 flex-col justify-center tablet:justify-normal desktop:justify-normal flex-wrap bg-cover rounded-[20px] brightness-50 h-[180px] tablet:h-[360px] desktop:h-[360px] gap-open-sm  active:opacity-100 pointerhover:hover:brightness-100 pointerhover:hover:scale-105 hover:z-10 mouse  -text--openfoundation-tertiary hover:-text--openfoundation-white"
+              className={styles.card}
               style={{ backgroundImage: `url('${item.img}')` }}
             >
               <Link to={`/industries/${item.route}`} className="block p-open-2xl h-full">
-                <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large ">
-                  {item.krTitle}
-                </p>
-                <p className="font-open-heading text-open-font-large tablet:text-open-font-xl desktop:text-open-font-xl">
-                  {item.enTitle}
-                </p>
+                <p className={styles.krTitle}>{item.krTitle}</p>
+                <p className={styles.enTitle}>{item.enTitle}</p>
               </Link>
             </div>
           ))}
