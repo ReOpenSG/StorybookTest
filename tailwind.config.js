@@ -54,7 +54,7 @@ export const theme = {
     },
     screens: {
       pointerhover: {
-        raw: '(hover: hover) and (pointer: fine)',
+        raw: '(hover: hover) and (pointer: fine) ',
       },
       mobile: {
         min: '375px',
