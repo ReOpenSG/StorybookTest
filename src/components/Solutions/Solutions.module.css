@@ -63,8 +63,8 @@
     & .list {
       @apply flex flex-col gap-open-margin-mobile font-open-label text-open-font-large -text--open-gray-300;
 
-      & .item {
-        @apply -text--openfoundation-primary;
+      & .item a {
+        @apply -text--openfoundation-secondary -bg--open-accent-accent rounded-[20px];
       }
       & .link {
         @apply px-open-md py-open-sm;
