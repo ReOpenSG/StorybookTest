@@ -40,7 +40,7 @@ function Admin() {
 
   return (
     <div className={styles.container}>
-      <BannerSection category="Admin" part="관리자 페이지" />
+      <BannerSection category="Admin" title="관리자 페이지" />
       <section className={styles.section}>
         {!isLoggedIn ? (
           <form onSubmit={handleSubmit} className={styles.form}>

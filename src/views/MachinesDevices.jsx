@@ -5,6 +5,7 @@ import machinesData from '@/data/machinesData';
 import devicesData from '@/data/devicesData';
 import Desc from '@/components/MachinesDevices/Desc';
 import FuncChar from '@/components/MachinesDevices/FuncChar';
+import TitleSection from '@/components/Common/TitleSection';
 
 function MachinesDevices() {
   const [data, setData] = useState({});
@@ -37,29 +38,47 @@ function MachinesDevices() {
   }, [data, id]);
 
   return (
-    <section className="w-full flex flex-col items-center">
-      <section className="desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile flex flex-col items-center w-full">
-        <CradsWrapper data={data} currentLocation={currentLocation} />
+    <div className="w-full">
+      {location.pathname.includes('machines') ? (
+        <TitleSection
+          category="Open Smart Machine"
+          title="자동화의 시작과 끝,"
+          subTitle="Smart Machine"
+          background="bg-[url('@/assets/products_background.svg')]"
+          textAlign="text-left"
+        />
+      ) : (
+        <TitleSection
+          category="Open Device"
+          title="미래를 여는 오픈 디바이스"
+          background="bg-[url('@/assets/products_background.svg')]"
+          textAlign="text-left"
+        />
+      )}
+      <section className="w-full flex flex-col items-center">
+        <section className="desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile flex flex-col items-center w-full">
+          <CradsWrapper data={data} currentLocation={currentLocation} />
+        </section>
+        <section className="w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
+          <div className="w-full flex flex-col items-center">
+            <h2 className="sr-only">제품 소개</h2>
+            <Desc
+              descProps={desc}
+              id={id}
+              currentLocation={currentLocation}
+              selectedProduct={selectedProduct}
+              setSelectedProduct={setSelectedProduct}
+            />
+          </div>
+        </section>
+        <section className="-bg--open-gray-50 w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile ">
+          <div className="w-full flex flex-col items-center">
+            <h2 className="sr-only">기능 및 특징</h2>
+            <FuncChar descProps={desc} id={id} selectedProduct={selectedProduct} />
+          </div>
+        </section>
       </section>
-      <section className="w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
-        <div className="w-full flex flex-col items-center">
-          <h2 className="sr-only">제품 소개</h2>
-          <Desc
-            descProps={desc}
-            id={id}
-            currentLocation={currentLocation}
-            selectedProduct={selectedProduct}
-            setSelectedProduct={setSelectedProduct}
-          />
-        </div>
-      </section>
-      <section className="-bg--open-gray-50 w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile ">
-        <div className="w-full flex flex-col items-center">
-          <h2 className="sr-only">기능 및 특징</h2>
-          <FuncChar descProps={desc} id={id} selectedProduct={selectedProduct} />
-        </div>
-      </section>
-    </section>
+    </div>
   );
 }
 
