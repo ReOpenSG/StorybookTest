@@ -28,6 +28,8 @@ export const theme = {
       '--open-gray-900': '#3b3b3e',
       '--open-gray-950': '#161617',
       '--open-accent-accent': '#0071E3',
+      '--open-accent-accent-1': '#3fa9f5',
+      '--open-accent-accent-2': '#0b6399',
       '--open-accent-linear':
         'linear-gradient( 90deg, rgba(63, 169, 245, 1) 0%, rgba(11, 99, 153, 1) 100% )',
     },
