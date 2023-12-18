@@ -22,7 +22,7 @@
 }
 
 .label {
-  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-5xl tablet:w-open-6xl desktop:w-open-6xl;
+  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-6xl;
 }
 
 .input,
@@ -75,7 +75,7 @@
 }
 
 .inquiryLabel {
-  @apply flex flex-col flex-1 gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl min-w-[200px];
+  @apply flex flex-col flex-1 gap-open-lg items-center -bg--open-gray-50 rounded-[20px] px-open-xl py-open-xl min-w-[100px];
   @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
 }
 
