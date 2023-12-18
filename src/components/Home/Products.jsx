@@ -10,21 +10,21 @@ function Products() {
   const productData = [
     {
       id: 1,
-      name: 'Open Solutions',
+      name: 'Solutions',
       desc: 'OpenSG의 solution을 경험해보세요.',
       route: '/solutions/ACS',
       imgUrl: Product1,
     },
     {
       id: 2,
-      name: 'Open Machines',
+      name: 'Smart Machine',
       desc: 'OpenSG의 machine을 경험해보세요.',
       route: '/machines/Lift Type',
       imgUrl: Product2,
     },
     {
       id: 3,
-      name: 'Open Devices',
+      name: 'Smart Device',
       desc: 'OpenSG의 device를 경험해보세요.',
       route: '/devices/Microsoft',
       imgUrl: Product3,
