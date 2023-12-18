@@ -12,10 +12,10 @@
 
 .lnbUl {
   @apply text-center -text--openfoundation-secondary font-open-paragraph text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
-  @apply flex gap-open-md tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop mb-open-2xl tablet:mb-open-5xl desktop:mb-open-5xl;
+  @apply flex gap-open-md tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop mb-open-margin-mobile tablet:mb-open-xl desktop:mb-open-xl;
 
   & button {
-    @apply px-open-xl tablet:px-open-2xl py-open-sm rounded-[20px] -bg--openfoundation-quaternary;
+    @apply px-open-xl tablet:px-open-2xl desktop:px-open-2xl py-open-sm rounded-[20px] -bg--openfoundation-quaternary;
 
     &.isClicked {
       @apply -bg--open-accent-accent;
@@ -46,6 +46,6 @@
   }
 }
 
-.sectionWrapper {
+.roleSectionWrapper {
   @apply mobile:w-full flex mobile:flex-col tablet:flex-wrap desktop:flex-wrap tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop;
 }
