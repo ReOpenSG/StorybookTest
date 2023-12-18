@@ -85,7 +85,7 @@
       @apply flex flex-col gap-open-gutter-mobile -text--open-gray-300 font-open-label text-open-font-large;
 
       & .item a {
-        @apply -text--openfoundation-secondary -bg--open-accent-accent rounded-[20px] px-open-md;
+        @apply -text--openfoundation-secondary -bg--open-accent-accent px-open-md;
       }
       & .link {
         @apply px-open-sm py-open-md;
