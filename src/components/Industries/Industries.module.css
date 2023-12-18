@@ -23,14 +23,14 @@
       @apply flex desktop:gap-desktop-gap tablet:gap-desktop-gap gap-mobile-gap hover:underline;
 
       & .linkWrapper {
-        @apply flex desktop:gap-desktop-gap tablet:gap-desktop-gap gap-mobile-gap;
+        @apply flex desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-gutter-mobile;
 
         & .image {
           @apply desktop:w-open-7xl tablet:w-open-7xl w-open-5xl;
         }
 
         & .list {
-          @apply flex-1 desktop:px-open-xl tablet:px-open-xl desktop:py-open-xl tablet:py-open-xl py-open-lg px-open-lg flex flex-col gap-open-xl;
+          @apply flex-1 desktop:pb-open-xl tablet:pb-open-xl pb-open-lg flex flex-col gap-open-xl;
 
           & .itemName {
             @apply mb-[-20px] font-open-heading desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-large;
