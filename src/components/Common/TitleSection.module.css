@@ -1,5 +1,5 @@
 .titleWrapper {
-  @apply bg-cover py-[60px] tablet:py-open-6xl desktop:py-open-6xl;
+  @apply bg-cover py-open-4xl tablet:py-open-7xl desktop:py-open-7xl;
 }
 
 .titleContainer {

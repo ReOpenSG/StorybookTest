@@ -35,7 +35,7 @@
 }
 
 .cardTitle {
-  @apply -text--openfoundation-primary font-open-label text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl;
+  @apply -text--openfoundation-primary font-open-label text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl;
 }
 
 .cardCategoryText {

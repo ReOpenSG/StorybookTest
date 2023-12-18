@@ -22,7 +22,7 @@
 }
 
 .label {
-  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-5xl tablet:w-open-6xl desktop:w-open-6xl;
+  @apply -text--openfoundation-primary font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large w-open-6xl;
 }
 
 .input,
@@ -75,7 +75,7 @@
 }
 
 .inquiryLabel {
-  @apply flex flex-col flex-1 gap-open-xl items-center -bg--open-gray-50 rounded-[20px] px-open-2xl py-open-xl min-w-[200px];
+  @apply flex flex-col flex-1 gap-open-lg items-center -bg--open-gray-50 rounded-[20px] px-open-xl py-open-xl min-w-[100px];
   @apply font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large;
 }
 
@@ -92,10 +92,14 @@
 }
 
 .personalInfoWrapper {
-  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200 bg-red-200 relative;
+  @apply flex flex-row flex-wrap grow gap-open-xl py-open-2xl border-b -border--open-gray-200;
+}
+
+.regWrapper {
+  @apply relative grow;
 }
 
 .message {
   @apply text-red-500 font-open-paragraph text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium text-right;
-  @apply absolute bottom-open-lg right-0;
+  @apply absolute right-0;
 }
