@@ -77,7 +77,7 @@ function Solutions() {
                 type="button"
                 onClick={() => handleItemClick(item.id)}
                 className={`${styles.button} ${
-                  selectedItem === item.id ? '-bg--open-accent-accent-2' : ''
+                  selectedItem === item.id ? '-bg--open-accent-accent' : ''
                 }`}
               >
                 {item.name}
