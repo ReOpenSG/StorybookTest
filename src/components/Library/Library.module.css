@@ -1,5 +1,5 @@
 .titleWrapper {
-  @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center my-[60px] tablet:my-open-6xl desktop:my-open-6xl;
+  @apply flex flex-col gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl text-center py-[60px] tablet:py-open-6xl desktop:py-open-6xl;
 }
 
 .titleCategory {
@@ -11,7 +11,7 @@
 }
 
 .sectionWrapper {
-  @apply flex flex-wrap justify-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow;
+  @apply flex flex-wrap justify-center gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop grow py-open-xl tablet:py-open-5xl desktop:py-open-5xl;
 }
 
 .downloadWrapper {
@@ -23,11 +23,11 @@
 }
 
 .cardWrapper {
-  @apply border -border--open-gray-300 rounded-[20px] px-open-2xl py-open-2xl tablet:py-open-4xl desktop:py-open-4xl tablet:grow desktop:grow max-w-[400px];
+  @apply border -border--open-gray-300 rounded-[20px] px-open-2xl py-open-2xl tablet:py-open-4xl desktop:py-open-4xl flex-1;
 }
 
 .cardContainer {
-  @apply flex flex-col gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop min-w-[240px];
+  @apply flex flex-col gap-open-gutter-mobile tablet:gap-open-gutter-desktop desktop:gap-open-gutter-desktop min-w-[248px];
 }
 
 .cardInner {
