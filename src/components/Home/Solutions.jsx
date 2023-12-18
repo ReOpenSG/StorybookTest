@@ -6,6 +6,7 @@ import Solution3 from '@/assets/home_solutions3.png';
 import Solution4 from '@/assets/home_solutions4.png';
 import Solution5 from '@/assets/home_solutions5.png';
 import Solution6 from '@/assets/home_solutions6.png';
+import styles from './Home.module.css';
 
 function Solutions() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -52,18 +53,16 @@ function Solutions() {
     setSelectedItem(index);
   };
   return (
-    <section className="hidden mx-auto flex-col items-center tablet:flex desktop:flex gap-open-5xl pt-open-6xl tablet:pt-open-7xl desktop:pt-open-7xl -text--openfoundation-white max-w-[1320px]">
+    <section className={styles.solutions}>
       <div className="w-full flex justify-between">
-        <h3 className="font-open-heading text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
-          Open Solutions
-        </h3>
-        <ul className="flex justify-center items-center gap-open-lg font-open-highlight text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium">
+        <h3 className={styles.title}>Open Solutions</h3>
+        <ul className={styles.ul}>
           {solutionData.map((item) => (
             <li key={item.id}>
               <button
                 type="button"
                 onClick={() => handleItemClick(item.id)}
-                className={`px-open-gutter-mobile py-open-sm rounded-3xl ${
+                className={`${styles.button} ${
                   selectedItem === item.id ? '-bg--open-accent-accent-2' : ''
                 }`}
               >
@@ -73,41 +72,27 @@ function Solutions() {
           ))}
         </ul>
       </div>
-      <div className="w-full flex justify-between gap-open-4xl min-h-[500px]">
-        <div className="w-[240px] flex flex-col items-start gap-open-3xl">
+      <div className={styles.listWrapper}>
+        <div className={styles.description}>
           {selectedItem ? (
             <>
-              <h4 className="font-open-heading  text-open-font-xl tablet:text-open-font-xxxl desktop:text-open-font-xxxl">
-                {solutionData[selectedItem - 1].name}
-              </h4>
-              <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large">
-                {solutionData[selectedItem - 1].desc}
-              </p>
-              <button
-                type="button"
-                className="font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large"
-              >
+              <h4 className={styles.title}>{solutionData[selectedItem - 1].name}</h4>
+              <p className={styles.summary}>{solutionData[selectedItem - 1].desc}</p>
+              <button type="button" className={styles.more}>
                 Learn More &gt;
               </button>
             </>
           ) : (
             <>
-              <h4 className="font-open-heading text-open-font-xl tablet:text-open-font-xxxl desktop:text-open-font-xxxl">
-                Solution 제목
-              </h4>
-              <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large">
-                솔루션에 대한 요약 설명입니다.
-              </p>
+              <h4 className={styles.title}>Solution 제목</h4>
+              <p className={styles.summary}>솔루션에 대한 요약 설명입니다.</p>
             </>
           )}
         </div>
-        <div
-          className="flex flx-1 justify-center items-center w-full bg-cover border-none"
-          style={{
-            backgroundImage: selectedItem
-              ? `url('${solutionData[selectedItem - 1].img}')`
-              : `url('${Solution0}')`,
-          }}
+        <img
+          alt={selectedItem && selectedItem.name}
+          src={selectedItem ? `${solutionData[selectedItem - 1].img}` : `${Solution0}`}
+          className={styles.image}
         />
       </div>
     </section>

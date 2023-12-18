@@ -4,6 +4,7 @@ import ProductCard from './ProductCard';
 import Product1 from '@/assets/home_products1.png';
 import Product2 from '@/assets/home_products2.png';
 import Product3 from '@/assets/home_products3.png';
+import styles from './Home.module.css';
 
 function Products() {
   const productData = [
@@ -31,20 +32,14 @@ function Products() {
   ];
 
   return (
-    <section className="w-full flex flex-col items-center px-open-gutter-mobile py-open-5xl tablet:items-stretch desktop:items-stretch mx-auto gap-open-2xl tablet:gap-open-4xl desktop:gap-open-4xl  -text--openfoundation-white tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
-      <h3 className="font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
-        Our Products
-      </h3>
-      <div className="w-full flex justify-center tablet:justify-between desktop:justify-between max-w-[1320px]">
-        <div
-          className="text-center tablet:text-left desktop:text-left font-open-heading text-open-font-xxxl inline-block
-          bg-clip-text
-        text-transparent bg-gradient-to-r -from--open-accent-accent-1 -to--open-accent-accent-2"
-        >
+    <section className={styles.products}>
+      <h3 className={styles.title}>Our Products</h3>
+      <div className={styles.summaryWrapper}>
+        <div className={styles.main}>
           <p>스마트 자동화의</p>
           <p>모든 것.</p>
         </div>
-        <p className="hidden tablet:flex desktop:flex flex-col font-open-label text-end text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl">
+        <p className={styles.sub}>
           <span className="flex flex-col -text--open-gray-400">
             <span>기획부터 시뮬레이션까지 </span>
             <span>솔루션부터 디바이스까지</span>
@@ -55,7 +50,7 @@ function Products() {
           </span>
         </p>
       </div>
-      <div className="flex flex-col gap-open-gutter-mobile tablet:gap-open-2xl desktop:gap-open-2xl">
+      <div className={styles.cardContainer}>
         {productData.map((product) => (
           <Link to={`${product.route}`} key={product.id}>
             <ProductCard
