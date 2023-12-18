@@ -143,12 +143,14 @@
             @apply tablet:flex-col desktop:flex-col tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl;
           }
           & .subWrapper {
-            @apply flex flex-col items-center  gap-open-lg;
+            @apply flex flex-col items-center gap-open-lg;
             @apply tablet:items-start desktop:items-start;
-            & .sub {
+            
+            & .subKeyword {
               @apply font-open-paragraph text-open-font-medium;
               @apply tablet:text-open-font-large desktop:text-open-font-large;
             }
+
             & .button {
               @apply font-open-label text-open-font-small;
               @apply tablet:text-open-font-medium desktop:text-open-font-medium;

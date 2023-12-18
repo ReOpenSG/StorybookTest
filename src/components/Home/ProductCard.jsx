@@ -10,7 +10,7 @@ function ProductCard({ name, desc, imgUrl }) {
           <span>{name}</span>
         </h4>
         <div className={styles.subWrapper}>
-          <p className={styles.sub}>{desc}</p>
+          <p className={styles.subKeyword}>{desc}</p>
           <button type="button" className={styles.button}>
             Learn More &gt;
           </button>
