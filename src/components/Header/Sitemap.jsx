@@ -49,7 +49,7 @@ function Sitemap({ sitemapRef }) {
                   <li className="text-[#3FA9F5] text-open-font-medium ">
                     Comm Driver
                     <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                      <MenuLink linkName="Open HSMS" linkAddress="solutions/Open HSMS" />
+                      <MenuLink linkName="Open HSMS" linkAddress="solutions/HSMS" />
                     </ul>
                   </li>
                 </ul>
@@ -57,16 +57,16 @@ function Sitemap({ sitemapRef }) {
               <li>
                 Smart Machine
                 <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                  <MenuLink linkName="AGV - Lift Type" linkAddress="/" />
-                  <MenuLink linkName="AGV - Conveyor Type" linkAddress="/" />
-                  <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/" />
-                  <MenuLink linkName="AGV - 협동 Robot 탑재 Type" linkAddress="/" />
+                  <MenuLink linkName="AGV - Lift Type1" linkAddress="/machines/Lift Type1" />
+                  <MenuLink linkName="AGV - Lift Type2" linkAddress="/machines/Lift Type2" />
+                  <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/machines/Fork-Lift Type" />
+                  <MenuLink linkName="AGV - Foup Type" linkAddress="/machines/Foup Type" />
                 </ul>
               </li>
               <li>
                 Smart Device
                 <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
-                  <MenuLink linkName="Microsoft Hololens 2" linkAddress="/" />
+                  <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft" />
                 </ul>
               </li>
               <li className="text-[#FFE500]">
@@ -74,9 +74,8 @@ function Sitemap({ sitemapRef }) {
                 <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
                   <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                   <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
-                  <MenuLink linkName="자동차" linkAddress="/" />
-                  <MenuLink linkName="2차전지" linkAddress="/industries/port" />
-                  <MenuLink linkName="항만" linkAddress="/industries/semiconductor" />
+                  <MenuLink linkName="2차전지" linkAddress="/industries/battery" />
+                  <MenuLink linkName="항만" linkAddress="/industries/port" />
                 </ul>
               </li>
             </ul>

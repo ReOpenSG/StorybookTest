@@ -151,7 +151,7 @@ function Header() {
                     <li className="text-[#3FA9F5] text-open-font-medium ">
                       Comm Driver
                       <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
-                        <MenuLink linkName="Open HSMS" linkAddress="solutions/Open HSMS" />
+                        <MenuLink linkName="Open HSMS" linkAddress="solutions/HSMS" />
                       </ul>
                     </li>
                   </ul>
@@ -177,8 +177,8 @@ function Header() {
                   <ul className="flex flex-col items-center pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
                     <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                     <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
-                    <MenuLink linkName="2차전지" linkAddress="/industries/port" />
-                    <MenuLink linkName="항만" linkAddress="/industries/semiconductor" />
+                    <MenuLink linkName="2차전지" linkAddress="/industries/battery" />
+                    <MenuLink linkName="항만" linkAddress="/industries/port" />
                   </ul>
                 </li>
               </ul>
