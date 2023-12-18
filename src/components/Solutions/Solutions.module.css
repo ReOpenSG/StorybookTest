@@ -2,17 +2,20 @@
   @apply flex justify-center;
 
   & .list {
-    @apply desktop:w-full tablet:gap-open-margin-desktop max-w-[1320px] flex flex-wrap gap-mobile-gap justify-between py-open-lg;
+    @apply max-w-[1320px] flex flex-wrap gap-mobile-gap justify-between py-open-lg;
+    @apply desktop:w-full;
+    @apply tablet:gap-open-margin-desktop;
 
     & .listItem {
-      @apply font-open-label text-open-font-medium desktop:text-open-font-large tablet:text-open-font-large;
+      @apply font-open-label text-open-font-medium -text--open-gray-300;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
 
       & .link {
-        @apply -text--open-gray-300 transition-colors duration-500 px-open-md py-open-sm;
+        @apply inline-flex transition-colors duration-500 px-open-xl py-open-sm;
       }
-
       & .activeLink {
-        @apply -text--openfoundation-primary transition-colors duration-500 px-open-md py-open-sm;
+        @apply inline-flex -text--openfoundation-secondary -bg--open-accent-accent rounded-[20px] transition-colors duration-500 px-open-xl py-open-sm;
       }
     }
   }
@@ -22,17 +25,21 @@
   @apply flex justify-center;
 
   & .wrapper {
-    @apply max-w-[1320px] w-full desktop:flex tablet:flex hidden flex-col gap-open-xl pt-open-5xl items-center;
+    @apply max-w-[1320px] w-full hidden flex-col gap-open-xl pt-open-5xl items-center;
+    @apply desktop:flex;
+    @apply tablet:flex;
 
     & .title {
       @apply sr-only;
     }
     & .nav {
-      @apply font-open-paragraph w-full text-open-font-large mobile:text-open-font-medium;
+      @apply font-open-paragraph w-full text-open-font-large;
+      @apply mobile:text-open-font-medium;
     }
 
     & .banner {
-      @apply w-full h-[400px] flex flex-col justify-center px-open-7xl -bg--open-gray-50 rounded-[20px] tablet:text-center;
+      @apply w-full h-[400px] flex flex-col justify-center px-open-7xl -bg--open-gray-50 rounded-[20px];
+      @apply tablet:text-center;
 
       & .solution {
         @apply font-open-heading text-open-font-xxxxxl;
@@ -46,7 +53,9 @@
 }
 
 .Snb {
-  @apply desktop:block tablet:block hidden min-w-[120px] desktop:pt-open-5xl tablet:pt-open-5xl pt-open-3xl;
+  @apply hidden min-w-[120px] pt-open-3xl;
+  @apply desktop:block desktop:pt-open-5xl;
+  @apply tablet:block tablet:pt-open-5xl;
 
   & .nav {
     @apply sticky top-open-7xl;
@@ -65,34 +74,53 @@
 }
 
 .Char {
-  @apply flex flex-col desktop:gap-open-2xl tablet:gap-open-2xl gap-open-xl desktop:pt-open-5xl tablet:pt-open-5xl pt-open-3xl;
+  @apply flex flex-col gap-open-xl pt-open-3xl;
+  @apply desktop:gap-open-2xl desktop:pt-open-5xl;
+  @apply tablet:gap-open-2xl tablet:pt-open-5xl;
 
   & .subTitle {
-    @apply font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium desktop:mb-[-30px] tablet:mb-[-30px] mb-[-20px];
+    @apply font-open-label text-open-font-medium mb-[-20px];
+    @apply desktop:text-open-font-large desktop:mb-[-30px];
+    @apply tablet:text-open-font-large tablet:mb-[-30px];
   }
   & .title {
-    @apply font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl;
+    @apply font-open-label text-open-font-xl;
+    @apply desktop:text-open-font-xxl;
+    @apply tablet:text-open-font-xxl;
   }
 
   & .container {
-    @apply flex desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-open-margin-mobile;
+    @apply flex gap-open-margin-mobile;
+    @apply desktop:gap-open-gutter-desktop;
+    @apply tablet:gap-open-gutter-desktop;
 
     & .containerTitle {
-      @apply font-open-label desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium;
+      @apply font-open-label text-open-font-medium;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
     }
 
     & .product {
-      @apply flex-1 font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium;
+      @apply flex-1 font-open-paragraph text-open-font-medium;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
     }
 
     & .charList {
-      @apply font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium flex flex-wrap flex-1 desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop gap-[16px];
+      @apply font-open-paragraph text-open-font-medium flex flex-wrap flex-1 gap-[16px];
+      @apply desktop:text-open-font-large desktop:gap-open-gutter-desktop;
+      @apply tablet:text-open-font-large tablet:gap-open-gutter-desktop;
 
       & .charItem {
-        @apply desktop:min-w-[482px] tablet:min-w-[482px] min-w-[258px] flex flex-col gap-open-lg flex-1 px-open-2xl py-open-xl -bg--open-gray-50 rounded-[20px];
+        @apply flex flex-col gap-open-lg flex-1 px-open-2xl py-open-xl -bg--open-gray-50 rounded-[20px];
+        @apply desktop:min-w-[482px];
+        @apply tablet:min-w-[482px];
+        @apply min-w-[258px];
 
         & .charItemTitle {
-          @apply font-open-label desktop:text-open-font-xl tablet:text-open-font-xl text-open-font-large;
+          @apply font-open-label text-open-font-large;
+          @apply desktop:text-open-font-xl;
+          @apply tablet:text-open-font-xl;
         }
       }
     }
@@ -100,14 +128,20 @@
 }
 
 .Func {
-  @apply flex flex-col desktop:gap-open-2xl tablet:gap-open-2xl gap-open-xl desktop:pt-open-5xl tablet:pt-open-5xl pt-open-3xl;
+  @apply flex flex-col gap-open-xl pt-open-3xl;
+  @apply desktop:gap-open-2xl desktop:pt-open-5xl;
+  @apply tablet:gap-open-2xl tablet:pt-open-5xl;
 
   & .title {
-    @apply font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl;
+    @apply font-open-label text-open-font-xl;
+    @apply desktop:text-open-font-xxl;
+    @apply tablet:text-open-font-xxl;
   }
 
   & .imageWrapper {
-    @apply w-full desktop:h-[400px] tablet:h-[400px] h-open-7xl;
+    @apply w-full h-open-7xl;
+    @apply desktop:h-[400px];
+    @apply tablet:h-[400px];
 
     & .image {
       @apply h-full rounded-tr-[20px] rounded-br-[20px];
@@ -118,23 +152,31 @@
     @apply flex flex-col gap-open-lg;
 
     & .item {
-      @apply list-disc list-inside font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium;
+      @apply list-disc list-inside font-open-paragraph text-open-font-medium;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
     }
   }
 }
 
 .Effect {
-  @apply flex flex-col desktop:gap-open-2xl tablet:gap-open-2xl gap-open-xl desktop:pt-open-5xl tablet:pt-open-5xl pt-open-3xl desktop:pb-open-7xl tablet:pb-open-7xl pb-open-5xl;
+  @apply flex flex-col gap-open-xl pt-open-3xl pb-open-5xl;
+  @apply desktop:gap-open-2xl desktop:pt-open-5xl desktop:pb-open-7xl;
+  @apply tablet:gap-open-2xl tablet:pt-open-5xl tablet:pb-open-7xl;
 
   & .title {
-    @apply font-open-label desktop:text-open-font-xxl tablet:text-open-font-xxl text-open-font-xl;
+    @apply font-open-label text-open-font-xl;
+    @apply desktop:text-open-font-xxl;
+    @apply tablet:text-open-font-xxl;
   }
 
   & .list {
     @apply flex flex-col gap-open-lg;
 
     & .item {
-      @apply list-disc list-inside font-open-paragraph desktop:text-open-font-large tablet:text-open-font-large text-open-font-medium;
+      @apply list-disc list-inside font-open-paragraph text-open-font-medium;
+      @apply desktop:text-open-font-large;
+      @apply tablet:text-open-font-large;
     }
   }
 }
