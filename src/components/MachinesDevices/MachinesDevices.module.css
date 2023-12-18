@@ -47,6 +47,10 @@
     & .imgWrapper {
       @apply flex justify-center items-center -bg--open-gray-50 p-open-xl rounded-[20px];
       @apply mobile:w-full;
+
+      & .img {
+        @apply desktop:h-[400px] tablet:h-[300px] h-[150px];
+      }
     }
 
     & .textWrapper {
@@ -56,6 +60,22 @@
         @apply font-open-paragraph text-open-font-medium;
         @apply desktop:text-open-font-xl;
         @apply tablet:text-open-font-xl;
+      }
+    }
+  }
+
+  & .buttonList {
+    @apply flex flex-wrap gap-open-gutter-mobile;
+    @apply desktop:gap-open-gutter-desktop;
+    @apply tablet:gap-open-gutter-desktop;
+
+    & .button {
+      @apply font-open-heading text-open-font-medium px-open-lg py-open-md rounded-[10px] -text--open-gray-200 border -border--open-gray-200;
+      @apply desktop:text-open-font-large desktop:px-open-2xl desktop:py-open-xl desktop:rounded-[20px];
+      @apply tablet:text-open-font-large tablet:px-open-2xl tablet:py-open-xl tablet:rounded-[20px];
+
+      &.isClicked {
+        @apply -bg--open-accent-accent -text--openfoundation-secondary;
       }
     }
   }
