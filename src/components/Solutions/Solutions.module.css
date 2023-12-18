@@ -144,7 +144,7 @@
     @apply tablet:h-[400px];
 
     & .image {
-      @apply h-full rounded-tr-[20px] rounded-br-[20px];
+      @apply w-full h-full rounded-tr-[20px] rounded-br-[20px];
     }
   }
 
