@@ -1,41 +1,48 @@
 import React, { useState } from 'react';
 import styles from './Contact.module.css';
 import FillingInput from './FillingInput';
-import { debounce } from '@/utils/debounce';
 
 function PersonalInfo() {
-  const [telValue, setTelValue] = useState('');
+  const [emailReg, setEmailReg] = useState('');
   const [telNumber, setTelNumber] = useState('');
-  const telValueReplace = telValue.replace(/-/g, '');
-  const numCheck = /^[0-9]+$/;
+  const emailCheck = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return (
     <fieldset className={styles.personalInfoWrapper}>
-      <FillingInput
-        labelText="받으실 이메일"
-        inputType="email"
-        name="email"
-        placeholderText="abc@abcd.com"
-      />
-      <FillingInput
-        labelText="받으실 연락처"
-        inputType="tel"
-        name="tel"
-        placeholderText="010-1234-1234"
-        maxLength="13"
-        value={telNumber}
-        onChange={debounce((e) => {
-          setTelValue(e.target.value);
-        }, 300)}
-        onInput={(e) => {
-          setTelNumber(e.target.value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'));
-        }}
-      />
-      {numCheck.test(telValueReplace) || telValueReplace === '' ? (
-        ''
-      ) : (
-        <span className={styles.message}>숫자만 입력 가능합니다.</span>
-      )}
+      <div className={styles.regWrapper}>
+        <FillingInput
+          labelText="받으실 이메일"
+          inputType="email"
+          name="email"
+          placeholderText="abc@abcd.com"
+          onChange={(e) => {
+            setEmailReg(e.target.value);
+          }}
+        />
+        {emailCheck.test(emailReg) || emailReg === '' ? (
+          ''
+        ) : (
+          <span className={styles.message}>유효한 이메일을 입력해 주세요.</span>
+        )}
+      </div>
+      <div className={styles.regWrapper}>
+        <FillingInput
+          labelText="받으실 연락처"
+          inputType="tel"
+          name="tel"
+          placeholderText="'-' 없이 입력해 주세요."
+          maxLength="13"
+          value={telNumber}
+          onChange={(e) => {
+            setTelNumber(
+              e.target.value
+                .replace(/[^0-9]/g, '')
+                .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, '$1-$2-$3')
+                .replace(/(\-{1,2})$/g, ''),
+            );
+          }}
+        />
+      </div>
     </fieldset>
   );
 }
