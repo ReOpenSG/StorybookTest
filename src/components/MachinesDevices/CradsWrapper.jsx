@@ -24,10 +24,12 @@ function CradsWrapper({ data, currentLocation }) {
 CradsWrapper.propTypes = {
   data: PropTypes.objectOf(
     PropTypes.objectOf(
-      PropTypes.shape({
-        설명: PropTypes.string.isRequired,
-        특징: PropTypes.arrayOf(PropTypes.string).isRequired,
-      }),
+      PropTypes.objectOf(
+        PropTypes.shape({
+          char: PropTypes.arrayOf(PropTypes.string),
+          desc: PropTypes.arrayOf(PropTypes.string),
+        }),
+      ),
     ),
   ).isRequired,
   currentLocation: PropTypes.string.isRequired,

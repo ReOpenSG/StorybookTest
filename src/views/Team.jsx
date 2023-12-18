@@ -15,6 +15,7 @@ function Team() {
         category="About Us"
         title="직무소개"
         background="bg-[url('@/assets/team_background.svg')]"
+        textAlign="text-center"
       />
       <div className={styles.teamContainer}>
         <div className={styles.sectionWrapper}>
