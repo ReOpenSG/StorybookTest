@@ -54,10 +54,10 @@ function Solutions() {
   return (
     <section className="hidden mx-auto flex-col items-center tablet:flex desktop:flex gap-open-5xl pt-open-6xl tablet:pt-open-7xl desktop:pt-open-7xl -text--openfoundation-white max-w-[1320px]">
       <div className="w-full flex justify-between">
-        <h3 className="font-open-heading tablet:text-open-font-xxl desktop:text-open-font-xxl">
+        <h3 className="font-open-heading text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
           Open Solutions
         </h3>
-        <ul className="flex justify-center items-center gap-open-lg font-open-highlight tablet:text-open-font-small desktop:text-open-font-medium">
+        <ul className="flex justify-center items-center gap-open-lg font-open-highlight text-open-font-small tablet:text-open-font-medium desktop:text-open-font-medium">
           {solutionData.map((item) => (
             <li key={item.id}>
               <button
@@ -77,25 +77,25 @@ function Solutions() {
         <div className="w-[240px] flex flex-col items-start gap-open-3xl">
           {selectedItem ? (
             <>
-              <h4 className="font-open-heading tablet:text-open-font-xxl desktop:text-open-font-xxxl">
+              <h4 className="font-open-heading  text-open-font-xl tablet:text-open-font-xxxl desktop:text-open-font-xxxl">
                 {solutionData[selectedItem - 1].name}
               </h4>
-              <p className="font-open-paragraph tablet:text-open-font-medium desktop:text-open-font-large">
+              <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large">
                 {solutionData[selectedItem - 1].desc}
               </p>
               <button
                 type="button"
-                className="font-open-label tablet:text-open-font-medium desktop:text-open-font-large"
+                className="font-open-label text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large"
               >
                 Learn More &gt;
               </button>
             </>
           ) : (
             <>
-              <h4 className="font-open-heading tablet:text-open-font-xxl desktop:text-open-font-xxxl">
+              <h4 className="font-open-heading text-open-font-xl tablet:text-open-font-xxxl desktop:text-open-font-xxxl">
                 Solution 제목
               </h4>
-              <p className="font-open-paragraph tablet:text-open-font-medium desktop:text-open-font-large">
+              <p className="font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large">
                 솔루션에 대한 요약 설명입니다.
               </p>
             </>

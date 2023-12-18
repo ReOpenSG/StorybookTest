@@ -12,7 +12,7 @@ function Universe() {
         <p className="font-open-highlight text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl">
           Explore OpenSG
         </p>
-        <h3 className="font-open-heading text-open-font-xl tablet:text-open-font-xxxl desktop:text-open-font-xxxl">
+        <h3 className="font-open-heading text-open-font-xxl tablet:text-open-font-xxxxl desktop:text-open-font-xxxxl">
           OPENSG의 세계관을 만나보세요
         </h3>
       </div>

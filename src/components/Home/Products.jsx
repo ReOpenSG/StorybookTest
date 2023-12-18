@@ -33,7 +33,7 @@ function Products() {
   return (
     <section className="w-full flex flex-col items-center px-open-gutter-mobile py-open-5xl tablet:items-stretch desktop:items-stretch mx-auto gap-open-2xl tablet:gap-open-4xl desktop:gap-open-4xl  -text--openfoundation-white tablet:py-open-7xl desktop:py-open-7xl max-w-[1320px]">
       <h3 className="font-open-heading text-start text-open-font-xl tablet:text-open-font-xxl desktop:text-open-font-xxl">
-        Open Products
+        Our Products
       </h3>
       <div className="w-full flex justify-center tablet:justify-between desktop:justify-between max-w-[1320px]">
         <div
@@ -44,7 +44,7 @@ function Products() {
           <p>스마트 자동화의</p>
           <p>모든 것.</p>
         </div>
-        <p className="hidden tablet:flex desktop:flex flex-col font-open-label text-end text-open-font-medium tablet:text-open-font-large desktop:text-open-font-large">
+        <p className="hidden tablet:flex desktop:flex flex-col font-open-label text-end text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl">
           <span className="flex flex-col -text--open-gray-400">
             <span>기획부터 시뮬레이션까지 </span>
             <span>솔루션부터 디바이스까지</span>
