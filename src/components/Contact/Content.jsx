@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import FillingInput from './FillingInput';
 import styles from './Contact.module.css';
 
 function Content() {
   const textareaId = uuidv4();
-  const [titleValue, setTitleValue] = useState('');
 
   return (
     <fieldset className={styles.contentWrapper}>
@@ -13,9 +12,7 @@ function Content() {
         labelText="제목"
         inputType="text"
         name="title"
-        value={titleValue}
         placeholderText="AGV 구매 문의"
-        onChange={(e) => setTitleValue(e.target.value)}
       />
       <div className={styles.wrapper}>
         <label htmlFor={textareaId}>
