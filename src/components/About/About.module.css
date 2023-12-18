@@ -94,8 +94,8 @@
 
 .CommomCard {
   @apply flex-1 basis-[288px] -bg--open-gray-950 rounded-[20px] p-open-gutter-desktop min-h-[0px];
-  @apply desktop:min-h-[460px];
-  @apply tablet:min-h-[460px];
+  @apply desktop:min-h-[400px];
+  @apply tablet:min-h-[400px];
 
   & .carWrapper {
     @apply flex flex-col desktop:gap-open-margin-desktop tablet:gap-open-margin-desktop gap-open-2xl;
