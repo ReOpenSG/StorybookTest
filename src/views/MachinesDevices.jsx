@@ -8,8 +8,9 @@ import FuncChar from '@/components/MachinesDevices/FuncChar';
 
 function MachinesDevices() {
   const [data, setData] = useState({});
-  const [desc, setDesct] = useState({ 설명: '', 특징: [], 제품: '' });
+  const [desc, setDesc] = useState({ types: {}, product: '' });
   const [currentLocation, setCurrentLocation] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState('');
   const location = useLocation();
   const { id } = useParams();
 
@@ -25,10 +26,12 @@ function MachinesDevices() {
 
   useEffect(() => {
     if (data && Object.values(data).length > 0) {
-      setDesct((prev) => ({
+      const filteredData = Object.entries(data).find((item) => item[1][id]);
+
+      setDesc((prev) => ({
         ...prev,
-        ...data[Object.keys(data)[0]][id],
-        제품: Object.keys(data)[0],
+        types: filteredData[1][id],
+        product: filteredData[0],
       }));
     }
   }, [data, id]);
@@ -41,13 +44,19 @@ function MachinesDevices() {
       <section className="w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
         <div className="w-full flex flex-col items-center">
           <h2 className="sr-only">제품 소개</h2>
-          <Desc desc={desc} id={id} currentLocation={currentLocation} />
+          <Desc
+            descProps={desc}
+            id={id}
+            currentLocation={currentLocation}
+            selectedProduct={selectedProduct}
+            setSelectedProduct={setSelectedProduct}
+          />
         </div>
       </section>
       <section className="-bg--open-gray-50 w-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile ">
         <div className="w-full flex flex-col items-center">
           <h2 className="sr-only">기능 및 특징</h2>
-          <FuncChar desc={desc} id={id} />
+          <FuncChar descProps={desc} id={id} selectedProduct={selectedProduct} />
         </div>
       </section>
     </section>
