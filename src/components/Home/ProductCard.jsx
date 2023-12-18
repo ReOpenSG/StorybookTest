@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-export function ProductCard({ name, desc }) {
+function ProductCard({ name, desc }) {
   return (
     <div className="w-full flex justify-between items-center gap-open-4xl p-open-2xl tablet:p-open-4xl desktop:px-open-5xl desktop:py-open-4xl -bg--open-gray-950 rounded-[30px]">
       <div className="flex flex-col items-center tablet:items-start desktop:items-start gap-open-xl">
