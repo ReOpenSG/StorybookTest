@@ -53,6 +53,9 @@ export const theme = {
       'open-paragraph': ['400'],
     },
     screens: {
+      pointerhover: {
+        raw: '(hover: hover) and (pointer: fine) ',
+      },
       mobile: {
         min: '375px',
         max: '1023px',
