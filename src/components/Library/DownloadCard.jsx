@@ -19,14 +19,11 @@ function DownloadCard({
           </h4>
           <span className={styles.cardCategoryText}>{category}</span>
         </div>
-        <a
-          href={href}
-          className={styles.cardLinkWrapper}
-          download={download}
-          aria-label={ariaLabel}
-        >
-          <DownloadIcon />
-        </a>
+        <div className={styles.cardLinkWrapper}>
+          <a href={href} download={download} aria-label={ariaLabel}>
+            <DownloadIcon />
+          </a>
+        </div>
       </div>
     </div>
   );
