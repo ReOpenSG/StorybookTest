@@ -131,7 +131,7 @@
       @apply tablet:gap-open-2xl desktop:gap-open-2xl;
 
       & .cardWrapper {
-        @apply w-full flex justify-between items-center gap-open-4xl p-open-2xl  -bg--open-gray-950 rounded-[30px] border  border-transparent;
+        @apply w-full flex justify-between items-center gap-open-4xl p-open-2xl  -bg--open-gray-950 rounded-[30px] border-2  border-transparent;
         @apply tablet:p-open-4xl desktop:px-open-5xl desktop:py-open-4xl pointerhover:hover:-border--open-accent-accent;
 
         & .summaryWrapper {
@@ -195,7 +195,7 @@
       @apply w-full flex flex-wrap flex-col justify-center rounded-l-[30px] overflow-hidden;
 
       & .cardWrapper {
-        @apply w-full flex justify-center items-center   grow flex-wrap py-open-xl gap-open-gutter-mobile;
+        @apply w-full flex justify-center items-center  grow flex-wrap py-open-xl gap-open-gutter-mobile;
         @apply tablet:items-stretch desktop:items-stretch tablet:py-open-2xl desktop:py-open-2xl  tablet:gap-open-margin-mobile desktop:gap-open-margin-mobile;
 
         & .card {
