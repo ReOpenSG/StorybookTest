@@ -35,7 +35,7 @@ export const theme = {
       'open-font': ['Pretendard', 'sans-serif'],
     },
     fontSize: {
-      'open-font-small': ['12.003000259399414px', '140%'],
+      'open-font-small': ['14px', '140%'],
       'open-font-medium': ['16px', '140%'],
       'open-font-large': ['18px', '140%'],
       'open-font-xl': ['21px', '140%'],
