@@ -36,7 +36,7 @@ function Industries() {
         textAlign="text-left"
       />
       <section className="max-w-[1320px] desktop:pb-open-5xl tablet:pb-open-5xl pb-open-2xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
-        <h2 className="sr-only">산업군별 페이지</h2>
+        <h3 className="sr-only">{IndustriesData[id].name}</h3>
         <div className="flex desktop:gap-open-4xl tablet:gap-open-4xl">
           <Snb inViewChar={inViewChar} inViewProduct={inViewProduct} />
           <div className="flex-1">

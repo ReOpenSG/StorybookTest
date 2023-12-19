@@ -3,10 +3,10 @@
 }
 
 .titleInner {
-  @apply max-w-[1320px] m-auto flex flex-col gap-open-lg tablet:gap-open-2xl desktop:gap-open-2xl text-center;
+  @apply max-w-[1320px] m-auto flex flex-col gap-open-lg tablet:gap-open-xl desktop:gap-open-xl text-center;
 
   & h2 {
-    @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
+    @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xxl desktop:text-open-font-xxl;
   }
 
   & p {

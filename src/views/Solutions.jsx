@@ -40,7 +40,6 @@ function Solutions() {
         textAlign="text-left"
       />
       <section className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">
-        <h2 className="sr-only">솔루션별 페이지</h2>
         <Lnb LnbArray={LnbData.array} />
         <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
         <div className="flex justify-center">

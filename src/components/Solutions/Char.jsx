@@ -10,7 +10,7 @@ function Char({ currentLocation, data, refs }) {
         Open
         {currentLocation}
       </span>
-      <h3 className={styles.title}>제품 및 특징</h3>
+      <h4 className={styles.title}>제품 및 특징</h4>
       <div className={styles.container}>
         <p className={styles.containerTitle}>제품</p>
         <p className={styles.product}>{data && data[currentLocation].제품설명}</p>
