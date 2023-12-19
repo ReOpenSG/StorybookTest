@@ -31,10 +31,15 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          react: ['react', 'react-dom'],
+          react: ['react', 'react-dom', 'react-helmet-async'],
           reactRouter: ['react-router-dom'],
           animations: ['framer-motion'],
-          extra: ['recoil'],
+          fbApp: ['@firebase/app'],
+          fbAuth: ['@firebase/auth'],
+          fbStore: ['@firebase/firestore'],
+          fbStorage: ['@firebase/storage'],
+          swiper: ['swiper'],
+          recoil: ['recoil'],
         },
       },
     },
