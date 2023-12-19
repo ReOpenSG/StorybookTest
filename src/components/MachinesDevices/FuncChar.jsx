@@ -5,7 +5,6 @@ import styles from './MachinesDevices.module.css';
 import iconMap from './imporIcon.js';
 
 function FuncChar({ descProps, selectedProduct }) {
-  // console.log(descProps.types[selectedProduct]?.char);
   return (
     <div className={styles.FuncChar}>
       <p className={styles.title}>기능 및 특징</p>
@@ -15,13 +14,13 @@ function FuncChar({ descProps, selectedProduct }) {
             <li key={uuidv4()} className={styles.item}>
               {/* <img src="http://via.placeholder.com/120x120" alt="Machines" /> */}
               <img
-                src={iconMap[item[1]]}
+                src={iconMap[item.icon]}
                 alt="Machines"
                 className="desktop:w-open-5xl tablet:w-open-5xl w-open-2xl desktop:h-open-5xl tablet:h-open-5xl h-open-w-open-2xl"
               />
 
               {/* <div>iconMap[item[1]]</div> */}
-              <span className={styles.itemText}>{item[0]}</span>
+              <span className={styles.itemText}>{item.text}</span>
             </li>
           ))}
       </ul>
@@ -33,7 +32,12 @@ FuncChar.propTypes = {
   descProps: PropTypes.shape({
     types: PropTypes.objectOf(
       PropTypes.shape({
-        char: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+        char: PropTypes.arrayOf(
+          PropTypes.shape({
+            icon: PropTypes.string,
+            text: PropTypes.string,
+          }),
+        ),
         desc: PropTypes.arrayOf(PropTypes.string),
       }),
     ),

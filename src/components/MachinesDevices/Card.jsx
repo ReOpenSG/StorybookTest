@@ -28,7 +28,12 @@ Card.propTypes = {
     PropTypes.objectOf(
       PropTypes.objectOf(
         PropTypes.shape({
-          char: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+          char: PropTypes.arrayOf(
+            PropTypes.shape({
+              icon: PropTypes.string,
+              text: PropTypes.string,
+            }),
+          ),
           desc: PropTypes.arrayOf(PropTypes.string),
         }),
       ),
