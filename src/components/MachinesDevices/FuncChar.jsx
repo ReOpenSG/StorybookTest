@@ -33,6 +33,11 @@ FuncChar.propTypes = {
     ),
     product: PropTypes.string,
   }).isRequired,
+  selectedProduct: PropTypes.string,
+};
+
+FuncChar.defaultProps = {
+  selectedProduct: '',
 };
 
 export default FuncChar;
