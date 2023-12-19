@@ -1,5 +1,21 @@
+.menuLink {
+  @apply transition ease-in-out delay-150
+}
+
+.menuLink:after {
+  @apply block content-[''] border-b-2 -border--open-accent-accent scale-x-0 origin-left transition-transform duration-300 ease-in-out;
+}
+
+.menuLink:hover:after {
+  @apply scale-x-100;
+}
+
 .linkName {
   @apply relative px-open-md py-open-sm;
+}
+
+.linkName:hover {
+  @apply underline underline-offset-2
 }
 
 .linkName:hover .tooltip {

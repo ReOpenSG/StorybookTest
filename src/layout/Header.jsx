@@ -6,6 +6,7 @@ import SitemapMobile from '@/components/Header/SitemapMobile';
 import opensgLogo from '@/assets/header_opensg.png';
 import hamburgerIcon from '@/assets/header_hamburger.svg';
 import closeIcon from '@/assets/header_close.svg';
+import styles from '@/components/Header/Header.module.css';
 
 function Header() {
   const [activeMenu, setActiveMenu] = useState(null);
@@ -102,7 +103,7 @@ function Header() {
           </li>
           {activeMenu !== 'Sitemap' && (
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
-              <button type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
+              <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
               <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
                 <ul className="flex flex-col gap-open-md py-open-xl -bg--openfoundation-primary opacity-80 tablet:pl-[152px] desktop:pl-[186px]">
@@ -117,7 +118,7 @@ function Header() {
           )}
           {activeMenu !== 'Sitemap' && (
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Products')}>
-            <button type="button" onClick={() => handleMenuActive('Products')}>Products</button>
+            <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
               <ul className="flex flex-row gap-open-xl px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary opacity-80 tablet:pl-[268px] desktop:pl-[322px]">
@@ -188,7 +189,7 @@ function Header() {
           )}
           {activeMenu !== 'Sitemap' && (
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Support')}>
-            <button type="button" onClick={() => handleMenuActive('Support')}>Support</button>
+            <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
               <ul className="flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large -bg--openfoundation-primary opacity-80 tablet:pl-[364px] desktop:pl-[440px]">
