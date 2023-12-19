@@ -1,5 +1,5 @@
 .Card {
-  @apply text-center items-center border -border--open-gray-200 rounded-[20px] p-open-lg gap-open-lg -text--open-gray-200;
+  @apply text-center items-center border -border--open-gray-200 rounded-[20px] p-open-lg gap-open-lg -text--open-gray-200 w-[140px];
   @apply desktop:w-open-8xl;
   @apply tablet:w-open-8xl;
 
