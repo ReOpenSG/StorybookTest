@@ -39,7 +39,7 @@
     }
   }
   & .universe {
-    @apply flex flex-col justify-center items-center py-open-4xl  gap-open-4xl -bg--openfoundation-black bg-cover;
+    @apply flex flex-col justify-center items-center py-open-4xl  gap-open-4xl -bg--openfoundation-black bg-cover px-open-gutter-mobile;
     @apply tablet:py-open-5xl desktop:py-open-5xl tablet:gap-open-5xl desktop:gap-open-5xl;
 
     & .titleWrapper {
