@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './MachinesDevices.module.css';
 
 function FuncChar({ descProps, selectedProduct }) {
+  // console.log(descProps.types[selectedProduct]?.char);
   return (
     <div className={styles.FuncChar}>
       <p className={styles.title}>기능 및 특징</p>
@@ -11,11 +12,8 @@ function FuncChar({ descProps, selectedProduct }) {
         {descProps.types &&
           descProps.types[selectedProduct]?.char.map((item) => (
             <li key={uuidv4()} className={styles.item}>
-              <picture>
-                <source media="(max-width: 1023px)" srcSet="http://via.placeholder.com/60x60" />
-                <img src="http://via.placeholder.com/120x120" alt="Machines" />
-              </picture>
-              <span className={styles.itemText}>{item}</span>
+              {/* <img src="http://via.placeholder.com/120x120" alt="Machines" /> */}
+              <span className={styles.itemText}>{item[0]}</span>
             </li>
           ))}
       </ul>
@@ -27,7 +25,7 @@ FuncChar.propTypes = {
   descProps: PropTypes.shape({
     types: PropTypes.objectOf(
       PropTypes.shape({
-        char: PropTypes.arrayOf(PropTypes.string),
+        char: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
         desc: PropTypes.arrayOf(PropTypes.string),
       }),
     ),
