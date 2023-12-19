@@ -1,5 +1,7 @@
 import React from 'react';
 import HistorySwiper from '@/components/History/HistorySwiper';
+import HistoryMobile from '@/components/History/HistoryMobile';
+import historyData from '../../historyData.json';
 import TitleSection from '@/components/Common/TitleSection';
 
 function History() {
@@ -12,7 +14,8 @@ function History() {
         textAlign="text-center"
       />
       <div>
-        <HistorySwiper />
+        <HistorySwiper historyData={historyData} />
+        <HistoryMobile historyData={historyData} />
       </div>
     </div>
   );
