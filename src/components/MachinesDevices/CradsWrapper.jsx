@@ -14,6 +14,7 @@ function CradsWrapper({ data, currentLocation }) {
             title={title}
             subTitle={subTitle}
             currentLocation={currentLocation}
+            data={data}
           />
         )),
       )}
