@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 
 function BannerSection({ category, part }) {
   return (
-    <section className="w-full py-open-6xl flex flex-col items-center gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl">
+    <section className="w-full py-open-5xl tablet:py-open-7xl desktop:py-open-7xl flex flex-col items-center gap-open-xl tablet:gap-open-2xl desktop:gap-open-2xl">
       <p className="text-open-font-large tablet:text-open-font-xxl desktop:text-open-font-xxl font-open-label">
         {category}
       </p>
