@@ -4,7 +4,7 @@
   @apply tablet:p-open-xl tablet:gap-open-xl tablet:w-open-7xl;
 
   &[aria-current='page'] {
-    @apply -text--openfoundation-secondary -bg--open-accent-accent;
+    @apply -text--openfoundation-secondary -bg--open-accent-accent -border--open-accent-accent;
   }
 
   & .linkTextWrapper {
@@ -75,7 +75,7 @@
       @apply tablet:text-open-font-large tablet:px-open-2xl tablet:py-open-xl tablet:rounded-[20px];
 
       &.isClicked {
-        @apply -bg--open-accent-accent -text--openfoundation-secondary;
+        @apply -bg--open-accent-accent -text--openfoundation-secondary -border--open-accent-accent;
       }
     }
   }
