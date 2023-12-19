@@ -38,6 +38,9 @@ const router = createBrowserRouter(
       <Route path="/admin" element={<Admin />} />
     </Route>,
   ),
+  {
+    basename: import.meta.env.PUBLIC_URL,
+  },
 );
 
 export default router;
