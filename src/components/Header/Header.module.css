@@ -11,7 +11,7 @@
 }
 
 .linkName:hover {
-  @apply underline underline-offset-2
+  @apply -text--open-accent-accent-1
 }
 
 .linkName:hover .tooltip {
