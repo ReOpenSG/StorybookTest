@@ -1,8 +1,8 @@
 import React from 'react';
-import historyData from '../../../historyData.json';
+import PropTypes from 'prop-types';
 import HistorySlide from './HistorySlide';
 
-function HistoryMobile() {
+function HistoryMobile({ historyData }) {
   const historyDataSorted = Object.entries(historyData).toSorted((a, b) => b[0] - a[0]);
   return (
     <div className="hidden mobile:block w-full h-full -text--openfoundation-secondary -bg--openfoundation-primary px-open-margin-mobile py-open-5xl">
@@ -19,5 +19,9 @@ function HistoryMobile() {
     </div>
   );
 }
+
+HistoryMobile.propTypes = {
+  historyData: PropTypes.object.isRequired,
+};
 
 export default HistoryMobile;
