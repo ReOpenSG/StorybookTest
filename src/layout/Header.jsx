@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, {
   Children, useEffect, useRef, useState,
 } from 'react';
@@ -15,6 +16,7 @@ function Header() {
   const [whiteHeader, setWhiteHeader] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLanguage, setActiveLanguage] = useState(null);
+  const [activeBurger, setActiveBurger] = useState(true);
   const menuRef = useRef(null);
   const location = useLocation();
 
@@ -29,6 +31,15 @@ function Header() {
   const handleMenuInactive = () => {
     setActiveMenu(null);
   };
+
+  const handleBurgerActive = (active) => {
+    setActiveBurger(active);
+    if (active) {
+      setActiveMenu('Sitemap');
+    } else {
+      setActiveMenu(null);
+    }
+  }
 
   useEffect(() => {
     console.log(location);
@@ -234,14 +245,29 @@ function Header() {
           </div>
         </li>
         <li className="flex justify-center items-center">
+
           {activeMenu === 'Sitemap' ? (
             <>
-              <button type="button" onClick={() => handleMenuActive(null)}><img className="w-[16px] tablet:w-[28px] desktop:w-[28px]" src={closeIcon} alt="사이트맵 닫기" /></button>
+              <button
+                type="button"
+                onClick={() => handleBurgerActive(false)}
+                className={activeBurger ? styles.burgerOn : styles.burger}
+              >
+                <span />
+              </button>
+
               <Sitemap sitemapRef={menuRef} />
               <SitemapMobile sitemapRef={menuRef} />
             </>
           ) : (
-            <button type="button" onClick={() => handleMenuActive('Sitemap')}><img className="w-[16px] tablet:w-[28px] desktop:w-[28px]" src={hamburgerIcon} alt="사이트맵" /></button>
+            <button
+              type="button"
+              onClick={() => handleBurgerActive(true)}
+              className={activeBurger ? styles.burgerOn : styles.burger}
+            >
+              <span />
+            </button>
+
           )}
         </li>
       </ul>
