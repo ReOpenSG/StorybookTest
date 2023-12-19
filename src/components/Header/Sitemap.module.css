@@ -1,0 +1,32 @@
+.sitemapList {
+  @apply flex flex-row justify-center gap-open-xl px-open-gutter-desktop py-open-lg -bg--openfoundation-primary
+}
+
+.sitemapListWhite {
+  @apply flex flex-row justify-center gap-open-xl px-open-gutter-desktop py-open-lg -bg--openfoundation-secondary
+}
+
+.aboutUsList {
+  @apply flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph border-t-[1px] -border--openfoundation-secondary
+}
+
+.aboutUsListWhite {
+  @apply flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph -text--openfoundation-primary
+}
+
+.productList {
+ @apply flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary font-open-paragraph
+}
+
+.productListWhite {
+  @apply flex font-open-paragraph flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-primary
+ }
+
+.supportList {
+  @apply flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary
+}
+
+.supportListWhite {
+  @apply flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-primary
+}
+

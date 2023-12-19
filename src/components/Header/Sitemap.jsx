@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MenuLink from '@/components/Header/MenuLink';
+import styles from '@/components/Header/Sitemap.module.css';
 
-function Sitemap({ sitemapRef }) {
+function Sitemap({ sitemapRef, whiteHeader }) {
   return (
     <div className="tablet:block desktop:block hidden absolute left-0 top-[80px] w-full" ref={sitemapRef}>
-      <ul className="flex flex-row justify-center gap-open-xl px-open-gutter-desktop py-open-lg -bg--openfoundation-primary">
+      <ul className={whiteHeader ? styles.sitemapListWhite : styles.sitemapList}>
         <div className="flexWrapper flex flex-col">
           <li className="px-open-md py-open-sm text-open-font-xl font-open-heading">
             <div>About Us</div>
-            <ul className="flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph border-t-[1px] -border--openfoundation-secondary">
+            <ul className={whiteHeader ? styles.aboutUsListWhite : styles.aboutUsList}>
               <MenuLink linkName="회사개요" linkAddress="/about" />
               <MenuLink linkName="연혁" linkAddress="/history" />
               <MenuLink linkName="직무소개" linkAddress="/team" />
@@ -18,7 +19,7 @@ function Sitemap({ sitemapRef }) {
           </li>
           <li className="px-open-md py-open-sm text-open-font-xl font-open-heading">
             <div>Support</div>
-            <ul className="flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph border-t-[1px] -border--openfoundation-secondary">
+            <ul className={whiteHeader ? styles.supportListWhite : styles.supportList}>
               <MenuLink linkName="커뮤니티" linkAddress="/community" />
               <MenuLink linkName="라이브러리" linkAddress="/library" />
               <MenuLink linkName="고객문의" linkAddress="/contact" />
@@ -34,7 +35,7 @@ function Sitemap({ sitemapRef }) {
                 <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-lg">
                   <li className="-text--open-accent-accent-1 text-open-font-medium ">
                     <div>Equipment Control System</div>
-                    <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
+                    <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                       <MenuLink linkName="ACS/FMS" tooltip="AGV Control System / Fleet Management System" linkAddress="solutions/ACS" />
                       <MenuLink linkName="OCS" tooltip="OHT Control System" linkAddress="solutions/OCS" />
                       <MenuLink linkName="SCS" tooltip="Stocker Control System" linkAddress="solutions/SCS" />
@@ -44,7 +45,7 @@ function Sitemap({ sitemapRef }) {
                   </li>
                   <li className="-text--open-accent-accent-1 text-open-font-medium ">
                     <div>Smart Tools</div>
-                    <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
+                    <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                       <MenuLink linkName="Map Designer" linkAddress="solutions/Map Designer" />
                       <MenuLink linkName="ACS Simulator" tooltip="AGV Control System Simulator" linkAddress="solutions/ACS Simulator" />
                       <MenuLink linkName="SCS Simulator" tooltip="Stocker Control System Simulator" linkAddress="solutions/SCS Simulator" />
@@ -52,13 +53,13 @@ function Sitemap({ sitemapRef }) {
                   </li>
                   <li className="-text--open-accent-accent-1 text-open-font-medium ">
                     <div>Monitoring Solution</div>
-                    <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
+                    <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                       <MenuLink linkName="AIMS" tooltip="Advanced Integrated Monitoring Solution" linkAddress="solutions/AIMS" />
                     </ul>
                   </li>
                   <li className="-text--open-accent-accent-1 text-open-font-medium ">
                     <div>Comm Driver</div>
-                    <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary">
+                    <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                       <MenuLink linkName="Open HSMS" linkAddress="solutions/HSMS" />
                     </ul>
                   </li>
@@ -66,7 +67,7 @@ function Sitemap({ sitemapRef }) {
               </li>
               <li>
                 <div>Smart Machine</div>
-                <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
+                <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                   <MenuLink linkName="AGV - Lift Type1" linkAddress="/machines/Lift Type1" />
                   <MenuLink linkName="AGV - Lift Type2" linkAddress="/machines/Lift Type2" />
                   <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/machines/Fork-Lift Type" />
@@ -75,13 +76,13 @@ function Sitemap({ sitemapRef }) {
               </li>
               <li>
                 Smart Device
-                <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph">
+                <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                   <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft" />
                 </ul>
               </li>
-              <li className="text-[#FFE500] flex-1">
+              <li className="-text--open-accent-accent-1 flex-1">
                 <div>Industries</div>
-                <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary">
+                <ul className={whiteHeader ? styles.productListWhite : styles.productList}>
                   <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                   <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
                   <MenuLink linkName="2차전지" linkAddress="/industries/battery" />
@@ -100,6 +101,7 @@ Sitemap.propTypes = {
   sitemapRef: PropTypes.shape({
     current: PropTypes.instanceOf(Element),
   }).isRequired,
+  whiteHeader: PropTypes.bool.isRequired,
 };
 
 export default Sitemap;

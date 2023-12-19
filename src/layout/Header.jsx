@@ -1,22 +1,19 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, {
-  Children, useEffect, useRef, useState,
-} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import MenuLink from '@/components/Header/MenuLink';
 import Sitemap from '@/components/Header/Sitemap';
 import SitemapMobile from '@/components/Header/SitemapMobile';
 import opensgLogo from '@/assets/header_opensg.png';
 import opensgLogoBlue from '@/assets/header_opensgBlue.png';
-import hamburgerIcon from '@/assets/header_hamburger.svg';
-import closeIcon from '@/assets/header_close.svg';
 import styles from '@/components/Header/Header.module.css';
+import hamburger from '@/components/Header/Hamburger.module.css';
 
 function Header() {
   const [whiteHeader, setWhiteHeader] = useState(null);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLanguage, setActiveLanguage] = useState(null);
-  const [activeBurger, setActiveBurger] = useState(true);
+  const [activeBurger, setActiveBurger] = useState(false);
   const menuRef = useRef(null);
   const location = useLocation();
 
@@ -44,10 +41,11 @@ function Header() {
   useEffect(() => {
     console.log(location);
     handleMenuInactive();
+    setActiveBurger(false);
   }, [location]);
 
   useEffect(() => {
-    if (location.pathname.includes('/solutions') || location.pathname.includes('/machines') || location.pathname.includes('/devices') || location.pathname === '/community' || location.pathname === '/library' || location.pathname === '/contact') {
+    if (location.pathname.includes('/solutions') || location.pathname.includes('/machines') || location.pathname.includes('/devices') || location.pathname.includes('/industries') || location.pathname === '/community' || location.pathname === '/library' || location.pathname === '/contact') {
       setWhiteHeader(true);
     } else {
       setWhiteHeader(false);
@@ -251,19 +249,19 @@ function Header() {
               <button
                 type="button"
                 onClick={() => handleBurgerActive(false)}
-                className={activeBurger ? styles.burgerOn : styles.burger}
+                className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
               >
                 <span />
               </button>
 
-              <Sitemap sitemapRef={menuRef} />
-              <SitemapMobile sitemapRef={menuRef} />
+              <Sitemap whiteHeader={whiteHeader} sitemapRef={menuRef} />
+              <SitemapMobile whiteHeader={whiteHeader} sitemapRef={menuRef} />
             </>
           ) : (
             <button
               type="button"
               onClick={() => handleBurgerActive(true)}
-              className={activeBurger ? styles.burgerOn : styles.burger}
+              className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
             >
               <span />
             </button>
