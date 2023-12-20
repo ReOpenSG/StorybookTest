@@ -2,10 +2,6 @@
   @apply fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -bg--openfoundation-primary -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[50px] tablet:h-[80px] desktop:h-[80px] z-20;
 }
 
-.whiteHeader {
-  @apply -bg--openfoundation-secondary -text--open-accent-accent
-}
-
 .menuLink:after {
   @apply block content-[''] border-b-2 -border--open-accent-accent scale-x-0 origin-left transition-transform duration-300 ease-in-out;
 }
@@ -35,10 +31,6 @@
   @apply flex flex-col gap-open-md px-open-xl py-open-xl text-open-font-large font-open-label -bg--openfoundation-primary  -text--openfoundation-secondary opacity-80
 }
 
-.headerMenuWhite {
-  @apply -bg--openfoundation-secondary  -text--openfoundation-primary
-}
-
 .about {
   @apply tablet:pl-[196px] desktop:pl-[230px]
 }
@@ -50,7 +42,6 @@
 .support {
   @apply tablet:pl-[404px] desktop:pl-[480px]
 }
-
 
 .accordionItemSmall {
   @apply -bg--open-gray-950 px-open-gutter-mobile rounded-[20px] py-open-sm;
