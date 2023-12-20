@@ -5,10 +5,10 @@ import styles from '@/components/Common/BannerSection.module.css';
 function BannerSection({ category, title }) {
   return (
     <div className={styles.titleWrapper}>
-      <h2 className={styles.titleCategory}>{category}</h2>
-      <h3 className={styles.titleText}>
+      <h2 className={styles.titleText}>
         {title}
-      </h3>
+      </h2>
+      <p className={styles.titleCategory}>{category}</p>
     </div>
   );
 }
