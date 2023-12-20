@@ -25,10 +25,6 @@ function Header() {
     setActiveMenu(menu);
   };
 
-  const handleMenuInactive = () => {
-    setActiveMenu(null);
-  };
-
   const handleBurgerActive = (active) => {
     setActiveBurger(active);
     if (active) {
@@ -36,19 +32,19 @@ function Header() {
     } else {
       setActiveMenu(null);
     }
-  }
+  };
 
   useEffect(() => {
     console.log(location);
-    handleMenuInactive();
+    handleMenuActive(null);
     setActiveBurger(false);
   }, [location]);
 
   useEffect(() => {
-    if (location.pathname.includes('/solutions') || location.pathname.includes('/machines') || location.pathname.includes('/devices') || location.pathname.includes('/industries') || location.pathname === '/community' || location.pathname === '/library' || location.pathname === '/contact') {
-      setWhiteHeader(true);
-    } else {
+    if (location.pathname === '/' || location.pathname === '/about' || location.pathname === '/history' || location.pathname === '/team' || location.pathname === '/location') {
       setWhiteHeader(false);
+    } else {
+      setWhiteHeader(true);
     }
   }, [location]);
 
@@ -58,10 +54,6 @@ function Header() {
     } else {
       document.body.style.overflow = 'auto';
     }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [activeMenu]);
 
   useEffect(() => {
@@ -126,7 +118,7 @@ function Header() {
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
-              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
+              <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={() => handleMenuActive(null)}>
                 <ul className={`${styles.headerMenu} ${styles.about} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                   <MenuLink linkName="회사개요" linkAddress="/about" />
                   <MenuLink linkName="연혁" linkAddress="/history" />
@@ -141,7 +133,7 @@ function Header() {
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Products')}>
             <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={() => handleMenuActive(null)}>
               <ul className={`${styles.headerMenu} ${styles.product} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                 <li>
                   Solutions
@@ -150,7 +142,7 @@ function Header() {
                       <div className="-text--open-accent-accent-1">
                         Equipment Control System
                       </div>
-                      <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium ">
+                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium ">
                         <MenuLink linkName="ACS/FMS" tooltip="AGV Control System / Fleet Management System" linkAddress="solutions/ACS" />
                         <MenuLink linkName="OCS" tooltip="OHT Control System" linkAddress="solutions/OCS" />
                         <MenuLink linkName="SCS" tooltip="Stocker Control System" linkAddress="solutions/SCS" />
@@ -162,7 +154,7 @@ function Header() {
                       <div className="-text--open-accent-accent-1">
                         Smart Tools
                       </div>
-                      <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium  ">
+                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium  ">
                         <MenuLink linkName="Map Designer" linkAddress="solutions/Map Designer" />
                         <MenuLink linkName="ACS Simulator" tooltip="AGV Control System Simulator" linkAddress="solutions/ACS Simulator" />
                         <MenuLink linkName="SCS Simulator" tooltip="Stocker Control System Simulator" linkAddress="solutions/SCS Simulator" />
@@ -172,7 +164,7 @@ function Header() {
                       <div className="-text--open-accent-accent-1 -text-">
                         Monitoring Solution
                       </div>
-                      <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium ">
+                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium ">
                         <MenuLink linkName="AIMS" tooltip="Advanced Integrated Monitoring Solution" linkAddress="solutions/AIMS" />
                       </ul>
                     </li>
@@ -180,7 +172,7 @@ function Header() {
                       <div className="-text--open-accent-accent-1">
                         Comm Driver
                       </div>
-                      <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium ">
+                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium ">
                         <MenuLink linkName="Open HSMS" linkAddress="solutions/HSMS" />
                       </ul>
                     </li>
@@ -188,7 +180,7 @@ function Header() {
                 </li>
                 <li>
                   Smart Machine
-                  <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
+                  <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
                     <MenuLink linkName="AGV - Lift Type1" linkAddress="/machines/Lift Type1" />
                     <MenuLink linkName="AGV - Lift Type2" linkAddress="/machines/Lift Type2" />
                     <MenuLink linkName="AGV - Fork-Lift Type" linkAddress="/machines/Fork-Lift Type" />
@@ -197,7 +189,7 @@ function Header() {
                 </li>
                 <li>
                   Smart Device
-                  <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
+                  <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
                     <MenuLink linkName="Microsoft Hololens 2" linkAddress="/devices/Microsoft" />
                   </ul>
                 </li>
@@ -206,7 +198,7 @@ function Header() {
                   <div className="-text--open-accent-accent-1">
                     Industries
                   </div>
-                  <ul className="flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
+                  <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium font-open-paragraph ">
                     <MenuLink linkName="반도체" linkAddress="/industries/semiconductor" />
                     <MenuLink linkName="디스플레이" linkAddress="/industries/display" />
                     <MenuLink linkName="2차전지" linkAddress="/industries/battery" />
@@ -222,7 +214,7 @@ function Header() {
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Support')}>
             <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
-            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
+            <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={() => handleMenuActive(null)}>
               <ul className={`${styles.headerMenu} ${styles.support} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                 <MenuLink linkName="커뮤니티" linkAddress="/community" />
                 <MenuLink linkName="라이브러리" linkAddress="/library" />
@@ -243,30 +235,20 @@ function Header() {
           </div>
         </li>
         <li className="flex justify-center items-center">
-
-          {activeMenu === 'Sitemap' ? (
+          <button
+            type="button"
+            onClick={() => handleBurgerActive(!activeBurger)}
+            className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
+          >
+            <span />
+          </button>
+          {activeMenu === 'Sitemap'
+            && (
             <>
-              <button
-                type="button"
-                onClick={() => handleBurgerActive(false)}
-                className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
-              >
-                <span />
-              </button>
-
               <Sitemap whiteHeader={whiteHeader} sitemapRef={menuRef} />
               <SitemapMobile whiteHeader={whiteHeader} sitemapRef={menuRef} />
             </>
-          ) : (
-            <button
-              type="button"
-              onClick={() => handleBurgerActive(true)}
-              className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
-            >
-              <span />
-            </button>
-
-          )}
+            )}
         </li>
       </ul>
     </header>
