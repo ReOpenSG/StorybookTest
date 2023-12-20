@@ -1,0 +1,15 @@
+.sitemapList {
+  @apply flex flex-row justify-center gap-open-xl px-open-gutter-desktop py-open-lg -bg--openfoundation-primary
+}
+
+.aboutUsList {
+  @apply flex flex-col gap-open-md py-open-xl text-open-font-large font-open-paragraph border-t-[1px] -border--openfoundation-secondary
+}
+
+.productList {
+ @apply flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium -text--openfoundation-secondary font-open-paragraph
+}
+
+.supportList {
+  @apply flex flex-col pl-open-sm pt-open-md gap-open-md text-open-font-medium font-open-paragraph -text--openfoundation-secondary
+}
