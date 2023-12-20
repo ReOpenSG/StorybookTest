@@ -236,8 +236,8 @@ function Header() {
           {activeMenu === 'Sitemap'
             && (
             <>
-              <Sitemap whiteHeader={false} sitemapRef={menuRef} />
-              <SitemapMobile whiteHeader={false} sitemapRef={menuRef} />
+              <Sitemap sitemapRef={menuRef} />
+              <SitemapMobile sitemapRef={menuRef} />
             </>
             )}
         </li>
