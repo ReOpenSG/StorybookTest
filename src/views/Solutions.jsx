@@ -36,7 +36,7 @@ function Solutions() {
         category="Open Solution"
         title="설계부터"
         subTitle="시뮬레이션까지"
-        background="bg-[url('@/assets/products_background.svg')]"
+        background="bg-[url('@/assets/products_background.png')]"
         textAlign="text-left"
       />
       <section className="mb-open-5xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-gutter-mobile">

@@ -32,7 +32,7 @@ function Industries() {
         category="Industries"
         title={IndustriesData[id].name === '배터리' ? '2차 전지' : IndustriesData[id].name}
         subTitle={id}
-        background="bg-[url('@/assets/products_background.svg')]"
+        background="bg-[url('@/assets/products_background.png')]"
         textAlign="text-left"
       />
       <section className="max-w-[1320px] desktop:pb-open-5xl tablet:pb-open-5xl pb-open-2xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">

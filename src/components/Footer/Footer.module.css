@@ -1,5 +1,5 @@
 .contactUsWrapper {
-  @apply bg-[url('@/assets/footer_background.svg')] bg-cover;
+  @apply bg-[url('@/assets/footer_background.png')] bg-cover;
 
   .link {
     @apply block py-open-3xl tablet:py-open-6xl desktop:py-open-6xl px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;

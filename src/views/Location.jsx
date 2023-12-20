@@ -12,7 +12,7 @@ function Location() {
       <TitleSection
         category="오시는 길"
         title="세계로 보는 OPENSG"
-        background="bg-[url('@/assets/aboutUs_background.svg')]"
+        background="bg-[url('@/assets/aboutUs_background.png')]"
         textAlign="text-center"
       />
       <div className={styles.mapContainer}>

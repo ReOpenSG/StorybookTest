@@ -46,14 +46,15 @@ function MachinesDevices() {
           category="Open Smart Machine"
           title="자동화의 시작과 끝,"
           subTitle="Smart Machine"
-          background="bg-[url('@/assets/products_background.svg')]"
+          background="bg-[url('@/assets/products_background.png')]"
           textAlign="text-left"
         />
       ) : (
         <TitleSection
           category="Open Device"
-          title="미래를 여는 오픈 디바이스"
-          background="bg-[url('@/assets/products_background.svg')]"
+          title="미래를 여는"
+          subTitle="오픈 디바이스"
+          background="bg-[url('@/assets/products_background.png')]"
           textAlign="text-left"
         />
       )}

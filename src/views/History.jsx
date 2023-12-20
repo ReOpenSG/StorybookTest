@@ -10,7 +10,7 @@ function History() {
       <TitleSection
         category="연혁"
         title="OPENSG가 걸어온 길"
-        background="bg-[url('@/assets/aboutUs_background.svg')]"
+        background="bg-[url('@/assets/aboutUs_background.png')]"
         textAlign="text-center"
       />
       <div>

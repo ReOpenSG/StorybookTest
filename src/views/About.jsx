@@ -11,7 +11,7 @@ function About() {
       <TitleSection
         category="회사 개요"
         title="We Are OPENSG"
-        background="bg-[url('@/assets/aboutUs_background.svg')]"
+        background="bg-[url('@/assets/aboutUs_background.png')]"
         textAlign="text-center"
       />
       <Group />
