@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import {
-  Controller, EffectCoverflow, Mousewheel,
-} from 'swiper/modules';
+import { Controller, EffectCoverflow, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import PropTypes from 'prop-types';
@@ -51,51 +49,45 @@ function HistorySwiper({ historyData }) {
         >
           {historyDataSorted.map(([key]) => (
             <SwiperSlide className={styles.yearSwiperSlide} key={key}>
-              {({ isActive }) => (
-                <YearSlide isActive={isActive} year={key} key={key} />
-              )}
+              {({ isActive }) => <YearSlide isActive={isActive} year={key} key={key} />}
             </SwiperSlide>
           ))}
-
-          </Swiper>
-          <Swiper
-            mousewheel
-            centeredSlides
-            modules={[Controller, EffectCoverflow, Mousewheel]}
-            effect="coverflow"
-            breakpoints={{
-              375: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              1440: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-            }}
-            coverflowEffect={{
-              rotate: 20,
-              scale: 0.7,
-            }}
-            onSwiper={setHistorySwiper}
-            controller={{ by: 'container', control: yearSwiper }}
-            className={styles.historySwiper}
-          >
-            {historyDataSorted.map(([key, value]) => (
-              <SwiperSlide className={styles.historySwiperSlide} key={key}>
-                {({ isActive }) => (
-                  <HistorySlide isActive={isActive} year={key} history={value} />
-                )}
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-    </div>
+        </Swiper>
+        <Swiper
+          mousewheel
+          centeredSlides
+          modules={[Controller, EffectCoverflow, Mousewheel]}
+          effect="coverflow"
+          breakpoints={{
+            375: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1440: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
+          coverflowEffect={{
+            rotate: 20,
+            scale: 0.7,
+          }}
+          onSwiper={setHistorySwiper}
+          controller={{ by: 'container', control: yearSwiper }}
+          className={styles.historySwiper}
+        >
+          {historyDataSorted.map(([key, value]) => (
+            <SwiperSlide className={styles.historySwiperSlide} key={key}>
+              {({ isActive }) => <HistorySlide isActive={isActive} year={key} history={value} />}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 }
 
