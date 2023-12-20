@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { onAuthStateChanged } from 'firebase/auth';
+import { HelmetProvider } from 'react-helmet-async';
 import router from './routes/routes';
 import { isLoggedInState } from '@/recoil/atoms/authStore';
 import { authService } from '../firebase';
+import Spinner from './components/Common/Spinner';
 
 function App() {
   const setIsLoggedIn = useSetRecoilState(isLoggedInState);
@@ -24,7 +26,13 @@ function App() {
     return () => unsubscribe();
   }, [setIsLoggedIn]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<Spinner />}>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </Suspense>
+  );
 }
 
 export default App;
