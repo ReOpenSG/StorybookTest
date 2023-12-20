@@ -29,11 +29,13 @@ function MachinesDevices() {
     if (data && Object.values(data).length > 0) {
       const filteredData = Object.entries(data).find((item) => item[1][id]);
 
-      setDesc((prev) => ({
-        ...prev,
-        types: filteredData[1][id],
-        product: filteredData[0],
-      }));
+      if (filteredData) {
+        setDesc((prev) => ({
+          ...prev,
+          types: filteredData[1][id],
+          product: filteredData[0],
+        }));
+      }
     }
   }, [data, id]);
 

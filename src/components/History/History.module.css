@@ -1,3 +1,7 @@
+.sectionWrapper {
+  @apply w-full h-full desktop:block tablet:block mobile:hidden;
+}
+
 .section {
   @apply flex justify-center items-center w-full h-full -bg--openfoundation-primary px-open-margin-mobile tablet:px-open-margin-desktop desktop:px-open-margin-desktop;
 }
@@ -51,11 +55,12 @@
   } 
 
   & .historySlideTitle {
-    @apply block text-center text-open-font-xxl tablet:text-open-font-xxxl desktop:text-open-font-xxxxl;
+    @apply block text-center font-open-heading text-open-font-xxl tablet:text-open-font-xxxl desktop:text-open-font-xxxxl;
   }
 
   & .historySlideDescription {
     @apply pl-open-xl tablet:pl-open-2xl desktop:pl-open-2xl list-disc font-open-paragraph text-open-font-medium tablet:text-open-font-large desktop:text-open-font-xl flex flex-col gap-open-lg;
   }
 }
+
 
