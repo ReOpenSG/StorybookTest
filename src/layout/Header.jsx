@@ -107,7 +107,7 @@ function Header() {
   return (
     <header
       role="banner"
-      className={whiteHeader ? styles.whiteHeader : styles.header}
+      className={`${styles.header} ${whiteHeader ? styles.whiteHeader : ''}`}
     >
       {activeMenu === 'Sitemap' && (
       <div className="block w-[100vw] h-[100vh] absolute top-[80px] left-0 backdrop-blur-sm">
@@ -127,7 +127,7 @@ function Header() {
               <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
               <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-                <ul className={whiteHeader ? styles.aboutMenuListWhite : styles.aboutMenuList}>
+                <ul className={`${styles.headerMenu} ${styles.about} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                   <MenuLink linkName="회사개요" linkAddress="/about" />
                   <MenuLink linkName="연혁" linkAddress="/history" />
                   <MenuLink linkName="직무소개" linkAddress="/team" />
@@ -142,7 +142,7 @@ function Header() {
             <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Products')}>Products</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-              <ul className={whiteHeader ? styles.productMenuListWhite : styles.productMenuList}>
+              <ul className={`${styles.headerMenu} ${styles.product} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                 <li>
                   Solutions
                   <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-lg">
@@ -223,7 +223,7 @@ function Header() {
             <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={handleMenuInactive}>
-              <ul className={whiteHeader ? styles.supportMenuListWhite : styles.supportMenuList}>
+              <ul className={`${styles.headerMenu} ${styles.support} ${whiteHeader ? styles.headerMenuWhite : ''}`}>
                 <MenuLink linkName="커뮤니티" linkAddress="/community" />
                 <MenuLink linkName="라이브러리" linkAddress="/library" />
                 <MenuLink linkName="고객문의" linkAddress="/contact" />
