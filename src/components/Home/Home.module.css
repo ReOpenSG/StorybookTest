@@ -14,27 +14,29 @@
   }
 
   & .slogan {
-    @apply w-full h-[900px] flex items-center justify-center mx-auto py-open-4xl  -bg--openfoundation-black max-w-[1320px];
+    @apply w-full h-[900px] flex relative items-center justify-center mx-auto py-open-4xl  -bg--openfoundation-black max-w-[1320px];
     @apply tablet:py-open-5xl desktop:py-open-5xl;
+    & .bgWrapper {
+      @apply w-full h-full bg-no-repeat bg-right absolute right-0 top-0 flex items-center;
+      & .wrapper {
+        @apply w-full flex flex-col items-center gap-open-xl relative;
+        @apply tablet:items-stretch desktop:items-stretch  justify-center tablet:gap-open-3xl desktop:gap-open-3xl;
 
-    & .wrapper {
-      @apply w-full flex flex-col items-center   gap-open-xl;
-      @apply tablet:items-stretch desktop:items-stretch tablet:gap-open-3xl desktop:gap-open-3xl;
+        & .title {
+          @apply block text-center -text--openfoundation-white font-open-heading text-open-font-xxxl;
+          @apply tablet:text-start desktop:text-start tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
 
-      & .title {
-        @apply block text-center -text--openfoundation-white font-open-heading text-open-font-xxxl;
-        @apply tablet:text-start desktop:text-start tablet:text-open-font-xxxxxl desktop:text-open-font-xxxxxl;
-
-        & .gradient {
-          @apply inline-block
+          & .gradient {
+            @apply inline-block
           bg-clip-text
         text-transparent bg-gradient-to-r -from--open-accent-accent-1 -to--open-accent-accent-2;
+          }
         }
-      }
-      & .subtitle {
-        @apply flex flex-col items-start justify-start;
-        @apply -text--openfoundation-white  font-open-paragraph text-open-font-medium;
-        @apply tablet:text-open-font-xl desktop:text-open-font-xl;
+        & .subtitle {
+          @apply flex flex-col items-start justify-start;
+          @apply -text--openfoundation-white  font-open-paragraph text-open-font-medium;
+          @apply tablet:text-open-font-xl desktop:text-open-font-xl;
+        }
       }
     }
   }
