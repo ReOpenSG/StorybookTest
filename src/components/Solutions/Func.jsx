@@ -4,10 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 import ImagArray from './imageImport';
 
-function Func({ currentLocation, data, refs }) {
+function Func({ currentLocation, data, refs, domRef }) {
   return (
-    <section id="Func" ref={refs} className={styles.Func}>
-      <h4 className={styles.title}>기능</h4>
+    <section id="Func" ref={domRef} className={styles.Func}>
+      <h4 ref={refs} className={styles.title}>
+        기능
+      </h4>
       <div className={styles.imageWrapper}>
         <img src={ImagArray[currentLocation]} className={styles.image} alt="솔루션 기능" />
       </div>

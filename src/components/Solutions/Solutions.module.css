@@ -61,7 +61,7 @@
     & .list {
       @apply flex flex-col gap-open-margin-mobile font-open-label text-open-font-large -text--open-gray-300;
 
-      & .item a {
+      & .item button {
         @apply -text--open-accent-accent;
       }
       & .link {

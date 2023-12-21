@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 
-function Effect({ currentLocation, data, refs }) {
+function Effect({ currentLocation, data, refs, domRef }) {
   return (
-    <section id="Effect" ref={refs} className={styles.Effect}>
-      <h4 className={styles.title}>기대효과</h4>
+    <section id="Effect" ref={domRef} className={styles.Effect}>
+      <h4 ref={refs} className={styles.title}>
+        기대효과
+      </h4>
       <ul className={styles.list}>
         {data &&
           data[currentLocation].기대효과.map((item) => (

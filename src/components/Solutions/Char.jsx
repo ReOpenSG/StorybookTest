@@ -5,18 +5,20 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import styles from './Solutions.module.css';
 
-function Char({ currentLocation, data, refs }) {
+function Char({ currentLocation, data, refs, domRef }) {
   useEffect(() => {
     AOS.init();
   });
 
   return (
-    <section id="Char" ref={refs} className={styles.Char}>
+    <section id="Char" ref={domRef} className={styles.Char}>
       <span className={styles.subTitle}>
         Open
         {currentLocation}
       </span>
-      <h4 className={styles.title}>제품 및 특징</h4>
+      <h4 ref={refs} className={styles.title}>
+        제품 및 특징
+      </h4>
       <div className={styles.container}>
         <p className={styles.containerTitle}>제품</p>
         <p className={styles.product}>{data && data[currentLocation].제품설명}</p>
