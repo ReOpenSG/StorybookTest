@@ -7,14 +7,16 @@ import 'aos/dist/aos.css';
 import styles from './Industries.module.css';
 import imageArray from './importImage.js';
 
-function Product({ industryProducts, refs }) {
+function Product({ industryProducts, headingRef, sectionRef }) {
   useEffect(() => {
     AOS.init();
   }, []);
 
   return (
-    <section id="Product" ref={refs} className={styles.Product}>
-      <h4 className={styles.ProductTitle}>관련 제품</h4>
+    <section ref={headingRef} id="Product" className={styles.Product}>
+      <h4 ref={sectionRef} className={styles.ProductTitle}>
+        관련 제품
+      </h4>
       <div className={styles.ProductWrapper}>
         {Object.entries(industryProducts).map((item) => (
           <Link key={uuidv4()} to={`/solutions/${item[0]}`} className={styles.ProductLink}>
@@ -42,7 +44,11 @@ function Product({ industryProducts, refs }) {
 
 Product.propTypes = {
   industryProducts: PropTypes.oneOfType([PropTypes.object]).isRequired,
-  refs: PropTypes.oneOfType([
+  headingRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  sectionRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
