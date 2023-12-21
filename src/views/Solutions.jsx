@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import Data from '@/data/solutionsData.json';
 import Lnb from '@/components/Solutions/Lnb';
 import SoultionBanner from '@/components/Solutions/SoultionBanner';
-import Char from '@/components/Solutions/Char';
+import MeoizedChar from '@/components/Solutions/Char';
 import Snb from '@/components/Solutions/Snb';
 import Func from '@/components/Solutions/Func';
 import Effect from '@/components/Solutions/Effect';
@@ -46,7 +46,7 @@ function Solutions() {
           <div className="w-full max-w-[1320px] flex desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop">
             <Snb inViewChar={inViewChar} inViewFunc={inViewFunc} inViewEffect={inViewEffect} />
             <div className="flex flex-col">
-              <Char refs={refChar} currentLocation={LnbData.current} data={Data} />
+              <MeoizedChar refs={refChar} currentLocation={LnbData.current} data={Data} />
               <Func refs={refFunc} currentLocation={LnbData.current} data={Data} />
               <Effect refs={refEffect} currentLocation={LnbData.current} data={Data} />
             </div>
