@@ -60,7 +60,7 @@ function Header() {
   return (
     <header
       role="banner"
-      className={`${isScrolled ? styles.headerScrolled : styles.header}`}
+      className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}
     >
       <h1 className="sr-only">
         오픈에스지

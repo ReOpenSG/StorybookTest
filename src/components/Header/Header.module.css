@@ -2,8 +2,8 @@
   @apply fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[50px] tablet:h-[80px] desktop:h-[80px] z-20;
 }
 
-.headerScrolled {
-  @apply -bg--openfoundation-primary opacity-[90%] fixed flex justify-between items-center w-full py-open-lg px-open-margin-mobile tablet:px-open-gutter-desktop desktop:px-open-4xl -text--openfoundation-secondary font-open-font text-open-font-large font-open-paragraph h-[50px] tablet:h-[80px] desktop:h-[80px] z-20;
+.scrolled {
+  @apply -bg--openfoundation-primary opacity-[90%]
 }
 
 .menuLink:after {
