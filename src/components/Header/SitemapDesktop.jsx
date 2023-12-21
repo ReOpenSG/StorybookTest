@@ -7,7 +7,7 @@ function SitemapDesktop({ isOpen }) {
   return (
     <div className={`${styles.sitemapDesktop} ${isOpen ? styles.isOpen : styles.isClosed}`}>
       <ul className={styles.sitemapList}>
-        <li className="px-open-md py-open-sm text-open-font-xl font-open-label text-center flex-1">
+        <li className="py-open-sm text-open-font-xl font-open-label text-center flex-1">
           <div>About Us</div>
           <ul className={styles.aboutUsList}>
             <MenuLink linkName="회사개요" linkAddress="/about" />
@@ -16,7 +16,7 @@ function SitemapDesktop({ isOpen }) {
             <MenuLink linkName="오시는길" linkAddress="/location" />
           </ul>
         </li>
-        <li className="px-open-md py-open-sm text-open-font-xl font-open-label flex-none text-center">
+        <li className="py-open-sm text-open-font-xl font-open-label text-center">
           <div>Products</div>
           <div className="">
             <ul className="flex flex-row py-open-xl text-open-font-large font-open-label border-t-[1px] -border--openfoundation-secondary gap-open-gutter-desktop text-start mt-open-md">
@@ -82,7 +82,7 @@ function SitemapDesktop({ isOpen }) {
             </ul>
           </div>
         </li>
-        <li className="px-open-md py-open-sm text-open-font-xl font-open-label text-center flex-1">
+        <li className="py-open-sm text-open-font-xl font-open-label text-center flex-1">
           <div>Support</div>
           <ul className={styles.supportList}>
             <MenuLink linkName="커뮤니티" linkAddress="/community" />

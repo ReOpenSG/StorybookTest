@@ -17,6 +17,7 @@ function Header() {
   const [activeBurger, setActiveBurger] = useState(false);
   const menuRef = useRef(null);
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLanguageActive = (lang) => {
     setActiveLanguage(lang);
@@ -41,10 +42,25 @@ function Header() {
     setActiveBurger(false);
   }, [location]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <header
       role="banner"
-      className={`${styles.header}`}
+      className={`${isScrolled ? styles.headerScrolled : styles.header}`}
     >
       <h1 className="sr-only">
         오픈에스지
@@ -82,7 +98,7 @@ function Header() {
                       <div className="-text--open-accent-accent-1">
                         Equipment Control System
                       </div>
-                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium ">
+                      <ul className="flex flex-col pt-open-md gap-open-md text-open-font-medium">
                         <MenuLink linkName="ACS/FMS" tooltip="AGV Control System / Fleet Management System" linkAddress="solutions/ACS" />
                         <MenuLink linkName="OCS" tooltip="OHT Control System" linkAddress="solutions/OCS" />
                         <MenuLink linkName="SCS" tooltip="Stocker Control System" linkAddress="solutions/SCS" />
