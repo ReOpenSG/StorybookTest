@@ -30,7 +30,7 @@ function Product({ industryProducts, headingRef, sectionRef }) {
                 <img src={imageArray[item[0]]} alt="제픔 사진" />
               </div>
               <dl className={styles.list}>
-                <dt className={styles.itemName}>{item[0]}</dt>
+                <dt className={styles.itemName}>Open {item[0]}</dt>
                 <dt className={styles.itemSubName}>{item[1].제품명}</dt>
                 <dd className={styles.itemDesc}>{item[1].제품설명}</dd>
               </dl>
