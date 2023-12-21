@@ -4,7 +4,16 @@ import styles from './Industries.module.css';
 
 function Snb({ inViewChar, inViewProduct, refs }) {
   function onClickToSection(e) {
-    e.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const offset = 80; // 원하는 offset 값 설정
+    const targetElement = e.current;
+
+    if (targetElement) {
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: targetPosition - offset,
+        behavior: 'smooth',
+      });
+    }
   }
   return (
     <aside className={styles.Snb}>
