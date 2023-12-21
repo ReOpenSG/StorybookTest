@@ -19,9 +19,9 @@ function Solutions() {
     prev: Data[id].솔루션,
   };
   const refs = {
-    charRef: useRef(null),
-    funcRef: useRef(null),
-    effectRef: useRef(null),
+    charSectionRef: useRef(null),
+    funcSectionRef: useRef(null),
+    effectSectionRef: useRef(null),
   };
   const [refCharHeading, inViewChar] = useInView({ triggerOnce: false, threshold: 0.3 });
   const [refFuncHeading, inViewFunc] = useInView({ triggerOnce: false, threshold: 0.3 });
@@ -53,29 +53,29 @@ function Solutions() {
               inViewFunc={inViewFunc}
               inViewEffect={inViewEffect}
               refs={{
-                charRef: refs.charRef,
-                funcRef: refs.funcRef,
-                effectRef: refs.effectRef,
+                charSectionRef: refs.charSectionRef,
+                funcSectionRef: refs.funcSectionRef,
+                effectSectionRef: refs.effectSectionRef,
               }}
             />
             <div className="flex flex-col">
               <MeoizedChar
-                refs={refCharHeading}
+                headingRef={refCharHeading}
                 currentLocation={LnbData.current}
                 data={Data}
-                domRef={refs.charRef}
+                sectionRef={refs.charSectionRef}
               />
               <Func
-                refs={refFuncHeading}
+                headingRef={refFuncHeading}
                 currentLocation={LnbData.current}
                 data={Data}
-                domRef={refs.funcRef}
+                sectionRef={refs.funcSectionRef}
               />
               <Effect
-                refs={refEffectHeading}
+                headingRef={refEffectHeading}
                 currentLocation={LnbData.current}
                 data={Data}
-                domRef={refs.effectRef}
+                sectionRef={refs.effectSectionRef}
               />
             </div>
           </div>

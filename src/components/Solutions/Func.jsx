@@ -4,10 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './Solutions.module.css';
 import ImagArray from './imageImport';
 
-function Func({ currentLocation, data, refs, domRef }) {
+function Func({ currentLocation, data, headingRef, sectionRef }) {
   return (
-    <section id="Func" ref={domRef} className={styles.Func}>
-      <h4 ref={refs} className={styles.title}>
+    <section id="Func" ref={sectionRef} className={styles.Func}>
+      <h4 ref={headingRef} className={styles.title}>
         기능
       </h4>
       <div className={styles.imageWrapper}>
@@ -38,7 +38,11 @@ Func.propTypes = {
       산업군: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
-  refs: PropTypes.oneOfType([
+  headingRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  sectionRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,

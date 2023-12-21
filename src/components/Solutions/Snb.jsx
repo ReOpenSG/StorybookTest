@@ -15,7 +15,7 @@ function Snb({ inViewChar, inViewFunc, inViewEffect, refs }) {
             <button
               type="button"
               className={styles.link}
-              onClick={() => onClickToSection(refs.charRef)}
+              onClick={() => onClickToSection(refs.charSectionRef)}
             >
               제품 및 특징
             </button>
@@ -24,7 +24,7 @@ function Snb({ inViewChar, inViewFunc, inViewEffect, refs }) {
             <button
               type="button"
               className={styles.link}
-              onClick={() => onClickToSection(refs.funcRef)}
+              onClick={() => onClickToSection(refs.funcSectionRef)}
             >
               기능
             </button>
@@ -33,7 +33,7 @@ function Snb({ inViewChar, inViewFunc, inViewEffect, refs }) {
             <button
               type="button"
               className={styles.link}
-              onClick={() => onClickToSection(refs.effectRef)}
+              onClick={() => onClickToSection(refs.effectSectionRef)}
             >
               기대 효과
             </button>
@@ -56,6 +56,4 @@ Snb.propTypes = {
   ).isRequired,
 };
 
-const MemoizedSnb = React.memo(Snb);
-
-export default MemoizedSnb;
+export default Snb;

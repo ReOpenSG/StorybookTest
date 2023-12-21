@@ -5,18 +5,18 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import styles from './Solutions.module.css';
 
-function Char({ currentLocation, data, refs, domRef }) {
+function Char({ currentLocation, data, headingRef, sectionRef }) {
   useEffect(() => {
     AOS.init();
   });
 
   return (
-    <section id="Char" ref={domRef} className={styles.Char}>
+    <section id="Char" ref={sectionRef} className={styles.Char}>
       <span className={styles.subTitle}>
         Open
         {currentLocation}
       </span>
-      <h4 ref={refs} className={styles.title}>
+      <h4 ref={headingRef} className={styles.title}>
         제품 및 특징
       </h4>
       <div className={styles.container}>
@@ -57,7 +57,11 @@ Char.propTypes = {
       산업군: PropTypes.arrayOf(PropTypes.string),
     }),
   ).isRequired,
-  refs: PropTypes.oneOfType([
+  headingRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  ]).isRequired,
+  sectionRef: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   ]).isRequired,
