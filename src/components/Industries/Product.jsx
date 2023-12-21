@@ -8,7 +8,7 @@ import imageArray from './importImage.js';
 function Product({ industryProducts, refs }) {
   return (
     <section id="Product" ref={refs} className={styles.Product}>
-      <h3 className={styles.ProductTitle}>관련 제품</h3>
+      <h4 className={styles.ProductTitle}>관련 제품</h4>
       <div className={styles.ProductWrapper}>
         {Object.entries(industryProducts).map((item) => (
           <Link key={uuidv4()} to={`/solutions/${item[0]}`} className={styles.ProductLink}>
