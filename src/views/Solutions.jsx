@@ -5,7 +5,7 @@ import Data from '@/data/solutionsData.json';
 import Lnb from '@/components/Solutions/Lnb';
 import SoultionBanner from '@/components/Solutions/SoultionBanner';
 import MeoizedChar from '@/components/Solutions/Char';
-import MemoizedSnb from '@/components/Solutions/Snb';
+import Snb from '@/components/Solutions/Snb';
 import Func from '@/components/Solutions/Func';
 import Effect from '@/components/Solutions/Effect';
 import TitleSection from '@/components/Common/TitleSection';
@@ -48,7 +48,7 @@ function Solutions() {
         <SoultionBanner currentLocation={LnbData.current} prevLocation={LnbData.prev} />
         <div className="flex justify-center">
           <div className="w-full max-w-[1320px] flex desktop:gap-open-gutter-desktop tablet:gap-open-gutter-desktop">
-            <MemoizedSnb
+            <Snb
               inViewChar={inViewChar}
               inViewFunc={inViewFunc}
               inViewEffect={inViewEffect}

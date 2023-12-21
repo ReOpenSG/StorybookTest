@@ -1,15 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import styles from './Solutions.module.css';
 
 function Char({ currentLocation, data, headingRef, sectionRef }) {
-  useEffect(() => {
-    AOS.init();
-  });
-
   return (
     <section id="Char" ref={sectionRef} className={styles.Char}>
       <span className={styles.subTitle}>
@@ -28,12 +23,7 @@ function Char({ currentLocation, data, headingRef, sectionRef }) {
         <ul className={styles.charList}>
           {data &&
             data[currentLocation].특징.map((item) => (
-              <li
-                key={uuidv4()}
-                className={styles.charItem}
-                data-aos="fade-up"
-                data-aos-duration="1500"
-              >
+              <li key={uuidv4()} className={styles.charItem}>
                 <p className={styles.charItemTitle}>특징 제목</p>
                 <p>{item}</p>
               </li>
@@ -67,6 +57,4 @@ Char.propTypes = {
   ]).isRequired,
 };
 
-const MeoizedChar = React.memo(Char);
-
-export default MeoizedChar;
+export default Char;
