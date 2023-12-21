@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import Char from '@/components/Industries/Char';
-import Product from '@/components/Industries/Product';
+import MemoizedProduct from '@/components/Industries/Product';
 import Snb from '@/components/Industries/Snb';
 import IndustriesData from '@/data/industriesData.js';
 import solutionsData from '@/data/solutionsData.json';
@@ -41,7 +41,11 @@ function Industries() {
           <Snb inViewChar={inViewChar} inViewProduct={inViewProduct} />
           <div className="flex-1">
             <Char refs={refChar} currentLocation={id} industryDesc={industryChar} />
-            <Product refs={refProduct} currentLocation={id} industryProducts={industryProducts} />
+            <MemoizedProduct
+              refs={refProduct}
+              currentLocation={id}
+              industryProducts={industryProducts}
+            />
           </div>
         </div>
       </section>

@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import styles from './Industries.module.css';
 import imageArray from './importImage.js';
 
 function Product({ industryProducts, refs }) {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section id="Product" ref={refs} className={styles.Product}>
       <h3 className={styles.ProductTitle}>관련 제품</h3>
       <div className={styles.ProductWrapper}>
         {Object.entries(industryProducts).map((item) => (
           <Link key={uuidv4()} to={`/solutions/${item[0]}`} className={styles.ProductLink}>
-            <div className={styles.linkWrapper}>
+            <div
+              className={styles.linkWrapper}
+              data-aos="fade-up"
+              data-aos-duration="1500"
+              data-aos-anchor-placement="top-bottom"
+            >
               <div className={styles.image}>
                 <img src={imageArray[item[0]]} alt="제픔 사진" />
               </div>
@@ -37,4 +48,6 @@ Product.propTypes = {
   ]).isRequired,
 };
 
-export default Product;
+const MemoizedProduct = React.memo(Product);
+
+export default MemoizedProduct;
