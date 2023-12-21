@@ -12,6 +12,8 @@ function Industries() {
   const { id } = useParams();
   const [industryChar, setIndustryChar] = useState('');
   const [industryProducts, setIndustryProducts] = useState({});
+  const [refChar, inViewChar] = useInView({ triggerOnce: false, threshold: 0.1 });
+  const [refProduct, inViewProduct] = useInView({ triggerOnce: false, threshold: 0.1 });
 
   useEffect(() => {
     setIndustryChar(IndustriesData[id].desc);
@@ -24,8 +26,6 @@ function Industries() {
     );
   }, [id]);
 
-  const [refChar, inViewChar] = useInView({ triggerOnce: false, threshold: 0.1 });
-  const [refProduct, inViewProduct] = useInView({ triggerOnce: false, threshold: 0.1 });
   return (
     <div className="w-full">
       <TitleSection
@@ -35,9 +35,9 @@ function Industries() {
         background="bg-[url('@/assets/products_background.svg')]"
         textAlign="text-left"
       />
-      <section className="max-w-[1320px] desktop:pb-open-5xl tablet:pb-open-5xl pb-open-2xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
+      <section className="flex flex-col items-center desktop:pb-open-5xl tablet:pb-open-5xl pb-open-2xl w-full h-full desktop:px-open-margin-desktop tablet:px-open-margin-desktop px-open-margin-mobile">
         <h2 className="sr-only">산업군별 페이지</h2>
-        <div className="flex desktop:gap-open-4xl tablet:gap-open-4xl">
+        <div className="flex max-w-[1320px] desktop:gap-open-4xl tablet:gap-open-4xl">
           <Snb inViewChar={inViewChar} inViewProduct={inViewProduct} />
           <div className="flex-1">
             <Char refs={refChar} currentLocation={id} industryDesc={industryChar} />
