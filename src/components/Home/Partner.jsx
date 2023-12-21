@@ -77,7 +77,7 @@ function Partner() {
 
       <div className={styles.titleWrapper}>
         <p className={styles.mainKeyword}>
-          <span>최고기업들이 선택한&nbsp;</span>
+          <span>최고 기업들이 선택한&nbsp;</span>
           <span className={styles.gradient}>OpenSG</span>
         </p>
 
