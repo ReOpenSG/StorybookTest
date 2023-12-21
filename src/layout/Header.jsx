@@ -11,6 +11,7 @@ import hamburger from '@/components/Header/Hamburger.module.css';
 
 function Header() {
   const [whiteHeader, setWhiteHeader] = useState(null);
+  const [isSitemapOpen, setIsSitemapOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLanguage, setActiveLanguage] = useState(null);
   const [activeBurger, setActiveBurger] = useState(false);
@@ -28,75 +29,23 @@ function Header() {
   const handleBurgerActive = (active) => {
     setActiveBurger(active);
     if (active) {
-      setActiveMenu('Sitemap');
+      setIsSitemapOpen(true);
     } else {
-      setActiveMenu(null);
+      setIsSitemapOpen(false);
     }
   };
 
   useEffect(() => {
     handleMenuActive(null);
+    setIsSitemapOpen(false);
     setActiveBurger(false);
   }, [location]);
-
-  useEffect(() => {
-    if (activeMenu === 'Sitemap') {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [activeMenu]);
-
-  useEffect(() => {
-    if (activeMenu) {
-      const menuElement = menuRef.current;
-      const focusableElements = menuElement.querySelectorAll(
-        '[href]',
-      );
-      const firstElement = focusableElements[0];
-      const lastElement = focusableElements[focusableElements.length - 1];
-
-      const handleTabKeyPress = (event) => {
-        if (event.key === 'Tab') {
-          if (event.shiftKey && document.activeElement === firstElement) {
-            event.preventDefault();
-            lastElement.focus();
-          } else if (
-            !event.shiftKey
-            && document.activeElement === lastElement
-          ) {
-            event.preventDefault();
-            firstElement.focus();
-          }
-        }
-      };
-
-      const handleEscapeKeyPress = (event) => {
-        if (event.key === 'Escape') {
-          setActiveMenu(null);
-        }
-      };
-
-      menuElement.addEventListener('keydown', handleTabKeyPress);
-      menuElement.addEventListener('keydown', handleEscapeKeyPress);
-
-      return () => {
-        menuElement.removeEventListener('keydown', handleTabKeyPress);
-        menuElement.removeEventListener('keydown', handleEscapeKeyPress);
-      };
-    }
-  }, [activeMenu, setActiveMenu]);
 
   return (
     <header
       role="banner"
       className={`${styles.header}`}
     >
-      {activeMenu === 'Sitemap' && (
-      <div className="block w-[100vw] h-[100vh] absolute top-[80px] left-0 backdrop-blur-sm">
-        <div className="w-full h-full -bg--openfoundation-secondary opacity-20" />
-      </div>
-      )}
       <h1 className="sr-only">
         오픈에스지
       </h1>
@@ -105,7 +54,7 @@ function Header() {
           <li>
             <Link className="px-open-md py-open-sm" to="/"><img className="w-[60px] tablet:w-[100px] desktop:w-[100px] mr-open-2xl" src={whiteHeader ? opensgLogoBlue : opensgLogo} alt="오픈에스지" /></Link>
           </li>
-          {activeMenu !== 'Sitemap' && (
+          {!isSitemapOpen && (
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
               <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('AboutUs')}>About Us</button>
               {activeMenu === 'AboutUs' && (
@@ -120,9 +69,9 @@ function Header() {
               )}
             </li>
           )}
-          {activeMenu !== 'Sitemap' && (
+          {!isSitemapOpen && (
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Products')}>
-            <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Products')}>Products</button>
+            <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Products')}>Service & Solution</button>
             {activeMenu === 'Products' && (
             <div className="absolute left-0 top-[80px] w-full backdrop-blur-[2px]" ref={menuRef} onMouseLeave={() => handleMenuActive(null)}>
               <ul className={`${styles.headerMenu} ${styles.product}`}>
@@ -201,7 +150,7 @@ function Header() {
             )}
           </li>
           )}
-          {activeMenu !== 'Sitemap' && (
+          {!isSitemapOpen && (
           <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('Support')}>
             <button className={styles.menuLink} type="button" onClick={() => handleMenuActive('Support')}>Support</button>
             {activeMenu === 'Support' && (
@@ -233,13 +182,7 @@ function Header() {
           >
             <span />
           </button>
-          {activeMenu === 'Sitemap'
-            && (
-            <>
-              <Sitemap sitemapRef={menuRef} />
-              <SitemapMobile sitemapRef={menuRef} />
-            </>
-            )}
+          <Sitemap isOpen={isSitemapOpen} />
         </li>
       </ul>
     </header>

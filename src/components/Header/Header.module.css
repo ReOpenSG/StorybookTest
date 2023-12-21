@@ -40,7 +40,7 @@
 }
 
 .support {
-  @apply tablet:pl-[404px] desktop:pl-[480px]
+  @apply tablet:pl-[476px] desktop:pl-[550px]
 }
 
 .accordionItemSmall {
