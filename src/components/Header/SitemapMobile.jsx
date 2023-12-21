@@ -15,7 +15,7 @@ function SitemapMobile() {
             <MenuLink linkName="오시는길" linkAddress="/location" />
           </ul>
         </AccordionItem>
-        <AccordionItem title="Products">
+        <AccordionItem title="Service & Solution">
           <ul className={styles.productListMobile}>
             <AccordionItem title="Solutions" small>
               <ul className="font-open-paragraph flex flex-col pt-open-lg gap-open-lg text-[#3FA9F5] text-open-font-medium">

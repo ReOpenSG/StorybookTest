@@ -11,15 +11,19 @@
 }
 
 .aboutUsList {
-  @apply flex flex-col gap-open-md py-open-xl text-open-font-large  -text--open-gray-300 font-open-paragraph border-t-[1px] -border--openfoundation-secondary mt-open-md
+  @apply flex flex-col gap-open-md py-open-xl text-open-font-large  -text--open-gray-300 font-open-paragraph 
 }
 
 .productList {
- @apply flex flex-col pt-open-md gap-open-md text-open-font-medium -text--open-gray-300 font-open-paragraph
+ @apply flex flex-col pt-open-md gap-open-md text-open-font-medium -text--open-gray-300 font-open-paragraph 
+}
+
+.solutionList {
+  @apply flex flex-col pt-open-md gap-open-md text-open-font-medium -text--open-gray-300 font-open-paragraph px-1 pb-3 mt-2 rounded-b-xl border-x-2 border-b-2 -border--open-accent-accent-1 border-opacity-30
 }
 
 .supportList {
-  @apply flex flex-col gap-open-md text-open-font-large font-open-paragraph -text--open-gray-300 border-t-[1px] -border--openfoundation-secondary py-open-xl mt-open-md
+  @apply flex flex-col gap-open-md text-open-font-large font-open-paragraph -text--open-gray-300  py-open-xl
 }
 
 .sitemapListMobile {
