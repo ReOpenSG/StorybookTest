@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Home.module.css';
+import BgVideo from '@/assets/home_slogan.mp4';
 
 function Slogan() {
   return (
     <section className={styles.slogan}>
+      <video muted autoPlay loop className="object-cover absolute w-full h-screen">
+        <source src={BgVideo} type="video/mp4" />
+      </video>
       <div className={styles.wrapper}>
         <h3 className={styles.title}>
           OPEN Your Future&nbsp;
