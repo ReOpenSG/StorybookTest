@@ -28,7 +28,7 @@ function Home() {
       </Helmet>
       <section className={styles.home}>
         <h2 className="sr-only">메인 페이지</h2>
-        <div className={styles.black}>
+        <div className="-bg--openfoundation-black w-full h-full">
           <Slogan />
         </div>
         <Universe />
