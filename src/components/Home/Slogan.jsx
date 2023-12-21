@@ -10,7 +10,7 @@ function Slogan() {
       </video>
       <div className={styles.wrapper}>
         <h3 className={styles.title}>
-          OPEN Your Future
+          OPEN Your Future&nbsp;
           <br />
           with&nbsp;
           <span className={styles.gradient}>OpenSG</span>

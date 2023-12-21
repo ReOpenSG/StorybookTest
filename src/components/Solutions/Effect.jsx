@@ -6,7 +6,7 @@ import styles from './Solutions.module.css';
 function Effect({ currentLocation, data, refs }) {
   return (
     <section id="Effect" ref={refs} className={styles.Effect}>
-      <h3 className={styles.title}>기대효과</h3>
+      <h4 className={styles.title}>기대효과</h4>
       <ul className={styles.list}>
         {data &&
           data[currentLocation].기대효과.map((item) => (
