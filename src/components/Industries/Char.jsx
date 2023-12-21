@@ -5,7 +5,7 @@ import styles from './Industries.module.css';
 function Char({ industryDesc, refs }) {
   return (
     <section id="Char" ref={refs} className={styles.Char}>
-      <h3 className={styles.CharTitle}>산업 특징</h3>
+      <h4 className={styles.CharTitle}>산업 특징</h4>
       <p className={styles.CharDesc}>{industryDesc}</p>
     </section>
   );
