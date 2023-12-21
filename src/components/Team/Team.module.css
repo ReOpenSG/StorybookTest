@@ -37,7 +37,7 @@
     @apply flex flex-col tablet:text-center desktop:text-center min-w-[248px];
   }
 
-  & h4 {
+  & h3 {
     @apply -text--openfoundation-secondary font-open-label text-open-font-medium tablet:text-open-font-xl desktop:text-open-font-xl;
   }
 
