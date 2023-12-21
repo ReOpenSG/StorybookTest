@@ -7,7 +7,7 @@ import ImagArray from './imageImport';
 function Func({ currentLocation, data, refs }) {
   return (
     <section id="Func" ref={refs} className={styles.Func}>
-      <h3 className={styles.title}>기능</h3>
+      <h4 className={styles.title}>기능</h4>
       <div className={styles.imageWrapper}>
         <img src={ImagArray[currentLocation]} className={styles.image} alt="솔루션 기능" />
       </div>
