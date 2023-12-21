@@ -76,10 +76,10 @@
     }
 
     & .listWrapper {
-      @apply w-full flex justify-between gap-open-4xl tablet:h-[400px] desktop:h-[500px];
+      @apply w-full flex justify-between gap-open-4xl tablet:gap-open-2xl;
 
       & .description {
-        @apply w-[330px] flex flex-col items-start gap-open-3xl;
+        @apply min-w-[330px] w-[330px] tablet:min-w-[280px] tablet:w-[280px] flex flex-col items-start gap-open-3xl;
 
         & .title {
           @apply font-open-heading  text-open-font-xl;
@@ -95,7 +95,7 @@
         }
       }
       & .image {
-        @apply flex flex-1 justify-center items-center w-full object-cover border-none;
+        @apply object-cover border-none;
       }
     }
   }

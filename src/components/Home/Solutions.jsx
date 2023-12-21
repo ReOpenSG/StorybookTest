@@ -119,13 +119,14 @@ function Solutions() {
             </>
           ) : (
             <>
-              <h4 className={`${styles.title}`}>{solutionData[0].title}</h4>
+              <h4 className={styles.title}>{solutionData[0].title}</h4>
               <p className={styles.summary}>{solutionData[0].desc}.</p>
             </>
           )}
         </div>
-        <div className={styles.imageWrapper}>
+        <div className="w-full overflow-hidden mx-auto">
           <img
+            className={styles.image}
             alt={selectedItem && solutionData[selectedItem].name}
             src={selectedItem ? `${solutionData[selectedItem].img}` : `${Solution0}`}
           />
