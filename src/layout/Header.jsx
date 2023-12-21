@@ -3,14 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import MenuLink from '@/components/Header/MenuLink';
 import Sitemap from '@/components/Header/Sitemap';
-import SitemapMobile from '@/components/Header/SitemapMobile';
 import opensgLogo from '@/assets/header_opensg.png';
-import opensgLogoBlue from '@/assets/header_opensgBlue.png';
 import styles from '@/components/Header/Header.module.css';
 import hamburger from '@/components/Header/Hamburger.module.css';
 
 function Header() {
-  const [whiteHeader, setWhiteHeader] = useState(null);
+  const [whitePage, setWhitePage] = useState(null);
+  const [isHeaderBlack, setIsHeaderBlack] = useState(false); //
   const [isSitemapOpen, setIsSitemapOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const [activeLanguage, setActiveLanguage] = useState(null);
@@ -25,6 +24,10 @@ function Header() {
 
   const handleMenuActive = (menu) => {
     setActiveMenu(menu);
+    setIsHeaderBlack(true);
+    if (menu === null) {
+      setIsHeaderBlack(false);
+    }
   };
 
   const handleBurgerActive = (active) => {
@@ -38,6 +41,7 @@ function Header() {
 
   useEffect(() => {
     handleMenuActive(null);
+    setIsHeaderBlack(false);
     setIsSitemapOpen(false);
     setActiveBurger(false);
   }, [location]);
@@ -57,10 +61,18 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (location.pathname === '/community' || location.pathname === '/library' || location.pathname === '/contact') {
+      setWhitePage(true);
+    } else {
+      setWhitePage(false);
+    }
+  }, [location]);
+
   return (
     <header
       role="banner"
-      className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}
+      className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${whitePage ? styles.headerBlack : ''} ${isHeaderBlack ? styles.headerBlack : ''}`}
     >
       <h1 className="sr-only">
         오픈에스지
@@ -68,7 +80,7 @@ function Header() {
       <nav className="flex">
         <ul className="flex justify-center items-center gap-open-gutter-mobile desktop:gap-open-gutter-desktop">
           <li>
-            <Link className="px-open-md py-open-sm" to="/"><img className="w-[60px] tablet:w-[100px] desktop:w-[100px] mr-open-2xl" src={whiteHeader ? opensgLogoBlue : opensgLogo} alt="오픈에스지" /></Link>
+            <Link className="px-open-md py-open-sm" to="/"><img className="w-[60px] tablet:w-[100px] desktop:w-[100px] mr-open-2xl" src={opensgLogo} alt="오픈에스지" /></Link>
           </li>
           {!isSitemapOpen && (
             <li className="px-open-md py-open-sm desktop:block tablet:block hidden" onMouseEnter={() => handleMenuActive('AboutUs')}>
@@ -194,7 +206,7 @@ function Header() {
           <button
             type="button"
             onClick={() => handleBurgerActive(!activeBurger)}
-            className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whiteHeader ? hamburger.burgerBlack : ''}`}
+            className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whitePage ? hamburger.burgerBlack : ''}`}
           >
             <span />
           </button>
