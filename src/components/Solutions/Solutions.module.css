@@ -1,10 +1,8 @@
 .Lnb {
-  @apply flex justify-center;
+  @apply flex justify-center mt-open-2xl;
 
   & .list {
-    @apply max-w-[1320px] flex flex-wrap gap-mobile-gap justify-between py-open-lg;
-    @apply desktop:w-full;
-    @apply tablet:gap-open-margin-desktop;
+    @apply max-w-[1320px] flex flex-wrap gap-mobile-gap justify-between -bg--open-gray-50 rounded-[20px] w-full;
 
     & .listItem {
       @apply font-open-label text-open-font-medium -text--open-gray-300;
