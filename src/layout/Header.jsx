@@ -218,7 +218,7 @@ function Header() {
           <button
             type="button"
             onClick={() => handleBurgerActive(!activeBurger)}
-            className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''} ${whitePage ? hamburger.burgerBlack : ''}`}
+            className={`${hamburger.burger} ${activeBurger ? hamburger.burgerOn : ''}`}
           >
             <span />
           </button>
