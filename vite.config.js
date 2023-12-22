@@ -30,7 +30,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
-  base: '/ReOpenSG/',
+  base: '/StorybookTest/',
   css: {
     devSourcemap: true,
     modules: {
